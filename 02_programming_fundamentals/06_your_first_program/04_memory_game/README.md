@@ -2,7 +2,7 @@
 
 ## Context and objectives
 
-The memory is a game where you have turned-over cards in front of you and you must find pairs.
+Memory is a game where you have turned-over cards in front of you and you must find pairs.
 You can return two cards at a time, if they are the same, they stay visible, if not, they go back to being flipped over.
 
 A full game sequence should look like this:
@@ -55,6 +55,7 @@ You won!
 ```
 
 For this exercise the only available test you'll have is
+
 > "Make your game work" 😉.
 
 ## How to start?
@@ -71,22 +72,25 @@ const reader = readline.createInterface({
 });
 ```
 
-In your code you'll have access to the `clear` function that erase what's on the screen to hide the board.
+In your code, you'll have access to a `clear` function provided that erases what's on the screen to hide the board.
 
-to use it:
+To use it:
+
 ```js
-clear()
+clear();
 ```
 
 ### The board
 
 For your game to work, you will need to present a board to the player.
 This board must contain **at least 2 pairs of symbols**, but feel free to put as many as you want!
+
 ```
 [ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]
 ```
 
 You could even do something like this **if you want**:
+
 ```
 Choose an even board size between 4 and 40
 40
@@ -105,27 +109,31 @@ Choose an even board size between 4 and 40
 ```
 
 For this part, you will need
-- a `createBoard` function, that return the board.
+
+- a `createBoard` function, that returns the board.
 - a `shuffle` function, to ... shuffle the board!
 
-**`createBoard`** can return a hard coded array at first if you want. Once things works, feel free to implement a more complex version to randomly select symbols for example.
+**`createBoard`** can return a hard-coded array at first if you want. Once things work, feel free to implement a more complex version to randomly select symbols for example.
 
 But remember:
-- Each board symbol must be present in pair.
+
+- Each board symbol must be present in pairs.
 - You'll need to store the information telling if the symbol has been discovered by your player or not.
 
 ### The display
 
 Here are some tips for the board display:
-- Even if no symbol have been discovered yet, you'll need a way to show them all, like at the beginning of the game:
+
+- Even if no symbols have been discovered yet, you'll need a way to show them all, like at the beginning of the game:
   ```
-  Welcome in the Memory Game!
+  Welcome to the Memory Game!
   [ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]
   Press [Enter] to start!
   >
   ```
 - When a symbol is chosen by the user, its "state" changes. When we display `[ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]` it doesn't mean that we stored exactly that in a variable. In reality, each element of the board should probably be a _more complex_ object than a `string`, maybeeeeeee... An `object`? 😇
-- When your board's elements have their state, it should change depending of the user choices:
+- When your board's elements have their state, it should change depending on the user choices:
+
   ```
   🖥  clear the screen 🖥
   [ '1:🐰', '2:❔', '3:❔', '4:❔' ]
@@ -140,7 +148,8 @@ Here are some tips for the board display:
 
 ### The Game Loop
 
-The logic of your game lies in the game loop. While the player doesn't win, he or she will continue to play, so... What happens here?
+The logic of your game lies in the game loops. As long as the player doesn't win, he or she will continue to play, so... What happens here?
+
 - The player chooses a card.
 - The player chooses another card.
   - if both match, they stay visible.
@@ -153,4 +162,4 @@ The logic of your game lies in the game loop. While the player doesn't win, he o
 In a program like a game, as the one you'll code here, it's important to take care of your users.
 Give them some hints, like the type of input you wait for (a number? a string?), and expect that they won't do as you would if you were playing your own game or using your own application.
 
-As an ancestral old adage says "If a user could do something wrong, he will".
+As an ancestral old adage says "If a user can do something wrong, he will".

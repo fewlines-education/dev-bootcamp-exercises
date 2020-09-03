@@ -70,7 +70,7 @@ describe("Identity form", () => {
     identityForm(reader);
   });
 
-  test("Compute the right sentence", () => {
+  test("Computes the right sentence", () => {
     const reader = readerMockFactory([firstNameMock, lastNameMock, ageMock]);
 
     identityForm(reader);

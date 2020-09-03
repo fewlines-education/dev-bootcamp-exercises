@@ -2,10 +2,9 @@
 
 ## Context and objectives
 
-A game often gives some feedbacks to the user and keeps a state in memory.
-For this Number game, it means telling the player how many attempts he made before he wins.
+A game often gives some feedback to the user and keeps a state in memory.
+For this Number game, it implies telling the player how many attempts he made before he wins.
 
 ## Specs
 
-Based on previous exercises, add a number of tries in the program. When the user won, display a message with the number
-of tries (Bonus: display a funny message when he success in one try).
+Based on previous exercise, add a number of tries in the program. When the user wins, display a message with the number of attemps the user went through (Bonus: display a funny message when he succeeds on his first try).
