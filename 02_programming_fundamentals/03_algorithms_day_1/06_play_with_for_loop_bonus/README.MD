@@ -7,7 +7,7 @@ Try to think of these exercises as if we just had to modify one or two variables
 
 ## Specs
 
-**Note**: To run this file, on your terminal go to the folder `src` file in fodler `06_play_with_for_loop_bonus` and execute the exercice with `node ./currentExercise.js`
+**Note**: To run this file, enter `node ./src/06_play_with_for_loop_bonus/<current_exercise>.js` in the terminal.
 
 Using loops, draw this on `stdout`:
 
@@ -73,7 +73,7 @@ Using loops, draw this on `stdout`:
 
 ### The sea with some whirlpools (30 by 9)
 
-> [06 tseas]
+> [06 sea]
 
 To spice things up, add:
 

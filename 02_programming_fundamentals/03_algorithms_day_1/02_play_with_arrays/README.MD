@@ -9,7 +9,7 @@ Remember to look in [the documentation](https://developer.mozilla.org/en-US/docs
 
 ## Specs
 
-**Note**: To run this file, on your terminal go to the folder `src` file in fodler `02_play_with_arrays` and execute the exercice with `node ./currentExercise.js`
+**Note**: To run this file, enter `node ./src/02_play_with_arrays/<current_exercise>.js` in the terminal.
 
 ### Define arrays and access to their values
 

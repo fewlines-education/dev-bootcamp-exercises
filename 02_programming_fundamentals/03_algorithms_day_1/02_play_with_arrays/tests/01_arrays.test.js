@@ -10,7 +10,7 @@ beforeAll(() => {
   return studentCode;
 });
 
-test("digits exists", () => {
+test("#digits should be an array with numbers from 0 to 9", () => {
   return studentCode.then((code) => {
     const digits = eval(code + "; digits;");
 
@@ -18,8 +18,8 @@ test("digits exists", () => {
   });
 });
 
-describe("first", () => {
-  test("first exists", () => {
+describe("#first", () => {
+  test("Should have a value of 0", () => {
     return studentCode.then((code) => {
       const first = eval(code + "; first;");
 
@@ -27,7 +27,7 @@ describe("first", () => {
     });
   });
 
-  test("first is linked to the first cell of digits", () => {
+  test("Should be binded to the index 0 of the variable digits", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp("(let|const) first"),
@@ -39,8 +39,8 @@ describe("first", () => {
   });
 });
 
-describe("last", () => {
-  test("last exists", () => {
+describe("#last", () => {
+  test("Should have a value of 9", () => {
     return studentCode.then((code) => {
       const last = eval(code + "; last;");
 
@@ -48,7 +48,7 @@ describe("last", () => {
     });
   });
 
-  test("last is linked to the last cell of digits", () => {
+  test("Should be binded to the index 9 of the variable digits", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp("(let|const) last"),
@@ -60,8 +60,8 @@ describe("last", () => {
   });
 });
 
-describe("sixth", () => {
-  test("sixth exists", () => {
+describe("#sixth", () => {
+  test("Should have a value of 6", () => {
     return studentCode.then((code) => {
       const sixth = eval(code + "; sixth;");
 
@@ -69,7 +69,7 @@ describe("sixth", () => {
     });
   });
 
-  test("sixth is linked to the sixth cell of digits", () => {
+  test("Should be binded to the index 6 of the variable digits", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp("(let|const) sixth"),

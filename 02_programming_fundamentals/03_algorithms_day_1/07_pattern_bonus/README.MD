@@ -7,7 +7,7 @@ You will need some creativity here: good luck!
 
 ## Specs
 
-**Note**: To run this file, on your terminal go to the folder `src` file in fodler `07_pattern_bonus` and execute the exercice with `node ./01_complete_the_pattern.js`
+**Note**: To run this file, enter `node ./src/07_pattern_bonus/01_complete_the_pattern.js` in the terminal.
 
 You have to write code which prints the following pattern up to _n_ number of rows.
 A restriction though, you have the right to use `console.log` **only once** at the end!

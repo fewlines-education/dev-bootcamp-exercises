@@ -7,7 +7,7 @@ beforeAll(() => {
   return studentCode;
 });
 describe("#booleanVariable", () => {
-  test("checks that the booleanVariable has a value true", () => {
+  test("Should have a `true` value.", () => {
     return studentCode.then((code) => {
       const boooleanVariable = eval(code + "; boooleanVariable;");
 
@@ -18,7 +18,7 @@ describe("#booleanVariable", () => {
 });
 
 describe("#nullVariable", () => {
-  test("checks that the nullVariable is null", () => {
+  test("Shoud have a 'null' value.", () => {
     return studentCode.then((code) => {
       const nullVariable = eval(code + "; nullVariable;");
 
@@ -29,7 +29,7 @@ describe("#nullVariable", () => {
 });
 
 describe("#greetingVariable", () => {
-  test("checks that the greetingVariable has the string 'Hello World!'", () => {
+  test("Should have 'Hello World!' as a value.", () => {
     return studentCode.then((code) => {
       const greetingVariable = eval(code + "; greetingVariable;");
 

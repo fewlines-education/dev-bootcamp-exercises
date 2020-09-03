@@ -12,7 +12,7 @@ beforeAll(() => {
   return studentCode;
 });
 
-test("hello sparta", () => {
+test("#hello should have 'sparta' as a value", () => {
   return studentCode.then((code) => {
     const hello = eval(code + "; hello;");
 
@@ -20,15 +20,15 @@ test("hello sparta", () => {
   });
 });
 
-test("currentYear", () => {
+test(`#currentYear should have an integer ${new Date().getFullYear()} as a value`, () => {
   return studentCode.then((code) => {
     const currentYear = eval(code + "; currentYear;");
 
-    expect(currentYear).toBe(2017);
+    expect(currentYear).toBe(new Date().getFullYear());
   });
 });
 
-test("foo", () => {
+test("#foo should have an integer 12 as a value", () => {
   return studentCode.then((code) => {
     const foo = eval(code + "; foo;");
 
@@ -36,7 +36,7 @@ test("foo", () => {
   });
 });
 
-test("bar", () => {
+test("#bar should have an integer 28 as a value", () => {
   return studentCode.then((code) => {
     const bar = eval(code + "; bar;");
 
@@ -44,8 +44,8 @@ test("bar", () => {
   });
 });
 
-describe("sumResult", () => {
-  test("sumResult", () => {
+describe("#sumResult", () => {
+  test("Should be the sum of foo and bar as a value", () => {
     return studentCode.then((code) => {
       const sumResult = eval(code + "; sumResult;");
 
@@ -53,7 +53,7 @@ describe("sumResult", () => {
     });
   });
 
-  test("sumResult should be linked to foor and bar, changing foo should update it", () => {
+  test("Should be linked to foo and bar. Changing foo should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const)(\s*?)foo(\s*?)=(\s*?)([0-9]{2})(\s*?);/),
@@ -64,7 +64,7 @@ describe("sumResult", () => {
     });
   });
 
-  test("sumResult should be linked to foor and bar, changing bar should update it", () => {
+  test("Should be linked to foor and bar. Changing bar should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const)(\s*?)bar(\s*?)=(\s*?)([0-9]{2})(\s*?);/),
@@ -76,8 +76,8 @@ describe("sumResult", () => {
   });
 });
 
-describe("prodResult", () => {
-  test("prodResult", () => {
+describe("#prodResult", () => {
+  test("Should be the product of bar and foo", () => {
     return studentCode.then((code) => {
       const prodResult = eval(code + "; prodResult;");
 
@@ -85,7 +85,7 @@ describe("prodResult", () => {
     });
   });
 
-  test("prodResult should be linked to foor and bar, changing foo should update it", () => {
+  test("Should be linked to foor and bar. Changing foo should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const)(\s*?)foo(\s*?)=(\s*?)([0-9]{2})(\s*?);/),
@@ -96,7 +96,7 @@ describe("prodResult", () => {
     });
   });
 
-  test("prodResult should be linked to foor and bar, changing bar should update it", () => {
+  test("Should be linked to foor and bar. Changing bar should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const)(\s*?)bar(\s*?)=(\s*?)([0-9]{2})(\s*?);/),
@@ -108,19 +108,19 @@ describe("prodResult", () => {
   });
 });
 
-test("promo", () => {
+test("#promo should be an object with the correct keys and values", () => {
   return studentCode.then((code) => {
     const promo = eval(code + "; promo;");
     const expected = {
-      year: 2017,
+      year: 2020,
       kind: "Sparta",
     };
     expect(promo).toEqual(expected);
   });
 });
 
-describe("promoYear", () => {
-  test("promoYear should be linked to currentYear, changing currentYear should update it", () => {
+describe("#prodResult", () => {
+  test("Should be linked to currentYear. Changing currentYear should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(
@@ -137,15 +137,15 @@ describe("promoYear", () => {
     });
   });
 
-  test("promoYear", () => {
+  test("#promoYear should be an integer with the correct value", () => {
     return studentCode.then((code) => {
       const promoYear = eval(code + "; promoYear;");
 
-      expect(promoYear).toEqual(2017);
+      expect(promoYear).toEqual(2020);
     });
   });
 
-  test("promoYear should be linked to promo, changing the year inside promo should update it", () => {
+  test("#promoYear should be linked to promo. Changing the year inside promo should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp("(let|const) promoYear"),
@@ -157,7 +157,7 @@ describe("promoYear", () => {
   });
 });
 
-test("digits", () => {
+test("#digits should be an array with the correct values", () => {
   return studentCode.then((code) => {
     const digits = eval(code + "; digits;");
 

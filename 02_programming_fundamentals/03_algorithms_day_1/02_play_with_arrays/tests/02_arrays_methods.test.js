@@ -13,8 +13,8 @@ beforeAll(() => {
   return studentCode;
 });
 
-describe("digits", () => {
-  test("digits exists", () => {
+describe("#digits", () => {
+  test("Should be an array with integers from 0 to 9", () => {
     return studentCode.then((code) => {
       const digits = eval(code + "; digits;");
 
@@ -22,18 +22,18 @@ describe("digits", () => {
     });
   });
 
-  test("digits has been defined with push", () => {
+  test("Should be defined with multiple push", () => {
     return studentCode.then((code) => {
       const found = code.match(/digits(\s*?)\.push/g);
 
       if (/for\s*?\((.*?);(.*?);(.*?)\)/.test(code)) {
         console.warn(
-          "Smart move to try a for loop here but no loops in this exercise"
+          "Smart move to use a loop, but no loops authorized in this exercise !"
         );
       }
       if (/while\s*?\((.*?)\)/.test(code)) {
         console.warn(
-          "Smart move to try a while loop here but no loops in this exercise"
+          "Smart move to use a loop, but no loops authorized in this exercise !"
         );
       }
 
@@ -44,8 +44,8 @@ describe("digits", () => {
   });
 });
 
-describe("last", () => {
-  test("last exists", () => {
+describe("#last", () => {
+  test("Should have a value of 9", () => {
     return studentCode.then((code) => {
       const last = eval(code + "; last;");
 
@@ -53,7 +53,7 @@ describe("last", () => {
     });
   });
 
-  test("last is linked to the last cell of digits", () => {
+  test("Should be linked to the last cell of the variable digits", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const) last/m),
@@ -65,7 +65,7 @@ describe("last", () => {
   });
 });
 
-test("litteralDigits exists", () => {
+test("#litteralDigits should be equal to an array with numbers spelled out as strings from zero to nine", () => {
   return studentCode.then((code) => {
     const litteralDigits = eval(code + "; litteralDigits;");
 
@@ -84,8 +84,8 @@ test("litteralDigits exists", () => {
   });
 });
 
-describe("allDigits", () => {
-  test("allDigits exists", () => {
+describe("#allDigits", () => {
+  test("Should be equal to a string 'zero - one - two ...'", () => {
     return studentCode.then((code) => {
       const allDigits = eval(code + "; allDigits;");
 
@@ -95,7 +95,7 @@ describe("allDigits", () => {
     });
   });
 
-  test("allDigits is linked to litteralDigits, changing it should change allDigits", () => {
+  test("Should be linked to litteralDigits. Changing it should change allDigits", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(/(let|const) allDigits/m),

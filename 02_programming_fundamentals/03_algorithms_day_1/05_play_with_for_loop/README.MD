@@ -7,7 +7,7 @@ You will need to start the exercises by only using the `for` loop. Then, rewrite
 
 ## Specs
 
-**Note**: To run this file, on your terminal go to the folder `src` file in fodler `05_play_with_loop` and execute the exercice with `node ./currentExercise.js`
+**Note**: To run this file, enter `node ./src/05_play_with_loop/<current_exercise>.js` in the terminal.
 
 ### A simple integer sequence
 
