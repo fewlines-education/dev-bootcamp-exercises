@@ -1,10 +1,10 @@
-# SHIFUMI 
+# SHIFUMI
 
 ## The Game
 
 Most of people know how to play ShiFuMi (一二三) but if you need a refresh on the [rules](https://en.wikipedia.org/wiki/Rock_paper_scissors) take a look!
 
-The goal of the day is to code such a game in the terminal and we will go piece by piece on that.
+The goal of the day is to code this game in the terminal and we will go through it piece by piece.
 
 ## The game interface
 
@@ -28,13 +28,14 @@ const reader = readline.createInterface({
 We also need to start by greeting our player(s) and give them some hints or instructions:
 
 ```js
-console.log("Welcome to ShiFuMi")
+console.log("Welcome to ShiFuMi");
 
 reader.question("Please choose a move\n> ", (move) => {
-    // Handle the move
-})
+  // Handle the move
+});
 ```
-> This is **YOUR** game, fell free to use emojis and / or symbols, pimp it as much as you want!
+
+> This is **YOUR** game, feel free to use emojis and/or symbols, pimp it as much as you want!
 
 ### The Display
 
@@ -45,7 +46,7 @@ If at any point you need to clear the screen, use:
 ```js
 const clear = () => console.log("\x1B[2J\x1B[0f");
 
-clear()
+clear();
 ```
 
 #### Symbols
@@ -56,12 +57,12 @@ You'll need to store them in variables to use them in the game.
 ```js
 // ROCK
 [
-  "    ________ ",
-  "---'   _ ,  |",
-  "      (__(__)",
-  "      (_____)",
-  "      (____) ",
-  "---.__(___)  ",
+  "    ________        ",
+  "---'   _ ,  |       ",
+  "      (__(__)       ",
+  "      (_____)       ",
+  "      (____)        ",
+  "---.__(___)         ",
 ];
 
 // PAPER
@@ -76,18 +77,19 @@ You'll need to store them in variables to use them in the game.
 
 // SCISSORS
 [
-  "    ____          ",
-  "---'    |________ ",
-  "     (__)________)",
-  "        _________)",
-  "      (____)      ",
-  "---.__(___)       ",
+  "    ____           ",
+  "---'    |________  ",
+  "     (__)________) ",
+  "        _________) ",
+  "      (____)       ",
+  "---.__(___)        ",
 ];
 ```
 
-Shifumi is a two player game, and they play face to face. To reflect that, you should display it like this:
+Shifumi is a two-player game, and they play face to face. To reflect that, you should display it like this:
+
 ```
-First Player move
+First Player's move
     ________
 ---'   _ ,  |
       (__(__)
@@ -95,7 +97,7 @@ First Player move
       (____)
 ---.__(___)
 
-Second Player move
+Second Player's move
           ____
  ________|    '---
 (________(__)
@@ -103,18 +105,20 @@ Second Player move
       (____)
        (___)__.---
 ```
-> The second player move should be reversed!!
+
+> The second player's move should be reversed!!
 
 ## Goal of the day
 
 When developing a project, _ANY project_, we need milestones. Here are some to guide you through the day:
 
-1. The game allows you to play versus a totally dumb AI. It should select a random move each time
+1. The game allows you to play versus a totally dumb AI. It should select a random move each time.
 2. The game allows you to play in a two players single round game version.
 3. The game allows you to play in a two players best of 3 game version.
 4. The game allows you to play versus an intelligent AI which [will have a strategy](https://arstechnica.com/science/2014/05/win-at-rock-paper-scissors-by-knowing-thy-opponent/#:~:text=Therefore%2C%20this%20is%20the%20best,thing%20that%20you%20just%20played.).
 
 Let's start with a **basic step by step plan** for the **dumb AI version**:
+
 - Greet the user.
 - Ask the user for an input.
 - Generate the AI choice.
@@ -127,7 +131,7 @@ Here is the wanted output for this first version:
 ```
 Welcome to the ShiFuMi!
 Choose a move:
-Rock Scissors Paper? [1, 2, 3]
+Rock Paper Scissors? [1, 2, 3]
 > 1
 Player move
     ________
@@ -151,12 +155,13 @@ Play again ?(Y,n)
 > n
 Thanks for the game 😉
 ```
-> Again, feel free to change the display, but the flow of a round should be pretty much like this.
 
+> Again, feel free to change the display, but the flow of a round should be pretty much like this.
 
 ### Additional tips
 
 And here are some questions you should think of:
+
 - What to do if the user's input is not correct?
 - How to compute and store results?
 - How to restart the game?
