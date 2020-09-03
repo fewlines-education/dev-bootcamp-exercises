@@ -86,27 +86,27 @@ describe("Destructuring and spread with objects", () => {
       const possibleResults = [
         {
           user: { firstName: "Toto", address: { city: "Lille", country: "France" } },
-          match: "Toto <REDACTED> leaves in Lille, France.",
+          match: "Toto <REDACTED> lives in Lille, France.",
         },
         {
           user: { lastName: "Toto", address: { city: "Lille", country: "France" } },
-          match: "<REDACTED> Toto leaves in Lille, France.",
+          match: "<REDACTED> Toto lives in Lille, France.",
         },
         {
           user: { lastName: "Toto", address: { city: "Lille" } },
-          match: "<REDACTED> Toto leaves in Lille, <REDACTED>.",
+          match: "<REDACTED> Toto lives in Lille, <REDACTED>.",
         },
         {
           user: { lastName: "Toto" },
-          match: "<REDACTED> Toto leaves in <REDACTED>, <REDACTED>.",
+          match: "<REDACTED> Toto lives in <REDACTED>, <REDACTED>.",
         },
         {
           user: { address: { country: "France" } },
-          match: "<REDACTED> <REDACTED> leaves in <REDACTED>, France.",
+          match: "<REDACTED> <REDACTED> lives in <REDACTED>, France.",
         },
         {
           user: {},
-          match: "<REDACTED> <REDACTED> leaves in <REDACTED>, <REDACTED>.",
+          match: "<REDACTED> <REDACTED> lives in <REDACTED>, <REDACTED>.",
         },
       ];
 
@@ -123,7 +123,7 @@ describe("Destructuring and spread with objects", () => {
     it("Should not use any conditional statement", async () => {
       const user = { address: { country: "France" } };
       logInfos(user);
-      expect(fakeConsoleLog).toHaveBeenCalledWith("<REDACTED> <REDACTED> leaves in <REDACTED>, France.");
+      expect(fakeConsoleLog).toHaveBeenCalledWith("<REDACTED> <REDACTED> lives in <REDACTED>, France.");
 
       const code = await readCode("./src/objectsDestructureSpread.js");
       const ifStatement = code.match(/if/);

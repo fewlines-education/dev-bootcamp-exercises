@@ -7,9 +7,11 @@ describe("#decodeMorse", () => {
 
   it("Should return a string", () => {
     expect(typeof decodeMorse(".... . -.--   .--- ..- -.. .")).toBe("string");
+    expect(typeof decodeMorse("... --- ...")).toBe("string");
   });
 
   it("Should return the right translation", () => {
     expect(decodeMorse(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE");
+    expect(decodeMorse("... --- ...")).toBe("SOS");
   });
 });

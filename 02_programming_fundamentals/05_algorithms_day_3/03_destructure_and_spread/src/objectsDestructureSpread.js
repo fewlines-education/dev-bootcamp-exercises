@@ -30,7 +30,7 @@ function logInfos(user) {
     address: { city, country },
   } = user; // Change here
 
-  console.log(`${firstName} ${lastName} leaves in ${city}, ${country}.`);
+  console.log(`${firstName} ${lastName} lives in ${city}, ${country}.`);
 }
 
 module.exports = {

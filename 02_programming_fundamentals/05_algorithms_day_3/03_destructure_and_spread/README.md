@@ -2,8 +2,8 @@
 
 ## Context and Objectives
 
-Destructuring and spread operator are common when coding with Javascript and it is important to understand how tu use them.
-In this exercise you'll practice with somme arrays and objects to spread and destructure.
+Destructuring and spread operators are common when coding with Javascript and it is important to understand how to use them.
+In this exercise, you'll practice with some arrays and objects to spread and destructure.
 
 ## Write "Prettier" code
 
@@ -12,6 +12,7 @@ Same as in the previous exercises, don't forget to use Prettier to help you form
 ## Specs
 
 ⚠️ You don't always have to code the entire functions in this exercise. You'll get some guidelines in the files like:
+
 ```js
 /** Complete here */
 // Code here
@@ -40,12 +41,12 @@ const config = getConfig(userConfig);
 {
   user: {
     name: "John",
-    password: "123123", 
-    admin: true 
+    password: "123123",
+    admin: true
   },
   hardware: {
-    CPUThreads: 2, 
-    memory: 2, 
+    CPUThreads: 2,
+    memory: 2,
     diskSpace: 20
   },
 }
@@ -58,7 +59,7 @@ A user is formed like this:
 {
   firstName: "John",
   lastName: "Rambo",
-  address: { 
+  address: {
     city: "Hope",
     country: "Canada"
   }
@@ -68,7 +69,7 @@ A user is formed like this:
 For this user, the function should log:
 
 ```
-"John Rambo leaves in Hope, Canada."
+"John Rambo lives in Hope, Canada."
 ```
 
 Each user information is **optional** and must be replaced by `<REDACTED>` in the log if it's not present in the initial user object.
@@ -81,14 +82,15 @@ The `arrayCrusher` function takes two arrays as parameters and should return onl
 For example:
 
 ```js
-const numbers = arrayCrusher([1, 2], [3, 4])
-console.log(numbers) // [1, 2, 3, 4]
+const numbers = arrayCrusher([1, 2], [3, 4]);
+console.log(numbers); // [1, 2, 3, 4]
 ```
 
 The `recursiveBouncer` function takes an array as a parameter. It has to use use the array destructuring method to separate and log the first element and then, use recursion to do the same with the remainder of the array, like this:
 
 ```js
-recursiveBouncer([1, 2, 3])
+recursiveBouncer([1, 2, 3]);
+// will log
 1
 2
 3
@@ -96,6 +98,6 @@ recursiveBouncer([1, 2, 3])
 
 ## Tests
 
-You can run `yarn test` At anytime to test your code.
+You can run `yarn test` at any time to test your code.
 
-Feel also free to play with it in the `src/index.js` file if you want.
+Feel also free to play with the code in the `src/index.js` file if you want.
