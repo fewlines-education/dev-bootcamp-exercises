@@ -38,6 +38,7 @@
     "02_programming_fundamentals/08_shi_fu_mi/01_shifumi",
     "02_programming_fundamentals/09_packages/01_play_with_time",
     "02_programming_fundamentals/09_packages/02_work_with_several_files",
+    "02_programming_fundamentals/09_packages/03_refactor_tic_tac_toe",
     "03_backend_developement/01_typescript_101/01_basic_typing",
     "03_backend_developement/01_typescript_101/02_typed_function",
     "03_backend_developement/01_typescript_101/03_typed_class",
