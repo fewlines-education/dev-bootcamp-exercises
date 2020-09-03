@@ -1,4 +1,4 @@
-const double = require("../src/01double");
+const double = require("../src/01_double");
 
 describe("#double (without map)", () => {
   test("Works with a list of 4 positive integers", () => {

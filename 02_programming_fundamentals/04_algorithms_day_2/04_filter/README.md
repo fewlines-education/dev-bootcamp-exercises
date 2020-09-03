@@ -13,7 +13,7 @@ You will have to write a few functions taking two parameters to **filter even or
 
 ### 1. Filtering with strings
 
-Write a function called `filter` which takes two parameters:
+In the file `04_filter/src/01_filter_with_string.js`, write a function called `filter` which takes two parameters:
 
 - An **array of integers**;
 - A string being either `"odd"` or `"even"`.
@@ -30,7 +30,7 @@ filter([1, 2, 3, 4, 5], "odd"); // [1, 3, 5];
 
 ### 2. Filtering with functions
 
-Write a function called `filter`, which takes two inputs:
+In the file `04_filter/src/02_filter_with_function.js`, write a function called `filter`, which takes two inputs:
 
 - An **array of integers**;
 - A function that takes an **integer** as a _parameter_ and _returns_ a **boolean** if the integer is either odd or even.
@@ -46,7 +46,7 @@ filter([1, 2, 3, 4, 5], pickEvenNumbers); // [2, 4];
 
 ### 3. Filtering using an inner function
 
-Write a function called `filter`, which takes two inputs:
+In the file `04_filter/src/03_filter.js`, write a function called `filter`, which takes two inputs:
 
 - An **array of integers**;
 - A function that takes an **integer** as a _parameter_ and _returns_ a **boolean** if the integer is either odd or even.

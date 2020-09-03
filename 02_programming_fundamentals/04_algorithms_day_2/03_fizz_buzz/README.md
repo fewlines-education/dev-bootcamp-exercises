@@ -7,12 +7,12 @@ Players take turns to count incrementally, replacing any number divisible by thr
 
 ## Specs
 
-Implement a fizzBuzz function as such: `fizzBuzz(list)`, where `list` is an array of positive integers, for example : `[1, 2, 3, 4, 5, 6]`.
+Implement a fizzBuzz function as such: `fizzBuzz(list)`, where `list` is an array of positive integers, for example: `[1, 2, 3, 4, 5, 6]`.
 This function will _return_ a **new array** where some values will have been modified:
 
 - if the number is divisible by 3: `Fizz`;
 - if the number is divisible by 5: `Buzz`;
-- if the number is divisible by 3 and 5 : `FizzBuzz`;
+- if the number is divisible by 3 and 5: `FizzBuzz`;
 - otherwise, the value is preserved.
 
 E.g.

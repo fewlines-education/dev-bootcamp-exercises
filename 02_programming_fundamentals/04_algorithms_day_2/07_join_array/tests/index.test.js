@@ -2,7 +2,7 @@ const joinArray = require("../src/index");
 
 describe("#joinArray", () => {
   describe("Basic functionalities:", () => {
-    it("Should returns the right values", () => {
+    it("Should return the right values", () => {
       expect(joinArray(["zero", "one", "two"], " - ")).toEqual(
         "zero - one - two"
       );
@@ -28,7 +28,7 @@ describe("#joinArray", () => {
       expect(reduceCalled).toBe(true);
     });
 
-    it("Doesn't use Join function to implement the algorithm", () => {
+    it("Doesn't use join function to implement the algorithm", () => {
       let joinCalled = false;
 
       const originalJoin = Array.prototype.join;

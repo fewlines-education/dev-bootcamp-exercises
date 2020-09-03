@@ -1,4 +1,4 @@
-const pow = require("../src/03pow");
+const pow = require("../src/03_pow");
 
 test("The function 'pow' properly calculates powers :", () => {
   expect(pow(2, 8)).toBe(Math.pow(2, 8));

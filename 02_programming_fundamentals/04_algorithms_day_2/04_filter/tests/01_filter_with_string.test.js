@@ -1,4 +1,4 @@
-const filter = require("../src/01filterWithString");
+const filter = require("../src/01_filter_with_string");
 
 function isEven(n) {
   return n % 2 === 0;
@@ -12,7 +12,7 @@ describe("Handling exceptions:", () => {
     expect(filter([], "odd")).toEqual([]);
   });
 
-  test("Should handle weird string", () => {
+  test("Should handle weird strings", () => {
     expect(filter([1, 2, 3], "iDoNotHandleSuchAWeirdCase")).toEqual([1, 2, 3]);
   });
 });

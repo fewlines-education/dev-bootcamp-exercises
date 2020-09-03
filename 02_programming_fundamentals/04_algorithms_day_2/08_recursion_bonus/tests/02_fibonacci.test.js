@@ -1,4 +1,4 @@
-const fibo = require("../src/02fibonacci");
+const fibo = require("../src/02_fibonacci");
 
 test("The function 'fibo' generates the right series' element: ", () => {
   expect(fibo(10)).toBe(55);

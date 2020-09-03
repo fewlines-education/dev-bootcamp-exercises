@@ -9,7 +9,7 @@ describe("#range", () => {
     expect(range(4, 1)).toEqual([4, 3, 2, 1]);
   });
 
-  it("Should return a unique value when arguments' value are equal", () => {
+  it("Should return a unique value when arguments' values are equal", () => {
     expect(range(2, 2)).toEqual([2]);
   });
 });

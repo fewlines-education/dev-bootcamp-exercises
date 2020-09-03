@@ -1,4 +1,4 @@
-const fact = require("../src/01factorial");
+const fact = require("../src/01_factorial");
 
 test("The function factors integers as expected: ", () => {
   expect(fact(5)).toBe(120);

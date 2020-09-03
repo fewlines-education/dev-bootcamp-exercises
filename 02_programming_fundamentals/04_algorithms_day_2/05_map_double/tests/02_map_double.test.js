@@ -1,4 +1,4 @@
-const mapDouble = require("../src/02mapDouble");
+const mapDouble = require("../src/02_map_double");
 
 describe("#double", () => {
   it("Should return the double of a single integer", () => {
