@@ -4,13 +4,13 @@ const al = {
   firstName: "Albert",
   lastName: "Einstein",
   quote: "If you can't explain it to a six year old, you don't understand it yourself.",
-  job: "Theoretical physicist",
+  job: "Theoretical Physicist",
 };
 
 const sigourney = {
   firstName: "Sigourney",
   lastName: "Weaver",
-  job: "actress",
+  job: "Actress",
   genre: "female",
   introduction: function () {
     return `Hi! I'm Sig and I played in Alien!`;
@@ -47,7 +47,7 @@ describe("Human factory", () => {
       expect(sig.lastName).toBe("Weaver");
       expect(sig.firstName).toBe("Sigourney");
       expect(sig.genre).toBe("female");
-      expect(sig.job).toBe("actress");
+      expect(sig.job).toBe("Actress");
       expect(sig.fullname()).toBe("Helen Ripley");
       expect(sig.introduction()).toBe("Hi! I'm Sig and I played in Alien!");
     });

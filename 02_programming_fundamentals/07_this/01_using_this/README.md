@@ -8,18 +8,18 @@ The goal of this exercise is for you to get used to using `this`.
 
 ### Introducing yourself
 
-Code the method `introduceMyself` to this object using its fullname and its age.
+Code the method `introduceMyself` to this object using its full name and its age.
 
 ```javascript
 const person = {
   firstname: "Abdel",
   lastname: "Sadki",
   age: 42,
-  fullname: function() {
-    return this.firstname + " " + this.lastname
+  fullname: function () {
+    return `${this.firstname} ${this.lastname}`;
   },
   // [...]
-}
+};
 
 const introduction = person.introduceMyself();
 console.log(introduction); // Hello! I'm Abdel Sadki and I'm 42
