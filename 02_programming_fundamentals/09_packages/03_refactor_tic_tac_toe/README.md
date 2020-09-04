@@ -34,3 +34,4 @@ The final objective of the exercise is to make your game works with the command 
 ## Tests
 
 At any time, run `yarn test` to help you.
+You can also press `ctrl + c` at any moment to quit a running program.

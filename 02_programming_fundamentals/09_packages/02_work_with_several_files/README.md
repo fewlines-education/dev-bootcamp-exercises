@@ -2,7 +2,7 @@
 
 ## Context and objectives
 
-When developing applications, it is not a rare thing to have to split the code into different files and functions. We call that maintainability, because the code is easier to change without having to rewrite it all, unlike having all the code in one only place (and that is called [spaghetti code](https://en.wikipedia.org/wiki/Spaghetti_code) 🍝).
+When developing applications, it is not a rare thing to have to split the code into different files and functions. We call that maintainability because the code is easy to change without having to rewrite it all, unlike having all the code in one only place (and that is called [spaghetti code](https://en.wikipedia.org/wiki/Spaghetti_code) 🍝).
 
 ## Specs
 
@@ -39,7 +39,7 @@ Your job in this exercise is to split the coffee machine into several modules.
 
 ### Drinks
 
-`src/drinks.js` is the module responsible of the coffees part of the machine. It must export only the coffees functions.
+`src/drinks.js` is the module responsible for the coffees part of the machine. It must export only the coffees functions.
 
 ### Machine
 

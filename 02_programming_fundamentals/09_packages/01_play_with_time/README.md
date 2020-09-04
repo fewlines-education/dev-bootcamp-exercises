@@ -7,7 +7,7 @@ A popular package called **`moment`** is here to try and help us on this matter!
 
 This exercise is also a good start to learn how to read and search a documentation.
 
-Read [Moment document](https://momentjs.com/) to learn how to use the package in your code.
+Read [Moment's documentation](https://momentjs.com/) to learn how to use the package in your code.
 
 ## Specs
 
@@ -15,9 +15,11 @@ Look in the `src/playWithTime.js` file. You should code your functions there.
 
 You will also need to import `moment` and to export your functions from the file.
 
+Code the following functions:
+
 ### formatDate
 
-Return a string of the given date with the following format:
+Should return a string of the given date with the following format:
 
 ```js
 formatDate("2000-05-31"); // Wednesday 31st May 2000
@@ -41,7 +43,7 @@ daysSinceDate("2000-05-31"); // 7394
 
 ### getDayFromDate
 
-Return the day of the week for a specific date.
+Should return the day of the week for a specific date.
 
 ```js
 getDayFromDate("2000-05-31"); // Wednesday
@@ -49,4 +51,4 @@ getDayFromDate("2000-05-31"); // Wednesday
 
 ## Restriction
 
-⚠️ Note: Don't use the [JavaScript Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) module, only `moment`!
+⚠️ Note: You are not allowed to use the [`JavaScript Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) module, only `moment`!
