@@ -1,29 +1,10 @@
-# Create callback
+# Use callback
 
 ## Context and Objectives
 
 Now that we've seen how to use already existing code that expects a callback, let's do the reverse.
 For programs, like video games for example, when a user pushes a button, we get what we call a _user input_.
 Then, once we have that input in hand, we have to react to it, often with a callback.
-
-## Write "Prettier" code
-
-Sometimes, manually format code is a real pain, for example, we don't want to see that:
-
-```js
-const user = {lastName: 'Elton',firstName: "John",address:
-  {city: "London"} 
-  }
-```
-
-but instead we want that:
-
-```js
-const user = { lastName: "Elton", firstName: "John", address: { city: "London" } };
-```
-
-From now on you have access to _Prettier_ which will help you to format the code (given it is correct code with "bad" formating).
-To use it, open VSCode command pallet with `cmd + shift + p` and search for `Format document`.
 
 ## Specs
 
