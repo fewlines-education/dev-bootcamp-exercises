@@ -42,7 +42,7 @@ human.lastName; // "Doe"
 human.genre; // "male"
 human.job; // "unemployed"
 human.fullname(); // "John Doe"
-human.introduction; // "Hello! My name is John Doe."
+human.introduction(); // "Hello! My name is John Doe."
 ```
 
 If an object is given:
