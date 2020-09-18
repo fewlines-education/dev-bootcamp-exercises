@@ -4,7 +4,7 @@
 
 One of the best and most given exercise used to learn how to illustrate the OOP concept is the Orange Tree.
 
-The initial goal of this canonic exercise is to represent, with a single JavaScript Object, the whole life of an orange tree, from its birth to its death.
+The initial goal of this canonical exercise is to represent, with a single JavaScript Object, the whole life of an orange tree, from its birth to its death.
 
 We'll push the concept further, by adding the tools TypeScript gives us access to.
 

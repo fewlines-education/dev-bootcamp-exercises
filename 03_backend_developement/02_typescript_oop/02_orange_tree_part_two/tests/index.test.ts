@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as path from "path";
 
 import { readCode } from "./utils/readCode";
@@ -431,7 +432,6 @@ describe("OrangeTree class:", () => {
         tree.growOranges();
 
         expect(tree.oranges.length).toEqual(10);
-
         tree.growOranges();
 
         expect(tree.oranges.length).toEqual(10);
@@ -439,6 +439,15 @@ describe("OrangeTree class:", () => {
     });
 
     describe("pickAnOrange:", () => {
+      let spy;
+      
+      beforeAll(() => {
+        spy = jest.spyOn(console, "log").mockImplementation(() => {})
+      })
+
+      afterAll(() => {
+        spy.mockRestore()
+      })
       it("should be implemented in the OrangeTree class", () => {
         expect.assertions(1);
 

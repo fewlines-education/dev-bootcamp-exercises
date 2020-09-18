@@ -15,7 +15,7 @@ Create a typed class `Bird` with the following specs:
   - `fly` :
     - takes a number of second as parameter.
     - if `age <= 1`, the method should print "The bird is too young to fly".
-    - otherwise, the method should print "The bird flew x meters in x secondes" based on two conditions:
+    - otherwise, the method should print "The bird flew x meters in x seconds" based on two conditions:
       - if `1 < age <= 3`, the bird should fly at a speed of 1m/s.
       - if `age > 3`, the bird should fly at a speed of 2m/s.
 

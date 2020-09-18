@@ -30,9 +30,9 @@ Here is a more detailed overview of what you must achieve with your orange tree:
 
 - `isAlive`, used to compute if the tree dies or not, based on the following specs:
 
-  - cannot dies before 50 years old.
+  - cannot die before 50 years old.
   - cannot live longer than 100 years old.
-  - each year, starting from 50 years old, the chance of the tree dying increase.
+  - each year, starting from 50 years old, the chance of the tree dying increases.
 
 - `seed`, used to set `age` and `height` to 0, and `alive` to `true`.
 
