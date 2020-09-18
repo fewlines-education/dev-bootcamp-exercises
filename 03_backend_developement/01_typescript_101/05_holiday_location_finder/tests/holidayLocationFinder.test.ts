@@ -1,13 +1,7 @@
-// import { holidayLocationFinder } from "../src/holidayLocationFinder";
 import { CONTINENTS, CITIES } from "../src/data/data";
 import { isEnum } from "./utils/isEnum";
 import { isObjectKeysFromEnum } from "./utils/isObjectKeysFromEnum";
 import { sanitizeUserInput } from "../src/utils/format";
-
-describe("holidayLocationFinder", () => {
-  // WIP
-  expect(1).toBe(1);
-});
 
 describe("data", () => {
   describe("CONTINENTS", () => {

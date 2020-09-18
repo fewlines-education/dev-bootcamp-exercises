@@ -13,6 +13,27 @@ At first sight, Enums can be seen as not that useful. Why not use the classic ob
 
 This part requires the use of the NodeJS module `readline`. Please read the [documentation](https://nodejs.org/api/readline.html).
 
+Your program should work pretty much like this:
+
+```
+***Welcome to HOLIDAY LOCATION FINDER***
+
+This program will help you find a location based on the continent you will input.
+
+Here is the list of continent to chose from:
+- Europe
+- North America
+- South America
+- Asia
+- Africa
+- Oceania
+
+Please input your choice:
+> Europe
+
+You chose Europe. I think you really should go spend some time in Bruxelles, Belgium.
+```
+
 ---
 
 ### Data structure
