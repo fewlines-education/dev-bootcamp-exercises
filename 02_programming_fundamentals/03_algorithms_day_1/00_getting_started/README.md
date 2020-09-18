@@ -93,14 +93,14 @@ exercises
 └── 02_programming_fundamentals
     └── 03_algorithms_day_1
         └── current 👈 # HERE!
-             ├── 00_getting_started
-             ├── 01_play_with_variables
-             ├── 02_play_with_arrays
-             ├── 03_play_with_conditional_statement_drink
-             ├── 04_play_with_conditional_statement_exoplanets
-             ├── 05_play_with_for_loop
-             ├── 06_play_with_for_loop_bonus
-             └── 07_pattern_bonus
+             ├── 00_getting_started
+             ├── 01_play_with_variables
+             ├── 02_play_with_arrays
+             ├── 03_play_with_conditional_statement_drink
+             ├── 04_play_with_conditional_statement_exoplanets
+             ├── 05_play_with_for_loop
+             ├── 06_play_with_for_loop_bonus
+             └── 07_pattern_bonus
 ```
 
 ## Context and Objectives

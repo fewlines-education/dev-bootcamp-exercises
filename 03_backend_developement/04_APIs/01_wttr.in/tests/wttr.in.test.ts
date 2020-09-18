@@ -43,7 +43,7 @@ describe("Berlin weather in German", () => {
     expect.assertions(1);
 
     const studentOutput = await exec(`bash ${file()} 2> /dev/null`);
-    const expectedOutput = await exec(`curl -s de.wttr.in/Berlin`);
+    const expectedOutput = await exec(`curl -s wttr.in/Berlin?lang=de`);
 
     expect(studentOutput).toEqual(expectedOutput);
   });
@@ -81,6 +81,6 @@ describe("Brussels weather written in file", () => {
     const studentOutput = await exec(`bash ${commandFile()} 2> /dev/null`);
     const weather = fs.readFileSync(resultFile(), "utf8");
 
-    expect(weather.startsWith("Prévisions météo pour:")).toBe(true);
+    expect(weather.includes("Prévisions météo pour:")).toBe(true);
   });
 })
