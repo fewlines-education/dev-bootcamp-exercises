@@ -1,5 +1,5 @@
 {
-  "name": "03_going_further_with_tests",
+  "name": "04_simple_mock",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
