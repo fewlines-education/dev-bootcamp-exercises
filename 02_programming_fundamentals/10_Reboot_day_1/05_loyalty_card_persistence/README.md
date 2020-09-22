@@ -15,7 +15,7 @@ Then you need two new functionalities:
 ### Load data
 
 When your program starts, it has to load the data coming from a file.
-Create the file `src/data/customers` and paste this inside:
+Create the file `src/data/customers.json` and paste this inside:
 
 ```json
 [
