@@ -107,6 +107,14 @@ describe("Tree class", () => {
         }
       });
 
+      it("should have reach an height of 335cm after 50 years", () => {
+        expect.assertions(1);
+
+        const tree = new TestTree(50);
+
+        expect(tree.height).toEqual(335);
+      });
+
       it("should stop growing after 20 years old", () => {
         expect.assertions(80);
 
