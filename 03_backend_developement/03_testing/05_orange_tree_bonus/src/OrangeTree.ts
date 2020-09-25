@@ -20,7 +20,9 @@ class OrangeTree extends Tree {
   }
 
   private potentiallyDie(): void {
-    this.alive = this.isAlive();
+    if (this.alive) {
+      this.alive = this.isAlive();
+    }
   }
 
   private handleOrangeGrowth(num: number): void {
@@ -55,8 +57,8 @@ class OrangeTree extends Tree {
     }
   }
 
-  isAlive(): boolean {  
-    if (this.age < 50) { 
+  isAlive(): boolean {
+    if (this.age < 50) {
       return true;
     }
     const chanceToDie = (this.age - 50) / 50
