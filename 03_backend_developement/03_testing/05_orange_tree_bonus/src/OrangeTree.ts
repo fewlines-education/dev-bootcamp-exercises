@@ -63,7 +63,7 @@ class OrangeTree extends Tree {
     // age 50 => chanceToDie ~ 0
     // age 75 => chanceToDie = 0.5
     // age 100 => chanceToDie = 1
-    return Math.random() < chanceToDie
+    return Math.random() > chanceToDie
   }
 
   seed(): void {
