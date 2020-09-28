@@ -8,7 +8,7 @@ In this exercise you will have to code functions to consume the given **Book API
 
 ### Database Schema
 
-![](../../slides/assets/book-api.png)
+![](./assets/images/book-api.png)
 
 Resources:
 - Authors:
