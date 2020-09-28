@@ -78,6 +78,7 @@
     "03_backend_developement/06_mongo_basics/04_db_utils",
     "03_backend_developement/07_mongo_advanced/01_import_data",
     "03_backend_developement/07_mongo_advanced/02_transactions",
+    "03_backend_developement/07_mongo_advanced/04_pagination_and_query",
     "13_extras/01_sql_part_1/01_marathon",
     "13_extras/01_sql_part_1/02_loyalty_points",
     "13_extras/01_sql_part_1/03_magic_gate",
