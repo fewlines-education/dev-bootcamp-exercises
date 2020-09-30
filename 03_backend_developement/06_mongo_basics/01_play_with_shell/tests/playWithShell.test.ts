@@ -111,7 +111,7 @@ describe("Play with shell", () => {
   });
 
   describe("insertManyCountries", () => {
-    it("Should insert at least 2 new countries in the right collection", async () => {
+    it("Should insert 3 new countries in the right collection", async () => {
       expect.assertions(1);
 
       await execP(
@@ -123,8 +123,8 @@ describe("Play with shell", () => {
       const result = await worldAtlasCollection.find().toArray();
 
       expectMessage(
-        result.length > 1,
-        "You should insert at least 2 new countries"
+        result.length === 3,
+        "You should insert 3 new countries"
       ).toBe(true);
     });
 
