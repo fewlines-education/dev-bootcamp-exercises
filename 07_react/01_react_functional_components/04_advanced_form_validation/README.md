@@ -51,8 +51,6 @@ See how to enable or disable a button:
 <button>Enabled</button>
 <button disabled="true">Enabled</button>
 ```
-> <button>Enabled</button>
-> <button disabled="true">Disabled</button>
 
 You will also need some regex to verify the value of the inputs. See how use them [in the documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#Description) and feel free to use this:
 
