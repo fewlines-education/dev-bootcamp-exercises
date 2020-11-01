@@ -19,3 +19,5 @@ When the page loads, the paragraph should be visible, and clicking on the button
 - hide the paragraph.
 
 💡 To make that happen, you'll have to use both the `useState` hook and the `onClick` property.
+
+⚠️ The goal is not to hide the paragraph with CSS but with React
