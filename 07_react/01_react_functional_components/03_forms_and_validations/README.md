@@ -28,7 +28,7 @@ In this exercise you have to build a simple form with one **first name** field a
 
 You can copy / paste the base markup coming from [Bootstrap components](https://getbootstrap.com/docs/4.5/components/forms/#overview) and then modify it to match your needs.
 
-Because [Bootstrap](https://getbootstrap.com/) is setup in the exercise folder, it should visually look like something like that:
+Because [Bootstrap](https://getbootstrap.com/) is set up in the exercise folder, it should look something like that:
 
 ![first name form](./assets/images/first-name-form.png)
 
@@ -38,7 +38,7 @@ When the user inputs something, if there's any space in it, the form must displa
 
 ![first name form](./assets/images/validation-error.png)
 
-You have two ways of validate an input:
+You have two ways of validating an input:
 - when the user enters something, during the `onChange` event on the input
 - when the user submits the form by pressing enter or clicking on submit.
 
