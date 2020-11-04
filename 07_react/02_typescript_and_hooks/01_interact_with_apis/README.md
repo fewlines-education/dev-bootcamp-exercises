@@ -11,7 +11,7 @@ As you've probably guessed, we will use APIs a lot when working with React. Whet
 
 ## Specs
 
-In this exercise you will have to create a component that will communicate with the [Video-games api](https://videogames-database.herokuapp.com/).
+In this exercise you will have to create a component that will communicate with the [Video-games api](https://videogames-sparta.herokuapp.com/).
 
 You will only need to use these two endpoints:
 - `GET /platforms`
