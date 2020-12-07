@@ -18,7 +18,7 @@ describe("Play With Time", () => {
     it("Take a date parameter", () => {
       expect(dateFunctions.formatDate.length).toBe(1);
     });
-    it("Should return the right format for '05-03-2019'", () => {
+    it("Should return the right format for '1939-01-05'", () => {
       const date = dateFunctions.formatDate("1939-01-05");
       expect(date).toBe("Thursday 5th January 1939");
     });

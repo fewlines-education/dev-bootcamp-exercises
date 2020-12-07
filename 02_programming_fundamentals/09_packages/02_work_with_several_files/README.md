@@ -35,7 +35,7 @@ Your job in this exercise is to split the coffee machine into several modules.
 
 ### Container
 
-`src/container.js` should handle the available quantity of coffee and is responsible for allowing or not to serve a coffee, depending on the remaining quantity.
+`src/container.js` should handle the available quantity of coffee and is responsible for allowing or not to serve a coffee, depending on the remaining quantity. It must export only the liters' quantity functions.
 
 ### Drinks
 
@@ -43,7 +43,7 @@ Your job in this exercise is to split the coffee machine into several modules.
 
 ### Machine
 
-`src/machine.js` is the file which puts all of it together. It should import the other functions and use them to represent the coffee machine.
+`src/machine.js` is the file which puts all of it together. It should import the other functions from `drinks.js` and `container.js` and use them to represent the coffee machine.
 
 ### Index
 
