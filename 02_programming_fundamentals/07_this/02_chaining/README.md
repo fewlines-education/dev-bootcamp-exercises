@@ -31,14 +31,27 @@ Complete the `car` object in `src/car.js` with four functions:
 - **`drive(minutes)`** will make your car drive at the previously set speed for that amount of time (in minutes).
 - **`showDistance()`** will print the distance you drove as the number of kilometers.
 
+> Note that `changeSpeed` doesn't actually make the car drive, it simply changes the value of the car's current speed!
+
 Take care of storing the data inside the car itself!
-For instance the code
+Here are some example of how your car should behave:
 
 ```javascript
 car.start().changeSpeed(130).drive(42).showDistance();
-```
+// should display "91 Km".
 
-> should display `91 Km`.
+car.start().drive(42).changeSpeed(130).showDistance();
+// should display "0 Km".
+
+car.start().drive(42).changeSpeed(130).drive(42).showDistance();
+// should display "91 Km".
+
+car.start().changeSpeed(130).drive(42).changeSpeed(10).drive(60).showDistance();
+// should display "101 Km".
+
+car.start().changeSpeed(130).drive(42).start().changeSpeed(10).drive(60).showDistance();
+// should display "10 Km".
+```
 
 ## Testing
 
