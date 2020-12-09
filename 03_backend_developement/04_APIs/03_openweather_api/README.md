@@ -7,15 +7,26 @@ The goal of this exercise is to make some calls to the Open Weather API and to p
 For this, you have to use your **[OpenweatherMap](https://openweathermap.org/)** API Key.
 
 ## Specs
+
 > For each function you'll have to write, you should read the dedicated documentation here: https://openweathermap.org/api
 
 ### API Key
+
 > ⚠️⚠️⚠️ **Don't commit your API Key on github** ⚠️⚠️⚠️
 
 Once you have your API key activated it means that you are allowed to use OpenweatherMap's API.
 You should create a `.env_vars` file in the root folder of the exercise and write the key in it:
+
 ```
 export OPENWEATHER_API_KEY=<your_api_key>
+```
+
+To use this variable in other files, write `source .env_vars` in your terminal to execute the file. Now in this folder, you can access you OPENWEATHER_API_KEY variable in your `ts` files by writing `process.env.OPENWEATHER_API_KEY`
+
+Example:
+
+```ts
+const openWeatherApiKey: string = process.env.OPENWEATHER_API_KEY || "";
 ```
 
 Before commit, verify that the `.gitignore` file is taking care of the `.env_vars` file.
@@ -36,12 +47,14 @@ weatherByCity("Bogota")
 Code the function `weatherByZipcode` in `src/weatherByLocation.ts` which must accept two parameters like `"59000", "fr"`
 
 It should print `Weather for <city>`, then each forecast object containing the following keys:
+
 - `date` in french format.
 - `hour`.
 - `temperature` in `°C`.
 - `weather` description.
 
-Like this: 
+Like this:
+
 ```javascript
 weatherByZipcode("59000", "fr");
 > Weather for Lille
@@ -65,12 +78,14 @@ weatherByZipcode("59000", "fr");
 Code the function `weatherByLatitudeAndLongitude` in `src/weatherByLocation.ts` which must accept two parameters like `32.661343, 51.680374`
 
 It should print `Weather for <city>`, then each forecast object containing the following keys:
+
 - `date` in french format.
 - `hour`.
 - `temperature` in `°C`.
 - `weather` description.
 
-Like this: 
+Like this:
+
 ```javascript
 weatherByLatitudeAndLongitude(32.661343, 51.680374);
 > Weather for Isfahan
