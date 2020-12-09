@@ -15,8 +15,8 @@ In this file you also have the `Repo` type you'll need for your client's functio
 
 - Must take a `nickname` string parameter: this is the user we want to search for.
 - Must use the `fetch` package to make the API call.
-- Must return a `string`: the url of the requested user's repositories.
-- Must throw an understandable error when the user does not exist.
+- Must return a `Promise<string>`: the url of the requested user's repositories.
+- Must **throw** and **catch** an understandable error when the user does not exist.
 
 ### `getRepos`
 
