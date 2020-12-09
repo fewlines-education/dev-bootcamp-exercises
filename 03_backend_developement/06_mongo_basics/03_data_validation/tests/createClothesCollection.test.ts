@@ -10,6 +10,13 @@ describe("clothesValidator", () => {
     expect(clothesValidator.validator.$jsonSchema.bsonType).toBe("object");
   });
 
+  it("Should have a property oneOf with an array containing the 3 clothes properties", () => {
+    expect(Array.isArray(clothesValidator.validator.$jsonSchema.oneOf)).toBe(
+      true
+    );
+    expect(clothesValidator.validator.$jsonSchema.oneOf.length).toBe(3);
+  });
+
   describe("sweaterProperties", () => {
     it("Should not accept additional properties", () => {
       expect(sweaterProperties.additionalProperties).toBe(false);

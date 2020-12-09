@@ -66,6 +66,14 @@ describe("Tree class", () => {
       expect(constructorNode.kind).toBe(NODE_KIND.CONSTRUCTOR);
     });
 
+    it("constructor should have only one parameter", () => {
+      expect.assertions(1);
+
+      const argumentsQuantity = constructorNode.params.length;
+
+      expect(argumentsQuantity).toBe(1);
+    });
+
     it("should initialize age", () => {
       expect.assertions(1);
 
@@ -185,6 +193,14 @@ describe("Tree class", () => {
 
         expect(isAliveNode.abstract).toBe(true);
       });
+
+      it("should return a boolean.", () => {
+        expect.assertions(1);
+
+        expect(isAliveNode.returnType.typeAnnotation.type).toBe(
+          "TSBooleanKeyword"
+        );
+      });
     });
 
     describe("ageOneYear:", () => {
@@ -205,6 +221,14 @@ describe("Tree class", () => {
         expect.assertions(1);
 
         expect(ageOneYearNode.abstract).toBe(true);
+      });
+
+      it("should return a boolean.", () => {
+        expect.assertions(1);
+
+        expect(ageOneYearNode.returnType.typeAnnotation.type).toBe(
+          "TSVoidKeyword"
+        );
       });
     });
 

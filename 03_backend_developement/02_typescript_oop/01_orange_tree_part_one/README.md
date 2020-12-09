@@ -37,17 +37,20 @@ The class `Tree` should have the following attributes:
 - `height` (in cm).
 - `alive`.
 
-The **constructor** should initialize the age, and the height should be computed, relative to the age given, based on the following specs:
+The **constructor** should initialise a new tree with the given age (and **only** the age!), but the height should be computed. It is relative to the age given, based on the following specs:
 
 - 25 centimeters per year, from 1 to 9 years old (included).
 - 10 centimeters per year, from 10 to 20 years old (included).
 - It should stop growing after 20 years old.
 
-Initializing a 20 years old tree should have an height of 335 cm (225 cm from 0 to 9 years old + 110 cm from 10 to 20 years old).
+> For example :
+>
+> - After initializing a 12-year-old tree, it should have a height => `(9*25) + (3*10) = 255 cm`
+> - After initializing a 20-year-old tree, it should have a height => `225 cm from 0-9 years old + 110 cm from 10-20 years old => 335cm`
 
 We also want to add two `abstract` methods (think of them as "blueprints") that will be implemented in all `Tree`'s `sub-classes`:
 
-- `ageOneYear`, that will be used to increment the `age` attributes by 1 and increase the height in the next exercise.
-- `isAlive`, that will be used to know if the tree is dead or not in the next exercise.
+- `ageOneYear`, which will be used to increment the `age` attribute by 1 and increase the height in the next exercise. This method should return a `boolean` type.
+- `isAlive`, which will be used to know if the tree is dead or not in the next exercise. It should be of type `void`. This method should return a `void` type.
 
 Finally, we want a classic method called `seed`, used to set `age` and `height` to 0, and `alive` to `true`.

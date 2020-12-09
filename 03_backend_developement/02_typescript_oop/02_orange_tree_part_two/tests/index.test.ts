@@ -331,35 +331,71 @@ describe("OrangeTree class:", () => {
       });
 
       it("should have more probability to die the longer it aged", () => {
-        expect.assertions(1);
+        expect.assertions(4);
 
-        const youngerTrees: OrangeTree[] = [];
-        const olderTrees: OrangeTree[] = [];
-        let nYoungerDeadTrees = 0;
-        let nOlderDeadTrees = 0;
+        const fiftyYTrees: OrangeTree[] = [];
+        const sixtyYTrees: OrangeTree[] = [];
+        const seventyYTrees: OrangeTree[] = [];
+        const eightyYTrees: OrangeTree[] = [];
+        const ninetyYTrees: OrangeTree[] = [];
+        let nFiftyTrees = 0;
+        let nSixtyTrees = 0;
+        let nSeventyTrees = 0;
+        let nEightyTrees = 0;
+        let nNinetyTrees = 0;
 
-        for (let index = 0; index <= 1000; index++) {
-          youngerTrees.push(new OrangeTree(60));
-          olderTrees.push(new OrangeTree(80));
+        for (let index = 0; index <= 5000; index++) {
+          fiftyYTrees.push(new OrangeTree(51));
+          sixtyYTrees.push(new OrangeTree(61));
+          seventyYTrees.push(new OrangeTree(71));
+          eightyYTrees.push(new OrangeTree(81));
+          ninetyYTrees.push(new OrangeTree(91));
         }
 
-        youngerTrees.forEach((tree) => {
+        fiftyYTrees.forEach((tree) => {
           tree.ageOneYear();
 
           if (!tree.alive) {
-            nYoungerDeadTrees++;
+            nFiftyTrees++;
           }
         });
 
-        olderTrees.forEach((tree) => {
+        sixtyYTrees.forEach((tree) => {
           tree.ageOneYear();
 
           if (!tree.alive) {
-            nOlderDeadTrees++;
+            nSixtyTrees++;
           }
         });
 
-        expect(nYoungerDeadTrees < nOlderDeadTrees).toBe(true);
+        seventyYTrees.forEach((tree) => {
+          tree.ageOneYear();
+
+          if (!tree.alive) {
+            nSeventyTrees++;
+          }
+        });
+
+        eightyYTrees.forEach((tree) => {
+          tree.ageOneYear();
+
+          if (!tree.alive) {
+            nEightyTrees++;
+          }
+        });
+
+        ninetyYTrees.forEach((tree) => {
+          tree.ageOneYear();
+
+          if (!tree.alive) {
+            nNinetyTrees++;
+          }
+        });
+
+        expect(nFiftyTrees < nSixtyTrees).toBe(true);
+        expect(nSixtyTrees < nSeventyTrees).toBe(true);
+        expect(nSeventyTrees < nEightyTrees).toBe(true);
+        expect(nEightyTrees < nNinetyTrees).toBe(true);
       });
     });
 
@@ -448,14 +484,14 @@ describe("OrangeTree class:", () => {
 
     describe("pickAnOrange:", () => {
       let spy;
-      
+
       beforeAll(() => {
-        spy = jest.spyOn(console, "log").mockImplementation(() => {})
-      })
+        spy = jest.spyOn(console, "log").mockImplementation(() => {});
+      });
 
       afterAll(() => {
-        spy.mockRestore()
-      })
+        spy.mockRestore();
+      });
       it("should be implemented in the OrangeTree class", () => {
         expect.assertions(1);
 
