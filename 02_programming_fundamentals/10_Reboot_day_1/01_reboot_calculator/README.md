@@ -56,6 +56,7 @@ reader.question("Enter the first number\n> ", (firstNumber) => {
 
 MVP stands for **M**inimum **V**iable **P**roduct. It is the first working version on an application.
 Most of the time, it just works with the bare minimum functionalities. In the Calculator case:
+
 - ask for numbers and operator.
 - compute an operation.
 - display the result of the operation.
@@ -76,11 +77,11 @@ Enter the second number
 1 + 3 = 4
 ```
 
-Look in the `src/index.js`. You'll see for the program to work well, you'll need to code and export the `calculator` function in the `src/calculator.js` file.
+Look in the `src/index.js`. You'll see for the program to work well, you'll need to code and export the `calculator` function in the `src/calculator.js` file. This file doesn't exist yet, create it just next to `index.js`.
 
 ### Bonus: Follow up
 
-When this is done, You still have work to do:
+When this is done, you still have work to do:
 
 ### Numbers
 
@@ -89,11 +90,12 @@ For now, your calculator should only accept integers. But how should we handle f
 Did you use `parseInt`? What if we use `parseFloat` instead?
 
 ```js
-parseInt("1.2");    //  1
-parseInt("-1.2");   // -1
-parseFloat("1.2");  // ❓
-parseFloat("1,2");  // ❓
+parseInt("1.2"); //  1
+parseInt("-1.2"); // -1
+parseFloat("1.2"); // ❓
+parseFloat("1,2"); // ❓
 ```
+
 > Hint: How to handle the `,` case?
 
 ### Wrong inputs

@@ -48,6 +48,7 @@ CREATE NEW CUSTOMER
 🤖 - country:>
 > Else
 ```
+
 It should then be possible to see a list of customers:
 
 ```
@@ -67,7 +68,7 @@ ALICE COOPER
 ********************************************************
 1 - Show account
 2 - Add purchase
-3 - Use fidelity points
+3 - Use loyalty points
 4 - Show purchase history
 5 - Choose another customer
 6 - Back to menu
@@ -92,12 +93,13 @@ Address:
  - City:          New York
  - Country:       United States of America
 Total purchase:   1529
-Fidelity points:  76.45
+Loyalty points:  76.45
 ```
 
 ### Add a new purchase
 
 A purchase is defined by two things:
+
 - the current date
 - the amount
 
@@ -128,7 +130,7 @@ ALICE COOPER'S PURCHASE HISTORY
 
 Each function looks abstract and unclear at the moment but hang on! The features are present, and this reminder will help to keep a fixed and comforting coding environment while working!
 
-Do you start feeling our direction and how we can handle this problem? 
+Do you start feeling our direction and how we can handle this problem?
 
 ## Code
 
@@ -154,8 +156,9 @@ An uuid is a unique string. To identity the customers, use uuid to create their 
 ```javascript
 import * as uuid from "uuid";
 
-const id = uuid.v4() // af7bce0f-0f44-4b54-b333-7ea46ddb5b3d
+const id = uuid.v4(); // af7bce0f-0f44-4b54-b333-7ea46ddb5b3d
 ```
+
 ---
 
 ## Good Luck !! 💪
