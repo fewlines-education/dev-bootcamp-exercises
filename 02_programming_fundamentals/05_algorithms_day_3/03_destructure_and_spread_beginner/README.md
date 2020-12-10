@@ -1,4 +1,4 @@
-# Destructure and spread
+# Destructure and spread : beginner
 
 ## Context and Objectives
 
@@ -91,9 +91,9 @@ The `recursiveBouncer` function takes an array as a parameter. It has to use use
 ```js
 recursiveBouncer([1, 2, 3]);
 // will log
-1
-2
-3
+1;
+2;
+3;
 ```
 
 ## Tests
