@@ -9,7 +9,7 @@ In this exercise you will wrap the reader usage in a function to allow the use o
 
 For ease of use in Typescript and testing we give you the `fwl-readline` package.
 Don't be affraid as it works pretty much the same way you used to with `readline`
-It won't chant anything for you: take a loot at the `src/reader.ts` file.
+It won't change anything for you: take a look at the `src/reader.ts` file.
 
 ## SPECS
 
