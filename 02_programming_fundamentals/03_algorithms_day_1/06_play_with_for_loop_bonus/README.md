@@ -1,4 +1,4 @@
-# Draw some shapes using loop
+# Draw some shapes using loop (bonus)
 
 ## Context and Objectives
 
