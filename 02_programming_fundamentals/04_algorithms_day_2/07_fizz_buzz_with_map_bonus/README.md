@@ -1,4 +1,4 @@
-# Fizz buzz with map
+# Fizz buzz with map (bonus)
 
 ## Context and objectives
 

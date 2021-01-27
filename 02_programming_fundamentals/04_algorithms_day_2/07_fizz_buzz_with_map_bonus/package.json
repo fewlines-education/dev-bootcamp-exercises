@@ -1,5 +1,5 @@
 {
-  "name": "06_fizz_buzz_with_map",
+  "name": "07_fizz_buzz_with_map_bonus",
   "version": "1.0.0",
   "description": "Fizz buzz is a group word game for children to teach them about division. Players take turns to count incrementally, replacing any number divisible by three with the word `fizz`, and any number divisible by five with the word `buzz`.",
   "main": "./src/index.js",
@@ -9,8 +9,8 @@
     "test": "eslint --ext .js,.ts . && jest"
   },
   "devDependencies": {
-    "eslint": "7.7.0",
-    "jest": "26.4.2"
+    "eslint": "7.18.0",
+    "jest": "26.6.3"
   },
   "jest": {
     "testEnvironment": "node"
