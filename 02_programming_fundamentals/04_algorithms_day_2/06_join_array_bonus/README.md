@@ -1,4 +1,4 @@
-# Join an array
+# Join an array (bonus)
 
 ## Context and Objectives
 
