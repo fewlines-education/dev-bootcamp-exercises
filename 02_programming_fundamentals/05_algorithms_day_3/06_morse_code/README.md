@@ -4,7 +4,7 @@
 
 In the same spirit of the last exercise, the goal here is to hone your skills.
 And why not learn some morse code in the meantime.
-On this exercise, you have to write a simple Morse code decoder. While the Morse code is now mostly superseded by voice and digital data communication channels, it still has its use in some applications around the world.
+In this exercise, you have to write a simple Morse code decoder. While the Morse code is now mostly superseded by voice and digital data communication channels, it still has its use in some applications around the world. (like in Aviation and Aeronautical fields)
 
 ## Specs
 
@@ -13,6 +13,8 @@ The Morse code encodes every character as a sequence of "dots" and "dashes". For
 ```
 ···· · −·−−   ·−−− ··− −·· ·
 ```
+
+**Don't worry**: We provided you the morse code 😉
 
 **NOTE**: Extra spaces before or after the code have no meaning and should be ignored.
 
