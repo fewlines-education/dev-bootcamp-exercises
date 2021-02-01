@@ -17,6 +17,30 @@ Here are the available answers of the program:
 - Too high: "Too high"
 - Success: "You won!"
 
+A full game sequence should look like this: 
+
+```
+Welcome!
+You have to find the right number, between 1 and 100!
+Good luck!!
+
+Enter a number
+> Fewlines
+This was not a number
+
+Enter a number
+> 50
+Too high
+
+Enter a number
+> 20
+Too low
+
+Enter a number
+> 48
+You won!
+```
+
 The program must loop until the user guesses the right number.
 
 The `numberGame` function takes a `min` and a `max` optional numbers. For the random generated number, feel free to consider that min is always `1` (or have fun and try to generate a random integer between `min` and `max`)
