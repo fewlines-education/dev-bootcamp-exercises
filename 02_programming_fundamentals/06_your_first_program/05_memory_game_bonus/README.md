@@ -1,4 +1,4 @@
-# Memory Game
+# Memory Game (bonus)
 
 ## Context and objectives
 

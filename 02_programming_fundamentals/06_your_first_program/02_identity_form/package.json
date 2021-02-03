@@ -1,20 +1,24 @@
 {
-  "name": "04_memory_game",
+  "name": "02_identity_form",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "test": "eslint --ext .js . && jest"
   },
   "devDependencies": {
-    "eslint": "7.7.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-prettier": "3.1.4",
-    "prettier": "2.1.1"
+    "eslint": "7.18.0",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "jest": "26.6.3",
+    "prettier": "2.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "eslintConfig": {
-    "root": true,
     "parserOptions": {
       "ecmaVersion": 2020,
       "sourceType": "module"
@@ -30,6 +34,7 @@
     },
     "ignorePatterns": [
       "node_modules/",
+      "*.test.js",
       "src.sample/*"
     ],
     "rules": {
