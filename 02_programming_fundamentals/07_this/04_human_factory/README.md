@@ -32,11 +32,11 @@ You must code two functions in the `src/humanFactory.js` file:
 
 ### `humanFactory`
 
-This function should take an optional object as a parameter.
+This function takes an **optional object as a parameter**.
 If no object is given, here is what the function should return:
 
 ```javascript
-const human = humanFactor();
+const human = humanFactory();
 human.firstName; // "John"
 human.lastName; // "Doe"
 human.genre; // "male"
@@ -48,7 +48,7 @@ human.introduction(); // "Hello! My name is John Doe."
 If an object is given:
 
 ```javascript
-const human = humanFactor({ genre: "female" });
+const human = humanFactory({ genre: "female" });
 human.firstName; // "Jane"
 human.lastName; // "Doe"
 human.genre; // "female"
@@ -63,7 +63,7 @@ const humanData = {
   job: "CEO@Ford",
   quote: "Coming together is a beginning; keeping together is progress; working together is success",
 };
-const human = humanFactor(humanData);
+const human = humanFactory(humanData);
 human.firstName; // "Henry"
 human.lastName; // "Ford"
 human.genre; // "male"

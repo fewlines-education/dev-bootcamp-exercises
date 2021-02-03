@@ -1,11 +1,5 @@
 const { createHumans, humanFactory } = require("../src/humanFactory");
 
-const al = {
-  firstName: "Albert",
-  lastName: "Einstein",
-  quote: "If you can't explain it to a six year old, you don't understand it yourself.",
-  job: "Theoretical Physicist",
-};
 
 const sigourney = {
   firstName: "Sigourney",
