@@ -1,4 +1,5 @@
 const car = require("../src/car");
+const { expectMessage } = require("camp2-helpers");
 
 describe("Chaining", () => {
   let fakeLog;
@@ -16,7 +17,7 @@ describe("Chaining", () => {
     });
 
     it("Should return the car", () => {
-      expect(car.start()).toEqual(car);
+      expectMessage(car.start(), "Hint: start() must reset all the car's data", "warning").toEqual(car);
     });
   });
 
