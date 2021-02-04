@@ -1,29 +1,49 @@
-const { recursiveBouncer, arrayCrusher } = require("./arraysDestructureSpread");
-const { getConfig, logInfos } = require("./objectsDestructureSpread");
+// Here are some examples 
 
-// const userConfig = {
-//   user: {
-//     name: "John",
-//     password: "123123",
-//     admin: true,
-//   },
-//   hardware: {
-//     CPUThreads: 2,
-//   },
-// };
-// const config = getConfig(userConfig);
-// console.log(config);
+let multipleProfiles = {
+  client: {
+    firstName: "John",
+    lastName: "Doe",
+  },
+  address: {
+    street: "221B Baker Street",
+    city: "London",
+  },
+  delivery: {
+    package: "ballistic vest",
+  },
+};
 
-// logInfos({
-//   firstName: "John",
-//   lastName: "Rambo",
-//   address: {
-//     city: "Hope",
-//     country: "Canada",
-//   },
-// });
+/*
+Should be cleaned this way => 
+{
+  firstName: 'John',
+  lastName: "Doe",
+  street: "221B Baker Street",
+  city: "London",
+  package: "ballistic vest",
+};
+*/ 
 
-// const numbers = arrayCrusher([1, 2], [3, 4]);
-// console.log(numbers);
+let storageHell = [["ballistic vest", "sword"], [], ["IPad", "IPhone"], ["GameBoy color"], ["Nes", "donkey kong 64"], ["hades pc game"], ["Apex Legends Starter Pack", "LG 5K 27p screen"], ["Levi's jean"], ["Coffee Machine", "Azelad"]];
+// Should be cleaned this way => ["ballistic vest", "sword", "IPad", "IPhone", "GameBoy color", "Nes", "donkey kong 64", "hades pc game", "Apex Legends Starter Pack", "LG 5K 27p screen", "Levi's jean", "Coffee Machine", "Azelad"]
 
-// recursiveBouncer([1, 2, 3]);
+function employeeProfile() {
+  // Code your function here
+}
+
+function formatStorage() {
+  // Code your function here
+}
+
+
+// Feel free to uncomment those, or even create more to try everything you do :
+
+// console.log(objectParadise(objectHell));
+// console.log(arrayParadise(arrayHell));
+
+// Don't modify this, it is for the tests.
+module.exports = {
+  formatStorage,
+  employeeProfile,
+};
