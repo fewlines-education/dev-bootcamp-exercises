@@ -45,7 +45,7 @@ describe("Work with several files", () => {
         expect(typeof drinks.expresso).toBe("function");
       });
 
-      it("Should take a container as a parameter", () => {
+      it("Should have a 'container' parameter", () => {
         expect(drinks.expresso.length).toBe(1);
       });
     });
@@ -58,7 +58,7 @@ describe("Work with several files", () => {
         expect(typeof machine.fillWithLitersOfCoffee).toBe("function");
       });
 
-      it("Should take a container as a parameter", () => {
+      it("Should have a 'container' parameter", () => {
         expect(machine.fillWithLitersOfCoffee.length).toBe(1);
       });
     });
