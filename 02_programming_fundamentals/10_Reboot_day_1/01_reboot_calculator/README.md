@@ -79,7 +79,7 @@ Enter the second number
 
 Look in the `src/index.js`. You'll see for the program to work well, you'll need to code and export the `calculator` function in the `src/calculator.js` file. This file doesn't exist yet, create it just next to `index.js`.
 
-### Bonus: Follow up
+### Follow up
 
 When this is done, you still have work to do:
 
