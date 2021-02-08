@@ -1,5 +1,5 @@
 {
-  "name": "03_regex_calculator",
+  "name": "03_regex_calculator_bonus",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",

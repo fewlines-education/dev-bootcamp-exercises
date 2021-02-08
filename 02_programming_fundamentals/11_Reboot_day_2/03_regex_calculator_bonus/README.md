@@ -1,4 +1,4 @@
-# Regex Calculator
+# Regex Calculator (bonus)
 
 ## Context and objectives
 
