@@ -1,4 +1,4 @@
-# Loyalty Card Manager persistence
+# Loyalty Card Manager persistence (bonus)
 
 ## Context and objectives
 
