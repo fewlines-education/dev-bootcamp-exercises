@@ -1,4 +1,4 @@
-# Refactor Tic Tac Toe
+# Refactor Tic Tac Toe (bonus)
 
 # Context and objectives
 
