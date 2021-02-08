@@ -1,4 +1,4 @@
-# A first package
+# Play with time
 
 ## Context and objectives
 
