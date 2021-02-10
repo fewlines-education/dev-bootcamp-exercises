@@ -1,8 +1,7 @@
 import * as path from "path";
 
-import { readCode } from "./utils/readCode";
-import { Tree } from "../src/Tree";
-import { OrangeTree } from "../src/OrangeTree";
+import * as helpers from "camp2-helpers";
+
 import {
   findNode,
   Node,
@@ -15,7 +14,7 @@ describe("Tree parent class", () => {
   let treeClassNode: Node;
 
   beforeAll(async (done) => {
-    const studentCode = await readCode(
+    const studentCode = await helpers.readCode(
       path.resolve(__dirname, "../src/Tree.ts")
     );
 
@@ -201,7 +200,7 @@ describe("OrangeTree class:", () => {
   let orangeTreeNode: Node;
 
   beforeAll(async (done) => {
-    const studentCode = await readCode(
+    const studentCode = await helpers.readCode(
       path.resolve(__dirname, "../src/OrangeTree.ts")
     );
 

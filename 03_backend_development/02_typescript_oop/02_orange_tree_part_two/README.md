@@ -24,7 +24,7 @@ Here is a more detailed overview of what you must achieve with your orange tree:
 - `ageOneYear`, has 3 main jobs:
 
   - it increments the `age` property by 1,
-  - it increase the height, following these specs:
+  - it increases the height, following these specs:
     - 25 centimeters per year, from 1 to 9 years old (included).
     - 10 centimeters per year, from 10 to 20 years old (included).
     - It should stop growing after 20 years old.
@@ -43,7 +43,7 @@ Here is a more detailed overview of what you must achieve with your orange tree:
   - set `age` and `height` to 0
   - set `alive` to `true`.
 
-- `growOranges`, used to reset `oranges` to 0, then increments oranges (🍊), based on the following specs:
+- `growOranges`, increments oranges (🍊), based on the following specs:
 
   - 0 oranges (🍊) each year, from 0 to 4 years old (included).
   - 10 oranges (🍊) each year, from 5 to 10 years old (included).
@@ -54,7 +54,7 @@ Here is a more detailed overview of what you must achieve with your orange tree:
 
 - `pickAnOrange`, used to remove one orange (🍊) from `oranges`.
 
-⚠️ Some details are not given right away. Do not hesitate to run the tests if you need some help.
+⚠️ If you need more details, feel free to run the tests.
 
 As the owner of the tree, you should be able to:
 

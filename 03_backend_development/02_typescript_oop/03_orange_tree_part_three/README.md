@@ -21,7 +21,7 @@ This allows you to create `getters` and `setters` with the name you intended (`t
 
 You must add the `protected` access modifier to the class' properties, and to the `_isAlive` method.
 
-We know that `isAlive` is not meant to be accessed outside of the sub-class scope, so we should also restrict the outside access to it. Do you think this `_isAlive` should be `private` or `protected`? Try them both, TypeScript should be there to help you on this one 😁.
+We know that `isAlive` is not meant to be accessed outside the sub-class scope, so we should also restrict the outside access to it. Do you think this `_isAlive` should be `private` or `protected`? Try them both, TypeScript should be there to help you on this one 😁.
 
 > ⚠️ Keep in mind that declaring a class member as `protected` in the parent class doesn't enforce the behavior in derived classes.
 

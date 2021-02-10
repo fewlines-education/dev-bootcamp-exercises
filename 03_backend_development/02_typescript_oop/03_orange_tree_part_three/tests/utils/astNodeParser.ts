@@ -64,6 +64,9 @@ export interface Node extends namedTypes.Node {
   params: Node[];
   value: Node;
   superClass: Node;
+  returnType: {
+    typeAnnotation: Node;
+  } & Node;
 }
 
 export function findNode(

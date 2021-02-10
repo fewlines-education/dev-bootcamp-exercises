@@ -26,7 +26,7 @@ import * as tsParser from "recast/parsers/typescript";
   To prevent breaking the tests in case of searching something that is not in the ast,
   the function returns "undefined".
 
-  This is a WIP, if you probably should investigate the ast if you can't find what you are looking for.
+  This is a WIP, you probably should investigate the ast if you can't find what you are looking for.
  */
 
 export enum NODE_TYPE {
@@ -64,6 +64,9 @@ export interface Node extends namedTypes.Node {
   params: Node[];
   value: Node;
   superClass: Node;
+  returnType: {
+    typeAnnotation: Node;
+  } & Node;
 }
 
 export function findNode(

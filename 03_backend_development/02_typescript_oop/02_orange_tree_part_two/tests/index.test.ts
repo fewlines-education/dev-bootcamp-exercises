@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as path from "path";
+import * as helpers from "camp2-helpers";
 
-import { readCode } from "./utils/readCode";
 import { Tree } from "../src/Tree";
 import { OrangeTree } from "../src/OrangeTree";
 
@@ -120,7 +120,7 @@ describe("Tree class", () => {
     it("should have an abstract method called isAlive.", async (done) => {
       expect.assertions(1);
 
-      const studentCode = await readCode(
+      const studentCode = await helpers.readCode(
         path.resolve(__dirname, "../src/Tree.ts")
       );
 
@@ -136,7 +136,7 @@ describe("Tree class", () => {
     it("should have an abstract method called ageOneYear.", async (done) => {
       expect.assertions(1);
 
-      const studentCode = await readCode(
+      const studentCode = await helpers.readCode(
         path.resolve(__dirname, "../src/Tree.ts")
       );
 
@@ -286,7 +286,7 @@ describe("OrangeTree class:", () => {
         expect(typeof tree.isAlive).toBe("function");
       });
 
-      it("should return boolean", async () => {
+      it("should return a boolean", async () => {
         expect.assertions(1);
 
         const tree = new OrangeTree(2);

@@ -10,7 +10,7 @@ We'll push the concept further, by adding the tools TypeScript gives us access t
 
 ## Overview
 
-Here is a basic overview of what we want to do with our orange tree at the **end of the day**.
+Here is a basic overview of what we want to do with our orange tree at the **end of the day**, not just for the part I.
 
 It must:
 

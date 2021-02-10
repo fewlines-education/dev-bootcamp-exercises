@@ -1,6 +1,6 @@
 import * as path from "path";
+import * as helpers from "camp2-helpers";
 
-import { readCode } from "./utils/readCode";
 import { Tree } from "../src/index";
 import { findNode, Node, NODE_TYPE, NODE_KIND } from "./utils/astNodeParser";
 
@@ -8,7 +8,7 @@ describe("Tree class", () => {
   let treeClassNode: Node;
 
   beforeAll(async (done) => {
-    const studentCode = await readCode(
+    const studentCode = await helpers.readCode(
       path.resolve(__dirname, "../src/index.ts")
     );
 
