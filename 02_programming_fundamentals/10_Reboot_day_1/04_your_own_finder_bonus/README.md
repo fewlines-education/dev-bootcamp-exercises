@@ -1,4 +1,4 @@
-# Your own Finder
+# Your own Finder (bonus)
 
 ## Context and objectives
 
@@ -21,7 +21,7 @@ Eg:
 5. README.md
 ```
 
-Then, ask the a question to the user. She/He should choose a number available on the screen.
+Then, ask the question to the User. The User should choose a number available on the screen.
 
 If the input refers to a directory, then display the content of this directory.
 
