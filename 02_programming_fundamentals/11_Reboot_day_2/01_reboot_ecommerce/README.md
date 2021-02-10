@@ -1,10 +1,10 @@
 # E-Commerce
 
-If you already bought something on the internet, you probably know what an e-commerce website is: they allow you to search and buy products!
+If you already bought something on the internet, you probably know what an e-commerce website goal is: It allows you to search and buy products!
 
 Of course, we would need some kind of interface and what we call a **business logic**!
 
-We want you to code the kind of interfaces that had to be programmed in old computers before the mouse was even a thing, where the only thing they could do was display text and read text back.
+We want you to code the kind of interfaces that had to be programmed in old computers before the mouse was even a thing (like on the minitel ), where the only thing they could do was display text and read text back.
 
 ## Specs
 
@@ -12,7 +12,7 @@ Let's see first what our e-commerce flow should look like:
 
 ![e-commerce flow](./assets/images/e-commerce-flow.png)
 
-When the user start the application, it's logical to present the menu.
+When the user start the application, it's logical to display the menu.
 The user has then to choose the next operation:
 
 - Buy a product.
@@ -20,7 +20,7 @@ The user has then to choose the next operation:
 - Checkout the bill.
 - Quit the program.
 
-But inside each of those steps, there are things to do!
+But inside each of those steps, there are cool things to do!
 
 ### Menu
 
@@ -115,10 +115,10 @@ GOODBYE!
 ✨  Done in 745.43s.
 ```
 
-Even here there is something to do. How will you manage if the customer try to quit without paying?
+Even here there is something to do. How will you manage if the customer tries to quit without paying?
 
-What do to when the customer has paid and the next one comes?
+What to do when the customer has paid and the next one comes?
 
 ## Tests
 
-There are no tests for this exercise. Your program "just" has to work 😉.
+There are no tests for this exercise. Your program "just" has to work properly 😉.
