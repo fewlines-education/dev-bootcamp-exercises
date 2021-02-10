@@ -1,4 +1,4 @@
-const { clientProfile, formatStorage } = require("../src/index");
+const { customerProfile, formatStorage } = require("../src/index");
 
 describe("Destructuring and spread with Arrays", () => {
   describe("#formatStorage", () => {
@@ -29,19 +29,23 @@ describe("Destructuring and spread with Arrays", () => {
     });
   });
 
-  describe("#clientProfile", () => {
+  describe("#customerProfile", () => {
     it("Should return an object", () => {
       const testObject = {
-        clientProfile: {
-          name: "John",
+        customer: {
+          firstName: "John",
+          lastName: "Doe",
         },
-        computerProfile: {
-          CPUThreads: 2,
-          Ram: 16,
-          Retina: true,
-        }
+        address: {
+          street: "221B Baker Street",
+          city: "London",
+        },
+        delivery: {
+          package: "ballistic vest",
+        },
       };
-      const testResult = clientProfile(testObject);
+
+      const testResult = customerProfile(testObject);
 
       expect(testResult).not.toBe(null);
       expect(typeof testResult).toBe("object");
@@ -49,16 +53,24 @@ describe("Destructuring and spread with Arrays", () => {
 
     it("Should not return an array", () => {
       const testObject = {
-        clientProfile: {
-          name: "John",
+        customer: {
+          firstName: "Mrs",
+          lastName: "Doubtfire",
+          address: {
+            street: "520-522 Green Street ",
+            city: "San Francisco",
+          },
         },
-        computerProfile: {
-          CPUThreads: 2,
-          Ram: 16,
-          Retina: true,
+        delivery: {
+          item: "Water bottles",
+          address: {
+            street: "2640 Steiner Street",
+            city: "San Francisco",
+          },
         },
       };
-      const testResult = clientProfile(testObject);
+
+      const testResult = customerProfile(testObject);
       
       expect(testResult).not.toBe(undefined);
       expect(Array.isArray(testResult)).toBe(false);
@@ -66,35 +78,56 @@ describe("Destructuring and spread with Arrays", () => {
 
     it("Shouldn't change the key names inside the objects", () => {
       const testObject = {
-        clientProfile: {
-          name: "John",
+        customer: {
+          firstName: "Mrs",
+          lastName: "Doubtfire",
+          address: {
+            street: "520-522 Green Street ",
+            city: "San Francisco",
+          },
         },
-        computerProfile: {
-          cpuThreads: 2,
-          ram: 16,
-          retina: true,
+        delivery: {
+          item: "Water bottles",
+          address: {
+            street: "2640 Steiner Street",
+            city: "San Francisco",
+          },
         },
       };
-      const testResult = clientProfile(testObject);
-      const testKeys = ["name", "cpuThreads", "ram", "retina"]
+
+      const testResult = customerProfile(testObject);
+      const testKeys = ["firstName", "lastName", "address", "item"]
 
       expect(Object.keys(testResult)).toEqual(testKeys);
     });
 
     it("Should concatenate all sub-objects in one object", () => {
       const testObject = {
-        clientProfile: {
-          name: "John",
+        customer: {
+          firstName: "Mrs",
+          lastName: "Doubtfire",
+          address: {
+            street: "520-522 Green Street ",
+            city: "San Francisco",
+          },
         },
-        computerProfile: {
-          cpuThreads: 2,
-          ram: 16,
-          retina: true,
+        delivery: {
+          item: "Water bottles",
+          address: {
+            street: "2640 Steiner Street",
+            city: "San Francisco",
+          },
         },
       };
-      const testResult = clientProfile(testObject);
 
-      const groundTruth = { name: "John", cpuThreads: 2, ram: 16, retina: true };
+      const testResult = customerProfile(testObject);
+
+      const groundTruth = {
+        firstName: 'Mrs',
+        lastName: 'Doubtfire',
+        address: { street: '2640 Steiner Street', city: 'San Francisco' },
+        item: 'Water bottles'
+      }
 
       expect(testResult).toEqual(groundTruth);
     });

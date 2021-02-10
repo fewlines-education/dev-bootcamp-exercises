@@ -22,13 +22,13 @@ Same as in the previous exercises, don't forget to use Prettier to help you form
 
 Code in the `src/index.js` file.
 
-The new IT crew wants to create more compact carts for the clients when delivering. Help them automate it by creating a function that does that for you.
+The new IT crew wants to create more compact carts for the customers when delivering. Help them automate it by creating a function that does that for you.
 
 The `getCart` function should take an object as a parameter, override it with the defaut configuration and return it, like this:
 
 ```js
 let deliveryHell = {
-  client: {
+  customer: {
     firstName: "John",
     lastName: "Doe",
   },
@@ -41,9 +41,9 @@ let deliveryHell = {
   },
 };
 
-const clientCart = getCart(deliveryHell);
+const customerCart = getCart(deliveryHell);
 
-// a client's cart should look like:
+// a customer's cart should look like:
 {
   firstName: 'John',
   lastName: "Doe",
