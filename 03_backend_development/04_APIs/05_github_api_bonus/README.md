@@ -1,4 +1,4 @@
-# Github Api
+# Github Api (bonus)
 
 ## Context and objectives
 
