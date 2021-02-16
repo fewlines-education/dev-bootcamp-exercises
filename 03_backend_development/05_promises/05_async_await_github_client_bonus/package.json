@@ -1,5 +1,5 @@
 {
-  "name": "async-await-github-client",
+  "name": "05_async_await_github_client_bonus",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
