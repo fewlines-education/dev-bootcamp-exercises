@@ -14,7 +14,7 @@ Then you need two new functionalities:
 
 ### Load data
 
-When your program starts, it has to load the data coming from the `customer.json` file located in the `data` folder we created for you.
+When your program starts, it has to load the data coming from the `src/data/customer.json` file.
 
 > Once the file is open, you will get a string version of this data. Look at `JSON.parse` **[documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/parse)** to transform it into a usable data type.
 
