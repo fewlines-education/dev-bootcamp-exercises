@@ -14,84 +14,9 @@ Then you need two new functionalities:
 
 ### Load data
 
-When your program starts, it has to load the data coming from a file.
-Create the file `src/data/customers.json` and paste this inside:
+When your program starts, it has to load the data coming from the `customer.json` file located in the `data` folder we created for you.
 
-```json
-[
-  {
-    "id": "43784629-a4d8-4471-84c4-464d3a5822de",
-    "firstName": "Alice",
-    "lastName": "Cooper",
-    "email": "alice.cooper@fake.local",
-    "birthDate": "01/14/1959",
-    "purchaseHistory": [
-      [
-        "12/12/2000",
-        200
-      ],
-      [
-        "12/12/2001",
-        400
-      ],
-      [
-        "12/12/2002",
-        600
-      ],
-      [
-        "13/09/2020",
-        329
-      ],
-      [
-        "13/09/2020",
-        400
-      ]
-    ],
-    "usedFidelityPoints": 0,
-    "fidelityPoints": 96.45,
-    "address": {
-      "city": "New York",
-      "country": "United States of America"
-    }
-  },
-  {
-    "id": "af7bce0f-0f44-4b54-b333-7ea46ddb5b3d",
-    "firstName": "Bob",
-    "lastName": "Sponge",
-    "email": "sponge.bob@fake.local",
-    "birthDate": "26/05/1932",
-    "purchaseHistory": [
-      [
-        "13/09/2020",
-        1200
-      ]
-    ],
-    "usedFidelityPoints": 0,
-    "fidelityPoints": 60,
-    "address": {
-      "city": "Atlantis",
-      "country": "Deepsea"
-    }
-  },
-  {
-    "id": "9a5ef4e4-1c5c-42c1-8d5d-e9cfcdadce79",
-    "firstName": "Charlie",
-    "lastName": "Andthechocolatefactory",
-    "email": "charlie.andthechocolatefactory@fake.local",
-    "birthDate": "03/08/1946",
-    "purchaseHistory": [],
-    "usedFidelityPoints": 0,
-    "fidelityPoints": 0,
-    "address": {
-      "city": "",
-      "country": ""
-    }
-  }
-]
-```
 > Once the file is open, you will get a string version of this data. Look at `JSON.parse` **[documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/JSON/parse)** to transform it into a usable data type.
-
-When starting your program, you should now have access to those customers.
 
 ### Save data
 
