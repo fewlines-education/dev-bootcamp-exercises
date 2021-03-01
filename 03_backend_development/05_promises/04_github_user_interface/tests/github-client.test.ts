@@ -22,22 +22,17 @@ const repo = {
 
 describe("Github Client", () => {
   afterEach(() => fetch.reset());
+  afterAll(async () => fetch.mockRestore());
 
   describe("#getReposUrl", () => {
-    it("Must use fetch", () => {
-      expect.assertions(1);
-
-      fetch.once(/\w*/, {});
-      GithubClient.getReposUrl("fewlinesco");
-      expect(fetch.called()).toBe(true);
-    });
-
     it("Must use the nickname parameter in the url", () => {
       expect.assertions(3);
       
       expect(GithubClient.getReposUrl.length).toBe(1)
       
-      fetch.once(/\w*/, {});
+      const fetchResponse = profile;
+      fetch.once(/\w*/, fetchResponse);
+
       
       GithubClient.getReposUrl("fewlinesco");
       expect(fetch.called()).toBe(true);
@@ -52,6 +47,7 @@ describe("Github Client", () => {
       const promise = GithubClient.getReposUrl("fewlinesco")
       const reposUrl = await promise.then(res => res)
 
+
       expect(typeof promise.then).toBe('function')
       expect(typeof promise.catch).toBe('function')
       expect(reposUrl).toBe(fetchResponse.repos_url)
@@ -60,11 +56,11 @@ describe("Github Client", () => {
     it("Must throw an error with a clear message when the user doesn't exist", async () => {
       expect.assertions(3);
 
-      const fetchResponse = userNotFound;
+      const fetchResponse = "This User doesn't exist";
       fetch.once(/\w*/, fetchResponse);
       const promise = GithubClient.getReposUrl("fakeUser")
       const errorMessage = await promise.catch(error => error.message)
-      console.log(errorMessage)
+
 
       expect(typeof promise.then).toBe('function')
       expect(typeof promise.catch).toBe('function')
@@ -77,6 +73,8 @@ describe("Github Client", () => {
       expect.assertions(1);
 
       fetch.once(/\w*/, {});
+
+
       GithubClient.getRepos("https://fake-url.io");
       expect(fetch.called()).toBe(true);
     });
@@ -87,6 +85,7 @@ describe("Github Client", () => {
       expect(GithubClient.getRepos.length).toBe(1)
       
       fetch.once(/\w*/, {});
+
       
       GithubClient.getRepos("https://fake-url.io/");
       expect(fetch.called()).toBe(true);
@@ -101,6 +100,7 @@ describe("Github Client", () => {
       const promise = GithubClient.getRepos("https://fake-url.io/")
       const repos = await promise.then(res => res)
 
+
       expect(typeof promise.then).toBe('function')
       expect(typeof promise.catch).toBe('function')
       expect(repos).toEqual(fetchResponse)
@@ -112,6 +112,8 @@ describe("Github Client", () => {
       expect.assertions(1);
 
       fetch.once(/\w*/, {});
+
+
       GithubClient.getProjectInformations("https://fake-url.io");
       expect(fetch.called()).toBe(true);
     });
@@ -122,6 +124,7 @@ describe("Github Client", () => {
       expect(GithubClient.getRepos.length).toBe(1)
       
       fetch.once(/\w*/, {});
+
       
       GithubClient.getProjectInformations("https://fake-url.io/");
       expect(fetch.called()).toBe(true);
@@ -135,6 +138,7 @@ describe("Github Client", () => {
       fetch.once(/\w*/, fetchResponse);
       const promise = GithubClient.getRepos("https://fake-url.io/")
       const repository = await promise.then(res => res)
+
   
       expect(typeof promise.then).toBe('function')
       expect(typeof promise.catch).toBe('function')
@@ -152,27 +156,25 @@ describe("Github Client", () => {
     it("Must return the array", () => {
       expect.assertions(1)
 
-      const realLog = console.log
-      console.log = jest.fn()
+      const fakeLog = jest.spyOn(console, "log").mockImplementation();
 
       const repositories = GithubClient.printRepos([repo])
 
       expect(repositories).toEqual([repo])
       
-      console.log = realLog
+      fakeLog.mockRestore();
     })
 
     it("Must use 'console.log' to print the list of repositories in the right format", () => {
       expect.assertions(1)
 
-      const realLog = console.log
-      console.log = jest.fn((log) => {
-        expect(log).toMatch(/.*1.*fake repo/)
-      })
+      const fakeLog = jest.spyOn(console, "log").mockImplementation((log) => {
+        expect(log).toMatch(/.*1.*fake repo/);
+      });
       
       GithubClient.printRepos([repo])
       
-      console.log = realLog
+      fakeLog.mockRestore();
     })
   })
 
@@ -186,11 +188,10 @@ describe("Github Client", () => {
     it("Must use 'console.log' to print the repository informations", () => {
       expect.assertions(6)
 
-      const realLog = console.log
-      let result = "\n"
-      console.log = jest.fn((log) => {
-        result += log + "\n"
-      })
+      let result = "\n";
+      const fakeLog = jest.spyOn(console, "log").mockImplementation((log) => {
+        result += log + "\n";
+      });
       
       GithubClient.printRepository(repo)
       
@@ -201,7 +202,7 @@ describe("Github Client", () => {
       expect(result).toMatch(/.*typescript.*/i)
       expect(result).toMatch(/.*git:\/\/github.com\/fake-user\/fake-repo.git.*/i)
       
-      console.log = realLog
+      fakeLog.mockRestore();
     })
   })
 });

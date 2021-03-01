@@ -1,6 +1,5 @@
-import ask from "./lib/ask";
-import { closeRl } from "./lib/reader";
-import { GithubClient, Repo } from "./github-client"
+import { ask, closeRl } from "../interface";
+import { GithubClient, Repo } from "./github-client";
 
 ask("Github nickname\n> ")
   .then((nickname) => GithubClient.getReposUrl(nickname))
