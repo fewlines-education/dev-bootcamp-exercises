@@ -1,9 +1,14 @@
-import fetch, { Response } from "node-fetch";
+import { getReposUrlByNickname, listRepos, getOneRepoInfos } from "../utils";
 
 export type Repo = {
   url: string;
   name: string;
   [key: string]: string |number |boolean |null;
+}
+
+export type GitHub = {
+  message: string;
+  repos_url: string;
 }
 
 export class GithubClient {
