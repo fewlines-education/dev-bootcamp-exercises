@@ -1,5 +1,4 @@
-import ask from "./lib/ask";
-import { closeRl } from "./lib/reader";
+import { closeRl, ask } from "../interface";
 import { GithubClient } from "./github-client"
 
 async function start() {

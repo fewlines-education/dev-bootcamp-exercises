@@ -1,31 +1,10 @@
 jest.mock("node-fetch", () => require("fetch-mock-jest").sandbox());
 const fetch = require("node-fetch");
-const fs = require("fs");
+const helpers = require("camp2-helpers");
 import { GithubClient } from "../src/github-client";
 
-function readCode(path: string) {
-  return new Promise(function (resolve, reject) {
-    fs.readFile(path, "utf8", function (err: Error, text: string) {
-      if (err) {
-        reject(err);
-        return;
-      }
-      const studentCode = text
-        .replace(/\/\*([^]*?)\*\//gm, "")
-        .replace(/\/\/[^]*?\n/g, "")
-        .trim();
-
-      if (studentCode.length) {
-        resolve(studentCode);
-      } else {
-        reject("File does not contain any code");
-      }
-    });
-  });
-}
-
 const profile = {
-  repos_url: "someurl",
+  repos_url: "https://api.github.com/users/fewlinesco/repos",
 };
 
 const userNotFound = {
@@ -43,14 +22,15 @@ const repo = {
 };
 
 describe("Github Client", () => {
-  afterEach(() => fetch.reset());
+  beforeEach(async () => fetch.reset());
+  afterAll(async () => fetch.mockRestore());
 
   describe("Async / Await", () => {
     test("You must not use '.then' nor '.catch'", async () => {
       expect.assertions(4);
 
-      const indexTs = await readCode("./src/index.ts");
-      const githubClientTs = await readCode("./src/github-client.ts");
+      const indexTs = await helpers.readCode("./src/index.ts");
+      const githubClientTs = await helpers.readCode("./src/github-client.ts");
 
       expect(indexTs).not.toMatch(/\.then/);
       expect(indexTs).not.toMatch(/\.catch/);
@@ -60,20 +40,13 @@ describe("Github Client", () => {
   });
 
   describe("#getReposUrl", () => {
-    it("Must use fetch", () => {
-      expect.assertions(1);
-
-      fetch.once(/\w*/, {});
-      GithubClient.getReposUrl("fewlinesco");
-      expect(fetch.called()).toBe(true);
-    });
-
     it("Must use the nickname parameter in the url", () => {
       expect.assertions(3);
 
       expect(GithubClient.getReposUrl.length).toBe(1);
 
-      fetch.once(/\w*/, {});
+      const fetchResponse = profile;
+      fetch.once(/\w*/, fetchResponse);
 
       GithubClient.getReposUrl("fewlinesco");
       expect(fetch.called()).toBe(true);
@@ -96,11 +69,10 @@ describe("Github Client", () => {
     it("Must throw and catch an error with a clear message when the user doesn't exist", async () => {
       expect.assertions(3);
 
-      const fetchResponse = userNotFound;
+      const fetchResponse = "This User doesn't exist";
       fetch.once(/\w*/, fetchResponse);
       const promise = GithubClient.getReposUrl("fakeUser");
       const errorMessage = await promise.catch((error) => error.message);
-      console.log(errorMessage);
 
       expect(typeof promise.then).toBe("function");
       expect(typeof promise.catch).toBe("function");
@@ -109,14 +81,6 @@ describe("Github Client", () => {
   });
 
   describe("#getRepos", () => {
-    it("Must use fetch", () => {
-      expect.assertions(1);
-
-      fetch.once(/\w*/, {});
-      GithubClient.getRepos("https://fake-url.io");
-      expect(fetch.called()).toBe(true);
-    });
-
     it("Must use the url parameter to make the fetch call", () => {
       expect.assertions(3);
 
@@ -124,9 +88,9 @@ describe("Github Client", () => {
 
       fetch.once(/\w*/, {});
 
-      GithubClient.getRepos("https://fake-url.io/");
+      GithubClient.getRepos("https://api.github.com/users/fewlinesco/repos");
       expect(fetch.called()).toBe(true);
-      expect(fetch.calls()[0][0]).toBe("https://fake-url.io/");
+      expect(fetch.calls()[0][0]).toBe("https://api.github.com/users/fewlinesco/repos");
     });
 
     it("Must return a promise with the repositories list", async () => {
@@ -134,7 +98,7 @@ describe("Github Client", () => {
 
       const fetchResponse = [repo, repo];
       fetch.once(/\w*/, fetchResponse);
-      const promise = GithubClient.getRepos("https://fake-url.io/");
+      const promise = GithubClient.getRepos("https://api.github.com/users/fewlinesco/repos");
       const repos = await promise.then((res) => res);
 
       expect(typeof promise.then).toBe("function");
@@ -144,14 +108,6 @@ describe("Github Client", () => {
   });
 
   describe("#getProjectInformations", () => {
-    it("Must use fetch", () => {
-      expect.assertions(1);
-
-      fetch.once(/\w*/, {});
-      GithubClient.getProjectInformations("https://fake-url.io");
-      expect(fetch.called()).toBe(true);
-    });
-
     it("Must use the url parameter to make the fetch call", () => {
       expect.assertions(3);
 
@@ -188,27 +144,25 @@ describe("Github Client", () => {
     it("Must return the array", () => {
       expect.assertions(1);
 
-      const realLog = console.log;
-      console.log = jest.fn();
+      const fakeLog = jest.spyOn(console, "log").mockImplementation();
 
       const repositories = GithubClient.printRepos([repo]);
 
       expect(repositories).toEqual([repo]);
 
-      console.log = realLog;
+      fakeLog.mockRestore();
     });
 
     it("Must use 'console.log' to print the list of repositories in the right format", () => {
       expect.assertions(1);
 
-      const realLog = console.log;
-      console.log = jest.fn((log) => {
+      const fakeLog = jest.spyOn(console, "log").mockImplementation((log) => {
         expect(log).toMatch(/.*1.*fake repo/);
       });
 
       GithubClient.printRepos([repo]);
 
-      console.log = realLog;
+      fakeLog.mockRestore();
     });
   });
 
@@ -222,9 +176,8 @@ describe("Github Client", () => {
     it("Must use 'console.log' to print the repository informations", () => {
       expect.assertions(6);
 
-      const realLog = console.log;
       let result = "\n";
-      console.log = jest.fn((log) => {
+      const fakeLog = jest.spyOn(console, "log").mockImplementation((log) => {
         result += log + "\n";
       });
 
@@ -239,7 +192,7 @@ describe("Github Client", () => {
         /.*git:\/\/github.com\/fake-user\/fake-repo.git.*/i
       );
 
-      console.log = realLog;
+      fakeLog.mockRestore();
     });
   });
 });

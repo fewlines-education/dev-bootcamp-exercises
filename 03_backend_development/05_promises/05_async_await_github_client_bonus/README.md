@@ -14,20 +14,20 @@ In this exercise you have to redo the Github client AND the interface without us
 ### `getReposUrl`
 
 - Must take a `nickname` string parameter: this is the user we want to search for.
-- Must use the `fetch` package to make the API call.
+- Must use the `getReposUrlByNickname` function.
 - Must return a `Promise<string>`: the url of the requested user's repositories.
 - Must **throw** an understandable error when the user does not exist.
 
 ### `getRepos`
 
 - Must take a `url` string parameter.
-- Must use the `fetch` package to make the API call to the `url` given as argument.
+- Must use the `listRepos` function with the `url` given as argument.
 - Must return an array of repositories.
 
 ### `getProjectInformations`
 
 - Must take a `url` string parameter.
-- Must use the `fetch` package to make the API call to the `url` given as argument.
+- Must use the `getOneRepoInfos` function with the `url` given as argument.
 - Must return the repository's data.
 
 Same as before, code your client in `src/github-client.ts` and your interface in `src/index.ts`.

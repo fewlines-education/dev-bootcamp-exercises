@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import { getReposUrlByNickname, listRepos, getOneRepoInfos } from "../utils";
 
 export type Repo = {
   url: string;
