@@ -112,7 +112,7 @@ test("#promo should be an object with the correct keys and values", () => {
   return studentCode.then((code) => {
     const promo = eval(code + "; promo;");
     const expected = {
-      year: 2020,
+      year: 2021,
       kind: "Sparta",
     };
     expect(promo).toEqual(expected);
@@ -141,7 +141,7 @@ describe("#prodResult", () => {
     return studentCode.then((code) => {
       const promoYear = eval(code + "; promoYear;");
 
-      expect(promoYear).toEqual(2020);
+      expect(promoYear).toEqual(2021);
     });
   });
 

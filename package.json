@@ -90,12 +90,6 @@
     "07_react/01_react_functional_components/03_forms_and_validations",
     "07_react/01_react_functional_components/04_advanced_form_validation_bonus",
     "07_react/02_typescript_and_hooks/01_interact_with_apis",
-    "07_react/02_typescript_and_hooks/02_react_timers",
-    "13_extras/01_sql_part_1/01_marathon",
-    "13_extras/01_sql_part_1/02_loyalty_points",
-    "13_extras/01_sql_part_1/03_magic_gate",
-    "13_extras/02_sql_part_2/01_sorting_and_filtering",
-    "13_extras/02_sql_part_2/02_joins",
-    "13_extras/02_sql_part_2/03_SQL_interface"
+    "07_react/02_typescript_and_hooks/02_react_timers"
   ]
 }

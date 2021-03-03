@@ -1,6 +1,6 @@
 // a constant called `hello`, bound to a string: "Sparta";
 
-// a constant called `currentYear`, bound to an integer: 2017;
+// a constant called `currentYear`, bound to an integer: 2021;
 
 // a constant called `foo`, bound to an integer: 12;
 
