@@ -6,13 +6,7 @@
 
 ### Installation
 
-In your terminal, run:
-
-```bash
-$ brew install fewlines-education/tap/sparta-cli
-```
-
-Then, you can use the command `sparta`. Try it:
+You should be able to use the command line `sparta help`. Try it:
 
 ```bash
 $ sparta help
@@ -29,18 +23,30 @@ COMMANDS
   help   display help for sparta
   init   Initializes the Sparta workspace
   sync   Updates all the exercises for the past days
+  test   Launch the tests for an exercise
   today  Downloads the exercises for the current day
 ```
-> As you can see, you have 4 available commands!
+
+> As you can see, you have 5 available commands!
+
+If this command does not return with something like this, run:
+
+```bash
+$ brew install fewlines-education/tap/sparta-cli
+```
+
+And try again.
 
 ### Exercises repository creation
 
 To start, run:
+
 ```bash
 $ sparta init
 What is the ID of your batch ?: <batch_id>
 Enter the Sparta secret token: <secret_token>
 ```
+
 > We will give you `batch_id` and `secret_token` on Slack ...
 > ... And follow the flow 🚀
 
