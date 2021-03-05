@@ -1,6 +1,6 @@
-// a constant called `hello`, bound to a string: "Sparta";
+// a constant called `question`, bound to a string: "Sparta, what is your profession?!";
 
-// a constant called `currentYear`, bound to an integer: 2021;
+// a constant called `answer`, bound to a string: "Dev dev dev!";
 
 // a constant called `foo`, bound to an integer: 12;
 
@@ -10,8 +10,8 @@
 
 // a constant called `prodResult`, bound to the product of `bar` and `foo`.
 
-// a constant called `promo`, bound to an object with a field `year`, with the value of `currentYear` and with the field `kind`, with the value of `hello`;
+// a constant called `sparta`, bound to an object with a field `check`, with the value of `ask` and with the field `response`, with the value of `answer`;
 
-// a constant called `promoYear`, bound to the value of the field `year` of the object `promo`;
+// a constant called `leader`, bound to the value of the field `check` of the object `sparta`;
 
 // a constant called `digits`, bound to an array from zero to nine.

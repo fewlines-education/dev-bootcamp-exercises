@@ -12,23 +12,23 @@ beforeAll(() => {
   return studentCode;
 });
 
-test("#hello should have 'sparta' as a value", () => {
+test("question should have 'Spartan, what is your profession ?!' as a value", () => {
   return studentCode.then((code) => {
-    const hello = eval(code + "; hello;");
+    const question = eval(code + "; question;");
 
-    expect(hello).toBe("Sparta");
+    expect(question).toBe("Spartan, what is your profession?!");
   });
 });
 
-test(`#currentYear should have an integer ${new Date().getFullYear()} as a value`, () => {
+test("answer should have 'Dev dev dev !' as a value", () => {
   return studentCode.then((code) => {
-    const currentYear = eval(code + "; currentYear;");
+    const question = eval(code + "; answer;");
 
-    expect(currentYear).toBe(new Date().getFullYear());
+    expect(question).toBe("Dev dev dev!");
   });
 });
 
-test("#foo should have an integer 12 as a value", () => {
+test("foo should have an integer 12 as a value", () => {
   return studentCode.then((code) => {
     const foo = eval(code + "; foo;");
 
@@ -36,7 +36,7 @@ test("#foo should have an integer 12 as a value", () => {
   });
 });
 
-test("#bar should have an integer 28 as a value", () => {
+test("bar should have an integer 28 as a value", () => {
   return studentCode.then((code) => {
     const bar = eval(code + "; bar;");
 
@@ -44,7 +44,7 @@ test("#bar should have an integer 28 as a value", () => {
   });
 });
 
-describe("#sumResult", () => {
+describe("sumResult", () => {
   test("Should be the sum of foo and bar as a value", () => {
     return studentCode.then((code) => {
       const sumResult = eval(code + "; sumResult;");
@@ -76,7 +76,7 @@ describe("#sumResult", () => {
   });
 });
 
-describe("#prodResult", () => {
+describe("prodResult", () => {
   test("Should be the product of bar and foo", () => {
     return studentCode.then((code) => {
       const prodResult = eval(code + "; prodResult;");
@@ -108,59 +108,61 @@ describe("#prodResult", () => {
   });
 });
 
-test("#promo should be an object with the correct keys and values", () => {
-  return studentCode.then((code) => {
-    const promo = eval(code + "; promo;");
-    const expected = {
-      year: 2021,
-      kind: "Sparta",
-    };
-    expect(promo).toEqual(expected);
-  });
-});
-
-describe("#prodResult", () => {
-  test("Should be linked to currentYear. Changing currentYear should update it", () => {
+describe("leader", () => {
+  test("Should be linked to answer. Changing answer should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp(
-          /(let|const)(\s*?)currentYear(\s*?)=(\s*?)([0-9]{4})(\s*?);/
+          /(let|const)(\s*?)answer(\s*?)=(\s*?)"Dev dev dev!"(\s*?);/
         ),
-        "const currentYear = 2000;"
+        "const answer = 'yes?';"
       );
-      const promo = eval(changedStudentCode + "; promo;");
+      const sparta = eval(changedStudentCode + "; sparta;");
       const expected = {
-        year: 2000,
-        kind: "Sparta",
+        check: "Spartan, what is your profession?!",
+        response: "yes?",
       };
-      expect(promo).toEqual(expected);
+      expect(sparta).toEqual(expected);
     });
   });
 
-  test("#promoYear should be an integer with the correct value", () => {
+  test("sparta should be an object with the correct keys and values", () => {
     return studentCode.then((code) => {
-      const promoYear = eval(code + "; promoYear;");
-
-      expect(promoYear).toEqual(2021);
+      const sparta = eval(code + "; sparta;");
+      const expected = {
+        check: "Spartan, what is your profession?!",
+        response: "Dev dev dev!",
+      };
+      expect(sparta).toEqual(expected);
     });
   });
 
-  test("#promoYear should be linked to promo. Changing the year inside promo should update it", () => {
+  test("leader should be an string with the correct value", () => {
+    return studentCode.then((code) => {
+      const leader = eval(code + "; leader;");
+
+      expect(leader).toEqual("Spartan, what is your profession?!");
+    });
+  });
+
+  test("leader should be linked to sparta. Changing the phrase inside promo should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
-        new RegExp("(let|const) promoYear"),
-        "promo.year = 2000; $&"
+        new RegExp("(let|const) leader"),
+        "sparta.check = 'yes?'; $&"
       );
-      const promoChanged = eval(changedStudentCode + "; promoYear;");
-      expect(promoChanged).toEqual(2000);
+      const promoChanged = eval(changedStudentCode + "; leader;");
+      expect(promoChanged).toEqual("yes?");
     });
   });
 });
 
-test("#digits should be an array with the correct values", () => {
-  return studentCode.then((code) => {
-    const digits = eval(code + "; digits;");
-
-    expect(digits).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+describe("digits", () => {
+  test("should be an array with the correct values", () => {
+    return studentCode.then((code) => {
+      const digits = eval(code + "; digits;");
+  
+      expect(digits).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    });
   });
 });
