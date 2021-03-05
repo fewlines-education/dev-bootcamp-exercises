@@ -28,12 +28,10 @@ As you can see, each post stores some information about its author, meaning that
 
 ### Before starting
 
-⚠️⚠️ **Remember !** To use _transactions_ we need replicas and to have replicas, you have tu run this in your terminal ⚠️⚠️
-
-```
-echo 'rs.initiate()' | mongo -u admin -p password
-echo 'rs.initiate()' | mongo -u admin -p password --port 27016
-```
+- Create a `.env_vars` file.
+- Add `export MONGODB_DATABASE_URL=<your-url-from-atlas>` in `.env_vars`.
+- `source .env_vars` in you terminal.
+- **Be sure `.env_vars` is written in the `.gitignore` file.**
 
 To populate your database with users and posts, OR reset the database to its inital state, run:
 

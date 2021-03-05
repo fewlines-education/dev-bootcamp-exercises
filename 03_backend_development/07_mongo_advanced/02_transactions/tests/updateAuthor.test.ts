@@ -3,9 +3,9 @@ import { dropAll } from "./test-utils";
 import updateAuthor from "../src/updateAuthor";
 import { posts, users } from "./test-data";
 import * as error from "../utils/error";
+import { getDatabaseUrl } from "../utils/initDatabase";
 
-const testDatabaseUrl =
-  process.env.MONGODB_DATABASE_URL || "mongodb://mongo-advanced-app:password@localhost:27016/mongo-advanced";
+const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 
 const testOptions = {
   useNewUrlParser: true,
@@ -50,6 +50,7 @@ describe("#updateAuthor", () => {
   });
   afterAll(async () => {
     if (client) {
+      await dropAll(db);
       await client.close();
     }
   });
