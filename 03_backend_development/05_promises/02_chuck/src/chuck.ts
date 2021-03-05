@@ -1,12 +1,12 @@
-import fetch, { Response } from "node-fetch";
+import { getChuckCategories, getChuckJoke } from "../utils";
 
 function getCategories() {
   // Your code goes here
 }
 
-function getChuckNorrisJoke() {
+function getJoke() {
   // Your code goes here
 }
 
 // Leave the line below for tests to work properly
-export { getCategories, getChuckNorrisJoke };
+export { getCategories, getJoke };

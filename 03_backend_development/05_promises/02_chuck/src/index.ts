@@ -1,6 +1,5 @@
-import ask from "./lib/ask";
-import { closeRl } from "./lib/reader";
-import { getCategories, getChuckNorrisJoke } from "./chuck";
+import { closeRl, ask } from "../interface";
+import { getCategories, getJoke } from "./chuck";
 
 function printCategories(categories: string[]): void {
   console.log(
@@ -17,7 +16,7 @@ getCategories()
   .then((categories) => {
     printCategories(categories);
     ask("Choose a category number\n> ")
-      .then((input) => getChuckNorrisJoke(categories[parseInt(input) - 1]))
+      .then((input) => getJoke(categories[parseInt(input) - 1]))
       .then((joke) => {
         console.log(joke);
         closeRl();
