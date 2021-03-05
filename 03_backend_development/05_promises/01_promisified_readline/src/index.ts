@@ -1,7 +1,7 @@
 // ⚠️ Don't change this file
 
 import ask from "./ask";
-import { closeRl } from "./reader";
+import { closeRl } from "../interface";
 
 ask("Enter something\n> ")
   .then((input) => {

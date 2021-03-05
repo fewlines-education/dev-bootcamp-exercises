@@ -23,9 +23,9 @@ When a question is asked to the user, the function must:
 
 ```bash
 Enter something
-> something
+> Hello there
 Your input is:
-"something"
+"Hello there"
 ```
 
 - `reject` a new Error with `"Invalid input"` as a message if the user input is an empty string `""`.

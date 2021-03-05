@@ -1,4 +1,4 @@
-import { rl } from "./reader";
+import { rl } from "../interface";
 
 function ask() {
   // Your code goes here
