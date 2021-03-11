@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "mongo mongo-basics -u mongo-basics-app -p password < utils/resetDatabase.js && ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && jest --runInBand"
+    "test": "eslint --ext .js,.ts . && sparta test --runInBand"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",

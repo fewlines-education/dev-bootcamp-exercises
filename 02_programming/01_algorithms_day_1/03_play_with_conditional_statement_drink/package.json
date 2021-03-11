@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./src/01_can_i_drink_alcohol.js",
-    "test": "eslint --ext .js,.ts . && jest"
+    "test": "eslint --ext .js,.ts . && sparta test"
   },
   "devDependencies": {
     "eslint": "7.7.0",

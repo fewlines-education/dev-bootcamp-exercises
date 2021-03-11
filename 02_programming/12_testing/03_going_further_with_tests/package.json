@@ -4,7 +4,7 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "test": "jest src/index.test.ts"
+    "test": "sparta test src/index.test.ts"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",

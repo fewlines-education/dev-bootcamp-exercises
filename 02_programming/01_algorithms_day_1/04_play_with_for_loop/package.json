@@ -4,7 +4,7 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "test": "eslint --ext .js,.ts . && jest -i"
+    "test": "eslint --ext .js,.ts . && sparta test -i"
   },
   "devDependencies": {
     "eslint": "7.7.0",

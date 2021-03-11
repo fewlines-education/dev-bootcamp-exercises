@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "eslint --ext .js . && jest"
+    "test": "eslint --ext .js . && sparta test"
   },
   "devDependencies": {
     "eslint": "7.19.0",

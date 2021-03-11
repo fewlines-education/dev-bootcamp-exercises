@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && jest",
+    "test": "eslint --ext .js,.ts . && sparta test",
     "yarn test:tree": "yarn test -t parent"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "eslint --ext .js . && jest"
+    "test": "eslint --ext .js . && sparta test"
   },
   "devDependencies": {
     "camp2-helpers": "fewlines-education/camp2-helpers#main",

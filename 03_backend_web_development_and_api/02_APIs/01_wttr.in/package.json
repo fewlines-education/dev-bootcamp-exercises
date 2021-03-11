@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.ts",
   "scripts": {
-    "test": "eslint --ext .js,.ts . && jest"
+    "test": "eslint --ext .js,.ts . && sparta test"
   },
   "author": "",
   "license": "MIT",
