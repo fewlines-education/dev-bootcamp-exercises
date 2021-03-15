@@ -9,7 +9,7 @@ beforeAll(async() => {
   return studentCode;
 });
 
-test("print 'Hello Teacher !' For every teacher", () => {
+test("print 'Hello Teacher!' For every teacher", () => {
   let logs = "";
   console.log = (log) => logs += " " + log;
 

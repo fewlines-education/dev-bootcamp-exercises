@@ -1,10 +1,10 @@
-# Hello teachers !
+# Hello teachers!
 
 ## Context and objectives
 
 For the first exercise of the day, you want to say hello to the teachers (with `forEach`, for instance). 
 
-It's like a "Hello World !" function but way fancier. 😎
+It's like a "Hello World!" function but way fancier. 😎
 
 ## Specs
 
@@ -16,7 +16,7 @@ E.g.
 
 sayHelloToTeachers(teachers)
 /*
-Hello Clément !
+Hello Clément!
 Hello Nicolas!
 ...
 */
