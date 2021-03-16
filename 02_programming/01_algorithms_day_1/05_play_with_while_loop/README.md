@@ -1,4 +1,4 @@
-# Play with `For` loops on integer ranges
+# Play with `While` loops on integer ranges
 
 ## Context and Objectives
 

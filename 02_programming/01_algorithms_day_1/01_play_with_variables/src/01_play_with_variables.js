@@ -10,7 +10,7 @@
 
 // a constant called `prodResult`, bound to the product of `bar` and `foo`.
 
-// a constant called `sparta`, bound to an object with a field `check`, with the value of `ask` and with the field `response`, with the value of `answer`;
+// a constant called `sparta`, bound to an object with a field `check`, with the value of `question` and with the field `response`, with the value of `answer`;
 
 // a constant called `leader`, bound to the value of the field `check` of the object `sparta`;
 

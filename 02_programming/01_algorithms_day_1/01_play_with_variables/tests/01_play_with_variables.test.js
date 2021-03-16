@@ -12,7 +12,7 @@ beforeAll(() => {
   return studentCode;
 });
 
-test("question should have 'Spartan, what is your profession ?!' as a value", () => {
+test("question should have 'Spartan, what is your profession?!' as a value", () => {
   return studentCode.then((code) => {
     const question = eval(code + "; question;");
 
@@ -20,7 +20,7 @@ test("question should have 'Spartan, what is your profession ?!' as a value", ()
   });
 });
 
-test("answer should have 'Dev dev dev !' as a value", () => {
+test("answer should have 'Dev dev dev!' as a value", () => {
   return studentCode.then((code) => {
     const question = eval(code + "; answer;");
 
@@ -145,7 +145,7 @@ describe("leader", () => {
     });
   });
 
-  test("leader should be linked to sparta. Changing the phrase inside promo should update it", () => {
+  test("leader should be linked to check. Changing the phrase inside sparta should update it", () => {
     return studentCode.then((code) => {
       const changedStudentCode = code.replace(
         new RegExp("(let|const) leader"),
