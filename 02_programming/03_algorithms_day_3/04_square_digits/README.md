@@ -10,7 +10,7 @@ Your task is to square **EACH** digit of a number via a `squareDigits` function.
 
 For example, if we run the function with `9`, `81` will come out.
 `9129` would give `811481`.
-In this exemple be careful, `811481` is `81 1 4 81` without the spaces because we square **EACH** digit. 😉
+In this example be careful, `811481` is `81 1 4 81` without the spaces because we square **EACH** digit. 😉
 
 Note: The function must **only** accept an integer and returns an integer.
 It should throw an error when provided with something different than an integer.
