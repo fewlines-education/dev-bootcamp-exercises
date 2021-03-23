@@ -1,4 +1,6 @@
-import * as request from "request"
+import fetch from "node-fetch";
+import { Comment } from "../@types/comment";
+import { User } from "../@types/user";
 
 class UserRepository {
   baseUrl = process.env.BASE_URL

@@ -1,4 +1,6 @@
-import * as request from "request"
+import fetch from "node-fetch";
+import { Author } from "../@types/author";
+import { Book } from "../@types/book";
 
 class AuthorRepository {
   baseUrl = process.env.BASE_URL
