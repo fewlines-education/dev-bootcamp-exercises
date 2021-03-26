@@ -18,5 +18,5 @@ man curl
 - Get the current weather of **Berlin** in **german** and put the command in the file **`03_berlin_weather_in_german.sh`**.
 - Write a command in the file `04_brussels_weather_in_french.sh` that will get the current weather of **Brussels** in **french** and put the result in the file **`brussels.weather`** (ie: executing the **`04_brussels_weather_in_french.sh`** file should create a file `brussels.weather` with the weather).
 
-> **PS** : Don't hesitate to write the URL of the API between double-quotes `""` to avoid special characters interaction with `shell`.
-> Example : `curl "wttr.in/path"`
+> **PS** : Don't hesitate to write the URL of the API between single-quotes `''` to avoid special characters interaction with `shell`.
+> Example : `curl 'wttr.in/path'`

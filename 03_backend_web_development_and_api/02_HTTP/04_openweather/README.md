@@ -1,8 +1,8 @@
-# OpenWeather API
+# OpenWeather Web Service
 
 ## Context and Objectives
 
-The goal of this exercise is to make some calls to the Open Weather API and to parse the payloads.
+The goal of this exercise is to make some calls to the Open Weather Web Service and to parse the payloads.
 
 For this, you have to use your **[OpenweatherMap](https://openweathermap.org/)** API Key.
 
@@ -42,6 +42,8 @@ weatherByCity("Bogota")
 > 17°C
 ```
 
+> ⚠️⚠️⚠️ **Don't commit your API Key on github** (alright?) ⚠️⚠️⚠️
+
 ### `weatherByZipcode`
 
 Code the function `weatherByZipcode` in `src/weatherByLocation.ts` which must accept two parameters like `"59000", "fr"`
@@ -73,6 +75,8 @@ weatherByZipcode("59000", "fr");
 > # [...]
 ```
 
+> ⚠️⚠️⚠️ **Don't commit your API Key on github** (seriouly.) ⚠️⚠️⚠️
+
 ### `weatherByLatitudeAndLongitude`
 
 Code the function `weatherByLatitudeAndLongitude` in `src/weatherByLocation.ts` which must accept two parameters like `32.661343, 51.680374`
@@ -103,3 +107,5 @@ weatherByLatitudeAndLongitude(32.661343, 51.680374);
 > }
 > # [...]
 ```
+
+> ⚠️⚠️⚠️ **Don't commit your API Key on github** (did we said this already?) ⚠️⚠️⚠️

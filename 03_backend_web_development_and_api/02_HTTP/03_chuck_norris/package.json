@@ -1,5 +1,5 @@
 {
-  "name": "03_chuck_norris_api",
+  "name": "03_chuck_norris",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
