@@ -1,4 +1,4 @@
-import * as request from "request"
+import fetch from "node-fetch"
 
 function getChuckNorrisJoke() {
   // code the function here

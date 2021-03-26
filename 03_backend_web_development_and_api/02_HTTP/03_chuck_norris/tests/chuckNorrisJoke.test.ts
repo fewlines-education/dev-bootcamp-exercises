@@ -1,180 +1,175 @@
 // @ts-nocheck
 
-jest.mock("request")
-const { getChuckNorrisJoke } = require("../src/getChuckNorrisJoke")
-const { getCategories } = require("../src/getCategories")
-const request = require("request")
+jest.mock("node-fetch");
+const { getChuckNorrisJoke } = require("../src/getChuckNorrisJoke");
+const { getCategories } = require("../src/getCategories");
+const fetch = require("node-fetch");
 
-const mockedJokeRequest = (request, callback) =>{
-  callback(null, {}, JSON.stringify({
-    "value": "When Chuck Norris throws exceptions, it's across the room."
-  }))
-}
+const mockedJoke = {
+  value: "When Chuck Norris throws exceptions, it's across the room.",
+};
+const mockedJokeRequest = (url) => {
+  return Promise.resolve({
+    json: () => Promise.resolve(mockedJoke),
+  });
+};
 
-const mockedCategoriesRequest = (request, callback) => {
-  callback(null, {}, JSON.stringify(["animal", "dev"]))
-}
+const mockedCategoriesRequest = (url) => {
+  return Promise.resolve({
+    json: () => Promise.resolve(["animal", "dev"]),
+  });
+};
 
 describe("Chuck Norris API", () => {
   describe("#getCategories", () => {
     afterAll(() => {
-      request.mockReset()
-    })
+      fetch.default.mockReset();
+    });
 
-    it("Must use 'request' package to get a list of categories", (done) => {
-      expect.assertions(2)
+    it("Must use 'node-fetch' package to get a list of categories", async () => {
+      expect.assertions(2);
 
-      console.log = jest.fn()
-      request.mockImplementation(mockedCategoriesRequest)
+      const spyLog = jest.spyOn(console, "log").mockImplementation();
+      fetch.default.mockImplementation(mockedCategoriesRequest);
 
-      getCategories()
-      
-      expect(request).toHaveBeenCalled()
-      expect(request.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/categories")
+      await getCategories();
 
-      done()
-    })
+      expect(fetch.default).toHaveBeenCalled();
+      expect(fetch.default.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/categories");
+      spyLog.mockRestore();
+    });
 
-    it("Throws a 'console.error' when the API respond with error", (done) => {
-      console.error = jest.fn()
-      expect.assertions(1)
-    
-    
-      request.mockImplementationOnce((request, callback) =>{
-        callback(new Error("This is a fake error"), {}, null)
-      })
-      
-      getCategories()
+    it("Must print the error with 'console.error' when the API respond with error", async () => {
+      const spyLogError = jest.spyOn(console, "error").mockImplementation();
+      expect.assertions(1);
 
-      expect(console.error).toHaveBeenCalled()
+      fetch.default.mockImplementationOnce(() => {
+        return Promise.reject(new Error("This is a fake error"));
+      });
 
-      done()
-    })
+      await getCategories();
 
-    it("Must not print anything with 'console.log' when an error is throwned", (done) => {
-      expect.assertions(2)
+      expect(spyLogError).toHaveBeenCalled();
+      spyLogError.mockRestore();
+    });
 
-      console.log = jest.fn()
-      console.error = jest.fn()
-      request.mockImplementationOnce((request, callback) =>{
-        callback(new Error("This is a fake error"), {}, JSON.stringify({
-          "value": "When Chuck Norris throws exceptions, it's across the room."
-        }))
-      })
+    it("Must not print anything with 'console.log' when an error is throwned", async () => {
+      expect.assertions(3);
 
-      getCategories()
+      const spyLog = jest.spyOn(console, "log").mockImplementation();
+      const spyLogError = jest.spyOn(console, "error").mockImplementation();
+      fetch.default.mockImplementationOnce(() => {
+        return Promise.reject(new Error("This is a fake error"));
+      });
 
-      expect(console.log).not.toHaveBeenCalled()
-      expect(request).toHaveBeenCalled()
+      await getCategories();
 
-      done()
-    })
+      expect(spyLog).not.toHaveBeenCalled();
+      expect(spyLogError).toHaveBeenCalled();
+      expect(fetch.default).toHaveBeenCalled();
+      spyLog.mockRestore();
+      spyLogError.mockRestore();
+    });
 
-    it("Must print a list of categories with 'console.log'", (done) => {
-      expect.assertions(2)
+    it("Must print a list of categories with 'console.log'", async () => {
+      expect.assertions(2);
 
-      request.mockImplementationOnce(mockedCategoriesRequest)
-      console.log = jest.fn().mockImplementation(string => {
-        expect(/.*animal.*dev/.exec(string)).toBeTruthy()
-      })
-    
-      getCategories()
+      fetch.default.mockImplementationOnce(mockedCategoriesRequest);
+      const spyLog = jest.spyOn(console, "log").mockImplementation((string) => {
+        expect(/.*animal.*dev/.exec(string)).toBeTruthy();
+      });
 
-      expect(console.log).toHaveBeenCalled()
-      console.log.mockClear()
+      await getCategories();
 
-      done()
-    })
-  })
+      expect(spyLog).toHaveBeenCalled();
+      spyLog.mockRestore();
+    });
+  });
 
   describe("#getChuckNorrisJoke", () => {
     afterAll(() => {
-      request.mockReset()
-    })
+      fetch.default.mockReset();
+    });
 
-    it("Throws a 'console.error' when the API respond with error", (done) => {
-      expect.assertions(1)
+    it("Must print an error with 'console.error' when the API respond with error", async () => {
+      expect.assertions(1);
 
-      console.error = jest.fn()  
-      request.mockImplementationOnce((request, callback) =>{
-        callback(new Error("This is a fake error"), {}, null)
-      })
+      const spyLogError = jest.spyOn(console, "error").mockImplementation();
+      fetch.default.mockImplementationOnce(() => {
+        return Promise.reject(new Error("This is a fake error"));
+      });
 
-      getChuckNorrisJoke("dev")
+      await getChuckNorrisJoke("dev");
 
-      expect(console.error).toHaveBeenCalled()
+      expect(spyLogError).toHaveBeenCalled();
+      spyLogError.mockRestore();
+    });
 
-      done()
-    })
+    it("Must not print anything with 'console.log' when an error is throwned", async () => {
+      expect.assertions(3);
 
-    it("Must not print anything with 'console.log' when an error is throwned", (done) => {
-      expect.assertions(2)
-      
-      request.mockImplementationOnce((request, callback) =>{
-        callback(new Error("This is a fake error"), {}, JSON.stringify({
-          "value": "When Chuck Norris throws exceptions, it's across the room."
-        }))
-      })
-      console.log = jest.fn()
-      console.error = jest.fn()
+      fetch.default.mockImplementationOnce(() => {
+        return Promise.reject(new Error("This is a fake error"));
+      });
+      const spyLog = jest.spyOn(console, "log").mockImplementation();
+      const spyLogError = jest.spyOn(console, "error").mockImplementation();
 
-      getChuckNorrisJoke("dev")
+      await getChuckNorrisJoke("dev");
 
-      expect(console.log).not.toHaveBeenCalled()
-      expect(request).toHaveBeenCalled()
+      expect(spyLog).not.toHaveBeenCalled();
+      expect(spyLogError).toHaveBeenCalled();
+      expect(fetch.default).toHaveBeenCalled();
+      spyLog.mockRestore();
+      spyLogError.mockRestore();
+    });
 
-      done()
-    })
-    
-    it("Must use 'request' package to get a joke", (done) => {
-      expect.assertions(2)
+    it("Must use 'node-fetch' package to get a joke", async () => {
+      expect.assertions(2);
 
-      request.mockImplementationOnce(mockedJokeRequest)
+      fetch.default.mockImplementationOnce(mockedJokeRequest);
+      const spyLog = jest.spyOn(console, "log").mockImplementation();
 
-      getChuckNorrisJoke("dev")
+      await getChuckNorrisJoke("dev");
 
-      expect(request).toHaveBeenCalled()
-      expect(request.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=dev")
-      
-      done()
-    })
+      expect(fetch.default).toHaveBeenCalled();
+      expect(fetch.default.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=dev");
+      spyLog.mockRestore();
+    });
 
-    it("Must use the category parameter in the API url", (done) => {
-      expect.assertions(4)
+    it("Must use the category parameter in the API url", async () => {
+      expect.assertions(4);
 
-      request.mockImplementationOnce(mockedJokeRequest)
+      fetch.default.mockImplementationOnce(mockedJokeRequest);
+      const spyLog = jest.spyOn(console, "log").mockImplementation();
 
-      getChuckNorrisJoke("dev")
+      await getChuckNorrisJoke("dev");
 
-      expect(request).toHaveBeenCalled()
-      expect(request.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=dev")
+      expect(fetch.default).toHaveBeenCalled();
+      expect(fetch.default.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=dev");
 
-      request.mockClear()
+      fetch.default.mockClear();
 
-      request.mockImplementationOnce(mockedJokeRequest)
+      fetch.default.mockImplementationOnce(mockedJokeRequest);
 
-      getChuckNorrisJoke("cat")
+      await getChuckNorrisJoke("cat");
 
-      expect(request).toHaveBeenCalled()
-      expect(request.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=cat")
+      expect(fetch.default).toHaveBeenCalled();
+      expect(fetch.default.mock.calls[0][0]).toBe("https://api.chucknorris.io/jokes/random?category=cat");
+      spyLog.mockRestore();
+    });
 
-      done()
-    })
+    it("Must print a joke with 'console.log'", async () => {
+      expect.assertions(2);
 
-    it("Must print a joke with 'console.log'", (done) => {
-      expect.assertions(2)
+      fetch.default.mockImplementationOnce(mockedJokeRequest);
+      const spy = jest.spyOn(console, "log").mockImplementation((log) => {
+        expect(log).toEqual(mockedJoke);
+      });
 
-      request.mockImplementationOnce(mockedJokeRequest)
-      console.log = jest.fn().mockImplementation(string => {
-        expect(/When Chuck Norris throws exceptions, it's across the room./.exec(string)).toBeTruthy()
-      })
-    
-      getChuckNorrisJoke("dev")
+      await getChuckNorrisJoke("dev");
 
-      expect(console.log).toHaveBeenCalled()
-      console.log.mockClear()
-
-      done()
-    })
-  })
-})
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
+  });
+});
