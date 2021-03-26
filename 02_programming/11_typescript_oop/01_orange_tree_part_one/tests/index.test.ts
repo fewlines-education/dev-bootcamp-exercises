@@ -223,7 +223,7 @@ describe("Tree class", () => {
         expect(ageOneYearNode.abstract).toBe(true);
       });
 
-      it("should return a boolean.", () => {
+      it("shouldn't return anything", () => {
         expect.assertions(1);
 
         expect(ageOneYearNode.returnType.typeAnnotation.type).toBe(
