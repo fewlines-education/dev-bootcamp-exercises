@@ -1,4 +1,4 @@
-import * as request from "request"
+import fetch from "node-fetch";
 
 function weatherByZipcode(zipcode, countryCode) {
   // code the function here
@@ -9,7 +9,7 @@ function weatherByLatitudeAndLongitude(latitude, longitude) {
 }
 
 // leave lines below for tests to work properly
-module.exports = {
+export {
   weatherByZipcode,
   weatherByLatitudeAndLongitude
 }
