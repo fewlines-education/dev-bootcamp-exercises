@@ -1,222 +1,215 @@
-// @ts-nocheck
-jest.mock("request")
-import { getReposUrl } from "../src/getReposUrl"
-import { getRepos } from "../src/getRepos"
-import { getProjectInformations } from "../src/getProjectInformations"
-import * as request from "request"
-import { profile, repos, repo, notFound } from "./test-data"
+jest.mock("node-fetch");
+import { getReposUrl } from "../src/getReposUrl";
+import { getRepos } from "../src/getRepos";
+import { getProjectInformation } from "../src/getProjectInformation";
+import { profile, repos, repo, notFound } from "./test-data";
+const fetch = require("node-fetch");
 
-const mockedGhProfileRequest = (request, callback) =>{
-  callback(null, {}, JSON.stringify(profile))
-}
+const mockedGhProfileRequest = () => {
+  return Promise.resolve({
+    status: 200,
+    json: () => Promise.resolve(profile),
+    text: () => Promise.resolve(JSON.stringify(profile)),
+  });
+};
 
-const mockedRepositoriesRequest = (request, callback) =>{
-  callback(null, {}, JSON.stringify(repos))
-}
+const mockedRepositoriesRequest = () => {
+  return Promise.resolve({
+    status: 200,
+    json: () => Promise.resolve(repos),
+    text: () => Promise.resolve(JSON.stringify(repos)),
+  });
+};
 
-const mockedRepositoryRequest = (request, callback) =>{
-  callback(null, {}, JSON.stringify(repo))
-}
+const mockedRepositoryRequest = () => {
+  return Promise.resolve({
+    status: 200,
+    json: () => Promise.resolve(repo),
+    text: () => Promise.resolve(JSON.stringify(repo)),
+  });
+};
 
-const mockedNotFoundRequest = (request, callback) =>{
-  callback(null, { statusCode: 404 }, JSON.stringify(notFound))
-}
+const mockedNotFoundRequest = () => {
+  return Promise.resolve({
+    status: 404,
+    json: () => Promise.resolve(notFound),
+    text: () => Promise.resolve(JSON.stringify(notFound)),
+  });
+};
 
-const mockedErrorRequest = (request, callback) =>{
-  callback({message: "An error occured"}, {}, null)
-}
+const mockedErrorRequest = () => {
+  return Promise.reject(new Error("An error occured"));
+};
 
 describe("getReposUrl function", () => {
   afterAll(() => {
-    request.mockReset()
-  })
+    fetch.default.mockReset();
+  });
 
-  it("Must use the Github username paramater to make the api call", (done) => {
-    expect.assertions(2)
+  it("Must use the Github username paramater to make the api call", async () => {
+    expect.assertions(2);
 
-    request.mockImplementation(() => {})
+    fetch.default.mockImplementation(mockedGhProfileRequest);
 
-    getReposUrl("Tata", () => {})
-    getReposUrl("Toto", () => {})
+    await getReposUrl("Tata");
+    await getReposUrl("Toto");
 
-    expect(request.mock.calls[0][0].url).toBe("https://api.github.com/users/Tata")
-    expect(request.mock.calls[1][0].url).toBe("https://api.github.com/users/Toto")
+    expect(fetch.default.mock.calls[0][0]).toBe("https://api.github.com/users/Tata");
+    expect(fetch.default.mock.calls[1][0]).toBe("https://api.github.com/users/Toto");
+  });
 
-    done()
-  })
+  it("Must return (the Promise of) a repositories url", async () => {
+    expect.assertions(1);
 
-  it("Must send a repositories url as an argument to the callback function", (done) => {
-    expect.assertions(1)
-    
-    request.mockImplementation(mockedGhProfileRequest)
+    fetch.default.mockImplementation(mockedGhProfileRequest);
 
-    getReposUrl("Meyclem", (error, url) => {
-      expect(url).toBe("https://api.github.com/users/Meyclem/repos")
-    })
+    const url = await getReposUrl("Meyclem");
+    expect(url).toBe("https://api.github.com/users/Meyclem/repos");
+  });
 
-    done()
-  })
+  it("Must handle errors by throwing an 'Error'", async () => {
+    expect.assertions(4);
 
-  it("Must handle errors by sending an 'object' with 'message' key to the callback function as first argument", (done) => {
-    expect.assertions(4)
-    
-    request.mockImplementation(mockedNotFoundRequest)
+    fetch.default.mockImplementation(mockedNotFoundRequest);
 
-    getReposUrl("Meyclem", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
+    try {
+      await getReposUrl("Meyclem");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
 
-    request.mockImplementation(mockedErrorRequest)
+    fetch.default.mockImplementation(mockedErrorRequest);
 
-    getReposUrl("Meyclem", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
-
-    done()
-  })
-})
+    try {
+      await getReposUrl("Meyclem");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
+  });
+});
 
 describe("getRepos function", () => {
   afterAll(() => {
-    request.mockReset()
-  })
+    fetch.default.mockReset();
+  });
 
-  it("Must use the url paramater to make the api call", (done) => {
-    expect.assertions(1)
+  it("Must use the url paramater to make the api call", async () => {
+    expect.assertions(1);
 
-    request.mockImplementation(() => {})
+    fetch.default.mockImplementation(mockedRepositoriesRequest);
 
-    const url = "https://any-url.com"
+    const url = "https://any-url.com";
 
-    getRepos(url, () => {})
+    getRepos(url);
 
-    expect(request.mock.calls[0][0].url).toBe(url)
+    expect(fetch.default.mock.calls[0][0]).toBe(url);
+  });
 
-    done()
-  })
+  it("Must return (the Promise of) an array", async () => {
+    expect.assertions(1);
 
-  it("Must send an array as an argument to the callback function", (done) => {
-    expect.assertions(1)
+    fetch.default.mockImplementation(mockedRepositoriesRequest);
 
-    request.mockImplementation(mockedRepositoriesRequest)
-    
-    const url = "https://api.github.com/users/Meyclem/repos"
+    const url = "https://api.github.com/users/Meyclem/repos";
 
-    getRepos(url, (error, list) => {
-      expect(Array.isArray(list)).toBe(true)
-    })
+    const list = await getRepos(url);
+    expect(Array.isArray(list)).toBe(true);
+  });
 
-    done()
-  })
+  it("Must return (the Promise of) an array of objects with keys 'name' and 'url'", async () => {
+    expect.assertions(1);
 
-  it("Must send an array of objects with keys 'name' and 'url' to the callback function", (done) => {
-    expect.assertions(1)
+    fetch.default.mockImplementation(mockedRepositoriesRequest);
 
-    request.mockImplementation(mockedRepositoriesRequest)
-    
-    const url = "https://api.github.com/users/Meyclem/repos"
+    const url = "https://api.github.com/users/Meyclem/repos";
 
-    getRepos(url, (error, list) => {
-      expect(Object.keys(list[0])).toEqual(['name', 'url'])
-    })
+    const list = await getRepos(url);
+    expect(Object.keys(list[0])).toEqual(["name", "url"]);
+  });
 
-    done()
-  })
+  it("Must handle errors by throwing an Error", async () => {
+    expect.assertions(4);
 
-  it("Must handle errors by sending an 'object' with 'message' key to the callback function as first argument", (done) => {
-    expect.assertions(4)
-    
-    request.mockImplementation(mockedNotFoundRequest)
+    fetch.default.mockImplementation(mockedNotFoundRequest);
 
-    getRepos("https://any-url.com", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
+    try {
+      await getRepos("https://any-url.com");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
 
-    request.mockImplementation(mockedErrorRequest)
+    fetch.default.mockImplementation(mockedErrorRequest);
 
-    getRepos("https://any-url.com", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
+    try {
+      await getRepos("https://any-url.com");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
+  });
+});
 
-    done()
-  })
-})
-
-describe("getProjectInformations function", () => {
+describe("getProjectInformation function", () => {
   afterAll(() => {
-    request.mockReset()
-  })
+    fetch.default.mockReset();
+  });
 
-  it("Must use the given url parameters to make the api call", (done) => {
-    expect.assertions(1)
+  it("Must use the given url parameters to make the api call", async () => {
+    expect.assertions(1);
 
-    request.mockImplementation(mockedRepositoryRequest)
-    
-    const url = "https://api.github.com/repos/Meyclem/road-rush"
+    fetch.default.mockImplementation(mockedRepositoryRequest);
 
-    getProjectInformations(url, (error, infos) => {
-      expect(request.mock.calls[0][0].url).toBe(url)
-    })
+    const url = "https://api.github.com/repos/Meyclem/road-rush";
 
-    done()
-  })
+    await getProjectInformation(url);
+    expect(fetch.default.mock.calls[0][0]).toBe(url);
+  });
 
-  it("Must parse the result to an object and pass it to the callback function", (done) => {
-    expect.assertions(1)
+  it("Must return (the Promise of) an object with the project data", async () => {
+    expect.assertions(1);
 
-    request.mockImplementation(mockedRepositoryRequest)
-    
-    const url = "https://api.github.com/repos/Meyclem/road-rush"
+    fetch.default.mockImplementation(mockedRepositoryRequest);
 
-    getProjectInformations(url, (error, infos) => {
-      expect(typeof infos).toBe('object')
-    })
+    const url = "https://api.github.com/repos/Meyclem/road-rush";
 
-    done()
-  })
+    const information = await getProjectInformation(url);
+    expect(typeof information).toBe("object");
+  });
 
-  it("Must send only required informations to the callback function", (done) => {
-    expect.assertions(1)
+  it("Must return (in a Promise) only the required information", async () => {
+    expect.assertions(1);
 
-    request.mockImplementation(mockedRepositoryRequest)
-    
-    const url = "https://api.github.com/repos/Meyclem/road-rush"
+    fetch.default.mockImplementation(mockedRepositoryRequest);
 
-    getProjectInformations(url, (error, infos) => {
-      const requiredKeys = [
-        "description",
-        "language",
-        "subscribers_count",
-        "stargazers_count",
-        "git_url",
-      ]
-      expect(Object.keys(infos).sort()).toEqual(requiredKeys.sort())
-    })
+    const url = "https://api.github.com/repos/Meyclem/road-rush";
 
-    done()
-  })
+    const information = await getProjectInformation(url);
+    const requiredKeys = ["description", "language", "subscribers_count", "stargazers_count", "git_url"];
+    expect(Object.keys(information).sort()).toEqual(requiredKeys.sort());
+  });
 
-  it("Must handle errors by sending an 'object' with 'message' key to the callback function as first argument", (done) => {
-    expect.assertions(4)
-    
-    request.mockImplementation(mockedNotFoundRequest)
+  it("Must handle errors by throwing an Error", async () => {
+    expect.assertions(4);
 
-    getProjectInformations("https://any-url.com", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
+    fetch.default.mockImplementation(mockedNotFoundRequest);
 
-    request.mockImplementation(mockedErrorRequest)
+    try {
+      await getProjectInformation("https://any-url.com");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
 
-    getProjectInformations("https://any-url.com", (error, url) => {
-      expect(error).not.toBe(null)
-      expect(error.message).not.toBe(null)
-    })
+    fetch.default.mockImplementation(mockedErrorRequest);
 
-    done()
-  })
-})
+    try {
+      await getProjectInformation("https://any-url.com");
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toBeDefined();
+    }
+  });
+});

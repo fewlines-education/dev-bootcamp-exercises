@@ -1,6 +1,7 @@
-import * as request from "request"
+import fetch from "node-fetch";
+import { PresentationRepo } from "./types"
 
-function getRepos(url, callback): void {
+function getRepos(url: string): Promise<PresentationRepo[]> {
   // code the function here
 }
 

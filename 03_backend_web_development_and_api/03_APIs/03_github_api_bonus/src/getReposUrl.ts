@@ -1,9 +1,6 @@
-import * as request from "request"
-import { GetProfileCallback } from "./types"
+import fetch from "node-fetch";
 
-// Note the `getReposUrl` function parameters are typed here
-// Use this as en example for the other functions you will write
-function getReposUrl(githubNickname: string, callback: GetProfileCallback): void {
+function getReposUrl(githubNickname: string): Promise<string> {
   // code the function here
 }
 

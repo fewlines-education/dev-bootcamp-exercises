@@ -1,5 +1,4 @@
-// use this type as an example for the other types you'll have to write
-export interface ProjectInformations {
+export interface ProjectInformation {
   description: string;
   language: string;
   subscribers_count: string;
@@ -7,8 +6,12 @@ export interface ProjectInformations {
   git_url: string;
 }
 
-// use this type as an example for the other callback function typing
-export type GetProfileCallback = (
-  error: null | Error,
-  url?: string,
-) => void
+export interface GithubProject extends ProjectInformation {
+  // Line below represents keys that we don't care and don't want to type.
+  [key: string]: string;
+}
+
+export type PresentationRepo = {
+  name: string;
+  url: string;
+}
