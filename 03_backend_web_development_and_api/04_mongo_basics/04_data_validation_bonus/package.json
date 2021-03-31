@@ -1,5 +1,5 @@
 {
-  "name": "data-validation",
+  "name": "04_data_validation_bonus",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",

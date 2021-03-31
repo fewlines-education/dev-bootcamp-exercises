@@ -1,5 +1,5 @@
 import { dropAll } from "../tests/test-utils";
-import { initDatabase } from "../../03_data_validation/utils/initDatabase";
+import { initDatabase } from "./initDatabase";
 
 initDatabase()
   .then(async (client) => {
