@@ -10,8 +10,8 @@ const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 const testOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  connectTimeoutMS: 500,
-  serverSelectionTimeoutMS: 500,
+  connectTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000,
 };
 
 async function initTestDatabase(): Promise<mongoDb.MongoClient> {
@@ -32,6 +32,7 @@ describe("#updateAuthor", () => {
   const spy = jest.spyOn(error, "isPresent");
 
   beforeAll(async () => {
+    jest.setTimeout(20000)
     try {
       client = await initTestDatabase();
       db = client.db();
@@ -49,8 +50,10 @@ describe("#updateAuthor", () => {
     }
   });
   afterAll(async () => {
-    if (client) {
+    if (db) {
       await dropAll(db);
+    }
+    if (client) {
       await client.close();
     }
   });

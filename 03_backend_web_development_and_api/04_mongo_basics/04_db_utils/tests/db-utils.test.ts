@@ -19,16 +19,15 @@ import { insertOneDocument } from "../src/insertOneDocument";
 import { renameCollection } from "../src/renameCollection";
 import { updateManyDocuments } from "../src/updateManyDocuments";
 import { updateOneDocument } from "../src/updateOneDocument";
+import { getDatabaseUrl } from "../utils/getDatabaseUrl";
 
-const testDatabaseUrl =
-  process.env.MONGODB_DATABASE_URL ||
-  "mongodb://mongo-basics-app:password@localhost:27017/mongo-basics";
+const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 
 const testOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  connectTimeoutMS: 500,
-  serverSelectionTimeoutMS: 500
+  connectTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000
 };
 
 async function initTestDatabase(): Promise<mongoDb.MongoClient> {
@@ -47,6 +46,8 @@ async function initTestDatabase(): Promise<mongoDb.MongoClient> {
   });
 }
 
+jest.setTimeout(20000)
+
 describe("DB utils", () => {
   let client: mongoDb.MongoClient;
   let db: mongoDb.Db;
@@ -62,12 +63,14 @@ describe("DB utils", () => {
   beforeEach(async () => {
     if (db) {
       await dropAll(db);
-      await db.createCollection<User>("users").then((userCollection) => {
-        userCollection.insertMany(users);
-      });
+      const userCollection = await db.createCollection<User>("users")
+      await userCollection.insertMany(users);
     }
   })
   afterAll(async () => {
+    if (db) {
+      await dropAll(db)
+    }
     if (client) {
       await client.close();
     }
@@ -109,7 +112,7 @@ describe("DB utils", () => {
         const expectedKeys = ["_id", "title", "author", "description"];
         const validator = await collection.options();
 
-        expect(collection.namespace).toBe("mongo-basics.books");
+        expect(collection.namespace).toMatch("books");
         expect(Object.keys(validator.validator.$jsonSchema.properties)).toEqual(
           expectedKeys
         );
@@ -167,7 +170,7 @@ describe("DB utils", () => {
         "registeredUsers"
       );
 
-      expect(renamedCollection.namespace).toBe("mongo-basics.registeredUsers");
+      expect(renamedCollection.namespace).toMatch("registeredUsers");
     });
 
     it("Should return a promise of a mongo collection", async () => {
@@ -399,7 +402,7 @@ describe("DB utils", () => {
       expect(updatedUser.firstName).toBe("Jeanno");
     });
 
-    it.only("Should return a promise of the updated document", async () => {
+    it("Should return a promise of the updated document", async () => {
       const usersCollection = db.collection("users");
 
       const expectedUser = {

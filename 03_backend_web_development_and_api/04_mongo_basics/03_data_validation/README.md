@@ -53,6 +53,25 @@ In each file, you have to code your validator in an dedicated variable which wil
 
   > 🔎 For this one, you will need to write each category properties in separated variables and then call them using the **`oneOf`** keyword with your `$jsonSchema` (in case of emergency, remember search engines are your best friends 😉).
 
-Each of those files can be manually tested in `src/index.ts`, by placing it instead of `showCollections`, and then running `yarn start` (do not forget to `docker-compose up` before). The Database will be reset between each run.
+Each of those files can be manually tested in `src/index.ts`, by placing it instead of `showCollections`, and then running `yarn start`. The Database will be reset between each run.
 
 > Do not hesitate to play manually with your DB: `mongo mongo-basics -u mongo-basics-app -p password`.
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

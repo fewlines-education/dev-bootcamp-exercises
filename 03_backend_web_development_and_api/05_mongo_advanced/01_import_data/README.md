@@ -4,7 +4,7 @@ Importing data from a json file is a quite common task to do. Then we often need
 
 ## Specs
 
-Look in the `data` folder. You will find three json files, each one containing a game console and its games!
+Look in the `data` folder. You will find some json files containing a game console and its games! (Your computer may have hard time open it since it's a big file)
 
 Each platform has many keys and one of them is the games related to it, pretty much like this:
 
@@ -63,6 +63,25 @@ One thing to have in mind tho: don't write games two times in the db! (one time 
 
 You should **extract the `games` key of the platforms** and add them into one `games` collection.
 
-### Tests
+## Tests
 
 Run tests with `yarn test`.
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

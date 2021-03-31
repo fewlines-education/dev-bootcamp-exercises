@@ -1,4 +1,5 @@
 import * as mongo from "mongodb";
+import { URL } from "url";
 
 const getDatabaseUrl = ({ testEnvironment } = { testEnvironment: false }): string => {
   if (process.env.CI_MONGODB_DATABASE_URL) {
@@ -21,9 +22,7 @@ const getDatabaseUrl = ({ testEnvironment } = { testEnvironment: false }): strin
   throw new Error("⚠️  No `MONGODB_DATABASE_URL` environment variable found.\nDid you 'source .env_vars'?")
 };
 
-export { getDatabaseUrl };
-
-export default function initDatabase(
+function initDatabase(
   databaseUrl = getDatabaseUrl(),
   options = { useNewUrlParser: true, useUnifiedTopology: true },
 ): Promise<mongo.MongoClient> {
@@ -37,3 +36,5 @@ export default function initDatabase(
     });
   });
 }
+
+export { getDatabaseUrl, initDatabase };

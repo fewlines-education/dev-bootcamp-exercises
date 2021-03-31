@@ -3,21 +3,22 @@ import { dropAll } from "./test-utils";
 import dataImport from "../utils/dataImport";
 import { search } from "../src/games";
 import * as pipelines from "../src/pipelines";
+import { getDatabaseUrl } from "../utils/initDatabase";
 
-const testDatabaseUrl =
-  process.env.MONGODB_DATABASE_URL || "mongodb://mongo-advanced-app:password@localhost:27016/mongo-advanced";
+const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 
 const testOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  connectTimeoutMS: 500,
-  serverSelectionTimeoutMS: 500,
+  connectTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000,
 };
 
 async function initTestDatabase(): Promise<mongoDb.MongoClient> {
   return new Promise((resolve, reject) => {
     mongoDb.MongoClient.connect(testDatabaseUrl, testOptions, async (error, client) => {
       if (error) {
+        console.log(error)
         reject(error);
       } else {
         resolve(client);
@@ -31,6 +32,7 @@ describe("#importData", () => {
   let db: mongoDb.Db;
 
   beforeAll(async () => {
+    jest.setTimeout(20000)
     try {
       client = await initTestDatabase();
       db = client.db();
@@ -45,6 +47,9 @@ describe("#importData", () => {
     }
   });
   afterAll(async () => {
+    if (db) {
+      await dropAll(db);
+    }
     if (client) {
       await client.close();
     }
@@ -64,16 +69,16 @@ describe("#importData", () => {
       expect.assertions(2);
 
       const marioQuery = { name: /mario/i };
-      const playsationGamesQuery = { platforms: { $in: [8, 9] } };
+      const nesGamesQuery = { platforms: { $in: [18] } };
 
       const marioGames = await search(db, marioQuery, []);
       const marioGamesCount = marioGames.length;
 
-      const playsationGames = await search(db, playsationGamesQuery, []);
-      const playsationGamesCount = playsationGames.length;
+      const nesGames = await search(db, nesGamesQuery, []);
+      const nesGamesCount = nesGames.length;
 
-      expect(marioGamesCount).toBe(28);
-      expect(playsationGamesCount).toBe(1529);
+      expect(marioGamesCount).toBe(4);
+      expect(nesGamesCount).toBe(975);
     });
 
     it("Should take an aggregation pipeline and return the result of the aggregation", async () => {
@@ -109,27 +114,27 @@ describe("#importData", () => {
 
     describe("- groupedByPlatform", () => {
       it("Should only return one result per platform", async () => {
-        const playsationGamesQuery = { platforms: { $in: [8, 9] } };
+        const nesGamesQuery = { platforms: { $in: [18] } };
 
-        const result = await search(db, playsationGamesQuery, pipelines.groupedByPlatform);
-        expect(result.length).toBe(2);
+        const result = await search(db, nesGamesQuery, pipelines.groupedByPlatform);
+        expect(result.length).toBe(1);
       });
 
       test("Results should have a 'games' key", async () => {
-        const playsationGamesQuery = { platforms: { $in: [8] } };
+        const nesGamesQuery = { platforms: { $in: [18] } };
 
-        const [psOne] = await search(db, playsationGamesQuery, pipelines.groupedByPlatform);
+        const [nes] = await search(db, nesGamesQuery, pipelines.groupedByPlatform);
 
-        expect(Object.keys(psOne)).toEqual(["_id", "games"]);
+        expect(Object.keys(nes)).toEqual(["_id", "games"]);
       });
 
       test("Results should contain the right number of games", async () => {
-        const playsationGamesQuery = { platforms: { $in: [8] } };
+        const nesGamesQuery = { platforms: { $in: [18] } };
 
-        const [psOne] = await search(db, playsationGamesQuery, pipelines.groupedByPlatform);
+        const [psOne] = await search(db, nesGamesQuery, pipelines.groupedByPlatform);
         const count = (psOne as { games: {}[] }).games.length;
 
-        expect(count).toEqual(1017);
+        expect(count).toEqual(975);
       });
     });
   });

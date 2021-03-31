@@ -5,14 +5,14 @@ const getDatabaseUrl = ({ testEnvironment } = { testEnvironment: false }): strin
     return process.env.CI_MONGODB_DATABASE_URL
   }
   if (process.env.MONGODB_DATABASE_URL) {
-    const match = process.cwd().match(/\d{2}_(?<day>\w*)\/exercises\/(?<exerciseName>\w*)\/?.+/);
+    const match = process.cwd().match(/\d{2}_(?<day>\w*)\/exercises\/(?<exerciseName>\w*)/);
     if (match) {
       if (match && match.groups && match.groups.exerciseName && match.groups.day) {
         const {
-          groups: { exerciseName, day },
+          groups: { exerciseName },
         } = match;
         const urlObject = new URL(process.env.MONGODB_DATABASE_URL);
-        urlObject.pathname = `/${testEnvironment ? "test-" : ""}${day}_${exerciseName}`;
+        urlObject.pathname = `/${testEnvironment ? "test-" : ""}${exerciseName}`;
         return urlObject.toString();
       }
     }

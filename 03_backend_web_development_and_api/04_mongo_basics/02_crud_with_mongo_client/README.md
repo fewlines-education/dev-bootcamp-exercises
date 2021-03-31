@@ -65,3 +65,22 @@ Each of those functions should take a `mongo.Db` as argument.
 To execute your code, import your query function in `index.ts`, place it instead of `showCollections`, and then run `yarn start`.
 
 > Do not hesitate to check manually your DB: `mongo mongo-basics -u mongo-basics-app -p password` (the Database is reset each time you run `yarn start`).
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

@@ -156,7 +156,7 @@ It must return a `Promise<boolean>`:
 
 ---
 
-During this exercise, feel free to play with your functions by importing them in the `index.ts` (instead of the `dumbUtilFunction`) and running `yarn start` (don't forget to `docker-compose up` before).
+During this exercise, feel free to play with your functions by importing them in the `index.ts` (instead of the `dumbUtilFunction`) and running `yarn start` (don't forget to add your  `MONGODB_DATABASE_URL` in `.env_vars` before).
 
 You can also check the results in your mongo database:
 

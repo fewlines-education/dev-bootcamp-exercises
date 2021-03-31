@@ -2,8 +2,7 @@ import * as mongo from "mongodb";
 
 import { showCollections } from "./showCollections";
 
-const databaseUrl =
-  "mongodb://mongo-basics-app:password@localhost:27017/mongo-basics";
+const databaseUrl = process.env.MONGODB_DATABASE_URL;
 
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 

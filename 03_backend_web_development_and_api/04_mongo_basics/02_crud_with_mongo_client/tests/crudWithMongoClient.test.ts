@@ -10,22 +10,21 @@ import { isArray, isObject } from "util";
 import { insertManyCountries } from "../src/insertManyCountries";
 import { updateManyCountries } from "../src/updateManyCountries";
 import { updateOneCountry } from "../src/updateOneCountry";
+import { getDatabaseUrl } from "../utils/initDatabase";
 
-const databaseUrl =
-  process.env.MONGODB_DATABASE_URL ||
-  "mongodb://mongo-basics-app:password@localhost:27016/mongo-basics";
+const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 
 const baseOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  connectTimeoutMS: 500,
-  serverSelectionTimeoutMS: 500
+  connectTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000
 };
 
 async function initDatabase(): Promise<mongoDb.MongoClient> {
   return new Promise((resolve, reject) => {
     mongoDb.MongoClient.connect(
-      databaseUrl,
+      testDatabaseUrl,
       baseOptions,
       async (error, client) => {
         if (error) {
@@ -45,6 +44,7 @@ describe("Play with shell", () => {
   const countryKeys = ["_id", "name", "capital", "continent"];
 
   beforeAll(async () => {
+    jest.setTimeout(20000)
     try {
       client = await initDatabase();
       db = client.db();
@@ -59,6 +59,9 @@ describe("Play with shell", () => {
     }
   })
   afterAll(async () => {
+    if (db) {
+      await dropAll(db);
+    }
     if (client) {
       await client.close();
     }

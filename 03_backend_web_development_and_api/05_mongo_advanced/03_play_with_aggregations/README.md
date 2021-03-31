@@ -108,3 +108,22 @@ When you will need to `$push` a game inside the `games` property, use `$push: "$
 Once again, use `yarn test` to test your code.
 
 You can also play with `src/index.ts` and `yarn start`!
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

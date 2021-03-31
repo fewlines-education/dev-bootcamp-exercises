@@ -6,8 +6,6 @@ First things first, you have to feel comfortable with the basic CRUD operations 
 
 For the following exercises, do not hesitate to play with [MongoDB shell](https://docs.mongodb.com/manual/tutorial/getting-started/) and then just copy/paste the command in the corresponding file.
 
-> ⚠️ Do not forget to `docker-compose up` before running the tests for this exercise.
-
 ## SPECS
 
 Write one command per file, and feel free to add variables when you need it.
@@ -57,3 +55,22 @@ Write one command per file, and feel free to add variables when you need it.
 #### `deleteManyCountries.js`:
 
   - write the MongoDB shell command you would use to **delete all the `EU` countries**. (neither this)
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

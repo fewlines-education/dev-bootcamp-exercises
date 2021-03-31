@@ -16,7 +16,7 @@ For example, calling the function like this:
 
 ```typescript
 const query = { name: /mario/i };
-const page = 3;
+const page = 2;
 const resultsPerPage = 20;
 
 searchWithPagination(db, { query, page, resultsPerPage }).then((data) => {
@@ -29,10 +29,10 @@ Will print something like that:
 
 ```typescript
 {
-  totalCount: 44,
+  totalCount: 36,
   resultsPerPage: 20,
-  currentPage: 3,
-  pageCount: 3,
+  currentPage: 2,
+  pageCount: 2,
   results: [
     // Here are your games!
     { ... },
@@ -42,10 +42,29 @@ Will print something like that:
   ]
 }
 ```
-> We know that we have **44 `mario` games**. The results are split in **3 pages**, so first and second pages count 20 results, the third one count 4.
+> We know that we have **36 `mario` games**. The results are split in **2 pages**, so first and second pages count 20 results, the second one count 16.
 
 ⚠️⚠️ Use the types given to you to help you code the function 😉.
 
 ## Tests
 
 As usual, use `yarn test` to test and `yarn start` to manually test 😎.
+
+## MONGODB DATABASE URL
+
+Don't forget to:
+
+- 1️⃣ Create a `.env_vars` file
+- 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
+- 3️⃣ add the database url in the `.env_vars` file:
+
+  ```bash
+  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  ```
+  > Change the placeholder with your own url.
+
+- 4️⃣ source your file:
+
+  ```bash
+  source .env_vars
+  ```

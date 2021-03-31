@@ -2,14 +2,15 @@ import * as mongoDb from "mongodb";
 import { dropAll } from "./test-utils";
 import dataImport from "../src/dataImport";
 
-const testDatabaseUrl =
-  process.env.MONGODB_DATABASE_URL || "mongodb://mongo-advanced-app:password@localhost:27016/mongo-advanced";
+import { getDatabaseUrl } from "../utils/initDatabase";
+
+const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
 
 const testOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  connectTimeoutMS: 500,
-  serverSelectionTimeoutMS: 500,
+  connectTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 5000,
 };
 
 async function initTestDatabase(): Promise<mongoDb.MongoClient> {
@@ -29,6 +30,7 @@ describe("#importData", () => {
   let db: mongoDb.Db;
 
   beforeAll(async () => {
+    jest.setTimeout(20000)
     try {
       client = await initTestDatabase();
       db = client.db();
@@ -43,6 +45,9 @@ describe("#importData", () => {
     }
   });
   afterAll(async () => {
+    if (db) {
+      await dropAll(db);
+    }
     if (client) {
       await client.close();
     }
@@ -50,25 +55,24 @@ describe("#importData", () => {
 
   it("Should add games and platforms collections to the database", async () => {
     expect.assertions(1);
-
     await dataImport(db);
     const collections = await db.listCollections().toArray();
     const collectionsNames = collections.map((collection) => collection.name);
     expect(collectionsNames.sort()).toEqual(["games", "platforms"]);
   });
 
-  it("Should add 2270 games to the 'games' collection", async () => {
+  it("Should add 1270 games to the 'games' collection", async () => {
     await dataImport(db);
     const games = await db.collection("games").find();
     const counter = await games.count();
-    expect(counter).toBe(2270);
+    expect(counter).toBe(1270);
   });
 
-  it("Should add 3 platforms to the 'platforms' collection", async () => {
+  it("Should add 2 platforms to the 'platforms' collection", async () => {
     await dataImport(db);
     const platforms = await db.collection("platforms").find();
     const counter = await platforms.count();
-    expect(counter).toBe(3);
+    expect(counter).toBe(2);
   });
 
   test("Platforms must not contain any games", async () => {
