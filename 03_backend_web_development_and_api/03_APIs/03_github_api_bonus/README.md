@@ -10,21 +10,21 @@ The goal is to code the needed functions for this CLI to work as intended:
 ```bash
 # with existing nickname
 Enter a github username
-> request
+> node-fetch
 **************************************
 # [some other repos]
-22 - request
+4 - node-fetch
 # [some other repos]
 **************************************
 Select a repo
 > 22
 **************************************
-Repository:          request
-Description:         🏊🏾 Simplified HTTP request client.
-Subscribers count:   452
-Stars count:         24379
+Repository:          node-node-fetch
+Description:         A light-weight module that brings the Fetch API to Node.js
+Subscribers count:   73
+Stars count:         6227
 Language:            JavaScript
-Git url:             git://github.com/request/request.git
+Git url:             git://github.com/node-fetch/node-fetch.git
 ```
 
 ```bash
@@ -44,39 +44,41 @@ You can try it anytime you want with: `yarn start`.
 
 ## Specs
 
-The interface is given to save you from 🔥Callbacks Hell🔥 but take some time to read it in `src/index.ts`, it will help you to write code in functions.
-
-### General informations:
-
-Github API doesn't allow calls with no `user-agent` headers.
-
-```
-// Header needed by the request function
-{
-  'User-Agent': 'request'
-}
-```
-See in the request documentation how to use it: https://github.com/request/request.
+The interface is given to simplify your tasks but take some time to read it in `src/index.ts`, it may help you to write code in functions.
 
 ### `getReposUrl`
 
-This function takes two parameters:
+This function takes one parameter:
+
 - `githubNickname`: the nickname the user want to search for.
-- `callback`: the callback function (you don't need to code this one!).
 
 It must use the url to call the github Api and retrieve a user's profile. Take a look at the documentation here: https://developer.github.com/v3/users/
 
-You have to use the request package to make the API call.
-Feel free to test with `cURL` or `Postman` first.
+You have to use the `node-fetch` package to make the API call.
+Feel free to test with `cURL` or `Insomnia` first.
 
-When you'll get a response from the API, give the `repos_url` to your callback function.
+When you'll get a response from the API, make your promise return the `repos_url`.
 
 ⚠️ Don't forget to handle the response when the Github username doesn't exist.
+
+Here's an example:
+
+```typescript
+fetch("https://github.com/404")
+  .then((response) => {
+    if (response.status === 404) {
+      throw new Error("Page not found");
+    }
+    return response.json();
+  })
+  .then((result) => {
+    // do something with the result when everything went well.
+  });
+```
 
 ### `getRepos`
 
 - `url`: the URL of the github user's repositories.
-- `callback`: the callback function (you don't need to code this one!).
 
 When you manage to retrieve the `repos_url` with `getReposUrl()`, use it in `getRepos` to get an array with the profile's repositories.
 
@@ -87,14 +89,15 @@ This will allow the `src/index.ts`'s interface to present it to your users for t
 ⚠️ Again, don't forget to handle the response when the url doesn't exist.
 
 ### `getProjectInformations`
+
 - `url`: the URL of the repository choosed by your user.
-- `callback`: the callback function (you don't need to code this one!).
 
 This function must get informations from a single repository with the url given as an argument.
 
 Look at the API documentation here: https://developer.github.com/v3/repos/#get-a-repository
 
 The function must send a filtered list of informations to the callback. We only need:
+
 - `description`: the description of the repo.
 - `language`: most used language of the repo.
 - `subscribers_count`: number of user following the repo.
