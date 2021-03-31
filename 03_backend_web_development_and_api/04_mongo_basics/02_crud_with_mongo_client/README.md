@@ -75,7 +75,7 @@ Don't forget to:
 - 3️⃣ add the database url in the `.env_vars` file:
 
   ```bash
-  export MONGODB_DATABASE_URL=<your-mongo-db-atlas-url>
+  export MONGODB_DATABASE_URL='<your-mongo-db-atlas-url>'
   ```
   > Change the placeholder with your own url.
 
