@@ -78,6 +78,7 @@
     "03_backend_web_development_and_api/02_HTTP/04_openweather",
     "03_backend_web_development_and_api/03_APIs/02_books_api",
     "03_backend_web_development_and_api/03_APIs/03_github_api_bonus",
+    "03_backend_web_development_and_api/04_mongo_basics/00_create_a_database_on_atlas",
     "03_backend_web_development_and_api/04_mongo_basics/01_warmup_parse_name",
     "03_backend_web_development_and_api/04_mongo_basics/02_warmup_print_numbers",
     "03_backend_web_development_and_api/04_mongo_basics/03_warmup_rectangle",
