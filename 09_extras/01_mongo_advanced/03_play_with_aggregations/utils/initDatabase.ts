@@ -1,5 +1,5 @@
 import * as mongo from "mongodb";
-import dataImport from "../utils/dataImport";
+import dataImport from "./dataImport";
 import { dropAll } from "../tests/test-utils";
 
 const getDatabaseUrl = ({ testEnvironment } = { testEnvironment: false }): string => {

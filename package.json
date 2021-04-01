@@ -86,15 +86,15 @@
     "03_backend_web_development_and_api/04_mongo_basics/05_crud_with_mongo_client",
     "03_backend_web_development_and_api/04_mongo_basics/06_db_utils",
     "03_backend_web_development_and_api/04_mongo_basics/07_data_validation_bonus",
-    "03_backend_web_development_and_api/05_mongo_advanced/01_import_data",
-    "03_backend_web_development_and_api/05_mongo_advanced/02_pagination_and_query",
-    "03_backend_web_development_and_api/05_mongo_advanced/03_play_with_aggregations",
-    "03_backend_web_development_and_api/05_mongo_advanced/04_transactions_bonus",
     "06_fullstack_web_development/01_react_functional_components/01_basic_component",
     "06_fullstack_web_development/01_react_functional_components/02_product_card",
     "06_fullstack_web_development/01_react_functional_components/03_forms_and_validations",
     "06_fullstack_web_development/01_react_functional_components/04_advanced_form_validation_bonus",
     "06_fullstack_web_development/02_typescript_and_hooks/01_interact_with_apis",
-    "06_fullstack_web_development/02_typescript_and_hooks/02_react_timers"
+    "06_fullstack_web_development/02_typescript_and_hooks/02_react_timers",
+    "09_extras/01_mongo_advanced/01_import_data",
+    "09_extras/01_mongo_advanced/02_pagination_and_query",
+    "09_extras/01_mongo_advanced/03_play_with_aggregations",
+    "09_extras/01_mongo_advanced/04_transactions_bonus"
   ]
 }
