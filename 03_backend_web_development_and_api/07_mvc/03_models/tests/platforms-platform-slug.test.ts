@@ -1,12 +1,14 @@
-import { app } from "../src/server";
+import { makeApp } from "../src/server";
 import { Server } from "http";
 import fetch from "node-fetch";
 import games from "../src/games.json";
+import { GameModel } from "../src/models/game"
 
 let server: Server;
+const gameModel = new GameModel(games)
 
 beforeEach((done) => {
-  server = app.listen(3030, done);
+  server = makeApp(gameModel).listen(3030, done);
 });
 
 afterEach((done) => {
@@ -51,7 +53,7 @@ describe("/platforms/:platform_slug endpoint", () => {
     return fetch(`http://localhost:3030/platforms/${randomPlatform}`)
       .then((response) => response.json())
       .then((result) => {
-        expect(result).toEqual(gamesForThatPlatform);
+        expect(result.length).toEqual(gamesForThatPlatform.length);
       });
   });
 });

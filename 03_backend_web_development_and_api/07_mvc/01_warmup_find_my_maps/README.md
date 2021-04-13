@@ -4,7 +4,7 @@
 
 Have you ever played a Point & Click game like Monkey Island? If not, give it a try after the bootcamp or someday!
 
-But, in this kind of game, you often have a lot of things in our inventory.
+In this kind of game, you often have a lot of things in our inventory.
 
 You need to create a function that will return only the maps from a list of objects.
 

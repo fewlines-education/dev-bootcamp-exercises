@@ -1,16 +1,34 @@
-import { app } from "../src/server";
+import { makeApp } from "../src/server";
 import { Server } from "http";
 import fetch from "node-fetch";
-import games from "../src/games.json";
+import { GameModel } from "../src/models/game"
+import { initDB } from "../src/init-database";
+import { MongoClient } from "mongodb";
+import games from "../src/scripts/games.json"
 
 let server: Server;
+let mongoClient: MongoClient;
 
 beforeEach((done) => {
-  server = app.listen(3030, done);
+  initDB()
+    .then((client) => {
+      mongoClient = client;
+    })
+    .then(() => mongoClient.db().collection("games").drop().catch(() => {}))
+    .then(() => mongoClient.db().collection("games").insertMany(games))
+    .then(() => {
+      const db = mongoClient.db();
+      const gameModel = new GameModel(db.collection("games"));
+
+      const app = makeApp(gameModel);
+      server = makeApp(gameModel).listen(3030, done);
+    });
 });
 
 afterEach((done) => {
-  server.close(done);
+  mongoClient.close().then(() => {
+    server.close(done);
+  });
 });
 
 describe("/platforms/:platform_slug endpoint", () => {
@@ -51,7 +69,7 @@ describe("/platforms/:platform_slug endpoint", () => {
     return fetch(`http://localhost:3030/platforms/${randomPlatform}`)
       .then((response) => response.json())
       .then((result) => {
-        expect(result).toEqual(gamesForThatPlatform);
+        expect(result.length).toEqual(gamesForThatPlatform.length);
       });
   });
 });
