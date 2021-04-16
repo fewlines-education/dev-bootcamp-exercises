@@ -1,4 +1,4 @@
-# Models With Mongos
+# Sum of the smallest 2 numbers
 
 ## CONTEXT AND OBJECTIVES
 
