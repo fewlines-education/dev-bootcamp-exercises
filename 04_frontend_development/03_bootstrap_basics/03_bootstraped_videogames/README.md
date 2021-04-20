@@ -10,7 +10,7 @@ Copy your code from yesterday in the `src` folder and continue on.
 
 ### Bootstrap
 
-With the help of the **[Bootstrap documentation](https://getbootstrap.com/docs/4.5/getting-started/introduction/)**, it's time to rework the front-end part of your web application!
+With the help of the **[Bootstrap documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**, it's time to rework the front-end part of your web application!
 
 ### Home page
 
@@ -29,7 +29,7 @@ Then, create the nunjucks page in the `view` directory and don't forget to use t
 {% endblock %}
 ```
 
-It would be nice to have a [Navbar](https://getbootstrap.com/docs/4.5/components/navbar/) right?
+It would be nice to have a [Navbar](https://getbootstrap.com/docs/5.0/components/navbar/) right?
 
 You should also add a nice banner!
 
