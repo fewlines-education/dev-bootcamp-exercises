@@ -118,6 +118,8 @@
     "04_frontend_development/03_bootstrap_basics/01_fundamental_loto_function",
     "04_frontend_development/03_bootstrap_basics/02_fundamental_loto_context",
     "04_frontend_development/03_bootstrap_basics/03_bootstraped_videogames",
+    "04_frontend_development/04_bootstrap_advanced/01_fundamental_greeter_function",
+    "04_frontend_development/04_bootstrap_advanced/02_fundamental_greeter_context",
     "04_frontend_development/05_forms/01_fundamentals_antiVowels_function",
     "04_frontend_development/05_forms/02_fundamentals_antiVowels_context",
     "06_fullstack_web_development/01_react_functional_components/01_basic_component",
