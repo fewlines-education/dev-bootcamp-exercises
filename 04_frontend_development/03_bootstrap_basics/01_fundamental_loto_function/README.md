@@ -11,7 +11,7 @@ The function you need to code is in `src/lottery_draw.ts`.
 Write a function with the following specifications:
 
 - It takes no parameter.
-- It returns a type `Draw`, which is an array of 6 random numbers
+- It returns a type `Draw`, which is an array of 6 numbers
   - Every number of the array should have a value between 0 and 100 (included)
 
 ## EXAMPLES

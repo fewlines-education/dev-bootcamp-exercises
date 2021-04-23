@@ -5,7 +5,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-it("Should be able to square every number of a list", () => {
+it("Should be able to capitalize every first letter of every word of a sentence", () => {
   expect.assertions(1);
   const nameOne = context("he who must not be named");
 

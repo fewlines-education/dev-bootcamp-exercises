@@ -24,6 +24,22 @@ it("Should console log 'You won' when the ticket is the same", () => {
   spy.mockRestore()
 });
 
+it("Should not console log 'You won' when the ticket are different", () => {
+  expect.assertions(2);
+  jest.spyOn(global.Math, 'random').mockReturnValue(0.42);
+  let logs = ""
+  const spy = jest.spyOn(console, "log").mockImplementation((text) => {
+    logs += text
+  });
+
+  const result = contextFunction([42, 40, 40, 40, 40, 40]);
+
+  expect(spy).toHaveBeenCalled();
+  expect(logs).not.toMatch(/won/);
+  spy.mockRestore()
+});
+
+
 it("Should console log 'You lost...' when the ticket is not the same", () => {
   expect.assertions(2);
   jest.spyOn(global.Math, 'random').mockReturnValue(0.42);
@@ -39,9 +55,24 @@ it("Should console log 'You lost...' when the ticket is not the same", () => {
   spy.mockRestore()
 });
 
+it("Should not console log 'You lost' when the ticket is the same", () => {
+  expect.assertions(2);
+  jest.spyOn(global.Math, 'random').mockReturnValue(0.42);
+  let logs = ""
+  const spy = jest.spyOn(console, "log").mockImplementation((text) => {
+    logs += text
+  });
+
+  const result = contextFunction([42, 42, 42, 42, 42, 42]);
+
+  expect(spy).toHaveBeenCalled();
+  expect(logs).not.toMatch(/lost/);
+  spy.mockRestore()
+});
+
 it("Should use the lottery_draw function", () => {
   expect.assertions(1);
-  const spy = jest.spyOn(lotteryFunction, 'lottery_draw').mockImplementation();
+  const spy = jest.spyOn(lotteryFunction, 'lottery_draw').mockImplementation(() => [42, 42, 42, 42, 42, 41]);
 
   const result = contextFunction([42, 42, 42, 42, 42, 41]);
 

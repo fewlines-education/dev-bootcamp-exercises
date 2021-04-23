@@ -1,4 +1,4 @@
-type Draw = [number, number, number, number, number, number]
+type Draw = number[]
 
 export function lottery_draw(): Draw {
 
