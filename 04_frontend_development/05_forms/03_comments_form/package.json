@@ -1,0 +1,75 @@
+{
+  "name": "comments_form",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "populate-db": "ts-node src/scripts/populate-db.ts",
+    "test": "eslint --ext .js,.ts ."
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.11",
+    "@types/jest": "26.0.10",
+    "@types/mongodb": "^3.6.12",
+    "@types/node-fetch": "^2.5.10",
+    "@types/nunjucks": "^3.1.4",
+    "@typescript-eslint/eslint-plugin": "3.10.1",
+    "@typescript-eslint/parser": "3.10.1",
+    "eslint": "7.7.0",
+    "jest": "26.4.2",
+    "node-fetch": "^2.6.1",
+    "ts-jest": "26.3.0",
+    "ts-node": "^9.1.1",
+    "typescript": "4.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "ignorePatterns": [
+      "jest.config.js",
+      "node_modules/",
+      "*.test.ts",
+      "src.sample/*"
+    ],
+    "rules": {
+      "@typescript-eslint/no-inferrable-types": 0,
+      "@typescript-eslint/no-explicit-any": 0
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        }
+      }
+    },
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6",
+    "nunjucks": "^3.2.3"
+  }
+}
