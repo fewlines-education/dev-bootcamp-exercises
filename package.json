@@ -131,6 +131,8 @@
     "06_fullstack_web_development/01_react_functional_components/04_advanced_form_validation_bonus",
     "06_fullstack_web_development/02_typescript_and_hooks/01_interact_with_apis",
     "06_fullstack_web_development/02_typescript_and_hooks/02_react_timers",
+    "06_fullstack_web_development/03_component_testing/01_basic_component_with_tests",
+    "06_fullstack_web_development/03_component_testing/02_product_card_with_tests",
     "09_extras/01_mongo_advanced/01_import_data",
     "09_extras/01_mongo_advanced/02_pagination_and_query",
     "09_extras/01_mongo_advanced/03_play_with_aggregations",
