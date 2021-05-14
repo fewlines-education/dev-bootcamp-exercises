@@ -9,7 +9,7 @@
     "test": "eslint --ext .js,.ts . && sparta test"
   },
   "devDependencies": {
-    "eslint": "7.18.0",
+    "eslint": "7.26.0",
     "jest": "26.6.3",
     "camp2-helpers": "fewlines-education/camp2-helpers#main"
   },
