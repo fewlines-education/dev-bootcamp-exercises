@@ -196,7 +196,7 @@ describe("Github Client", () => {
     });
   });
 
-  describe("#printRepoitory", () => {
+  describe("#printRepository", () => {
     it("Must take a repository as an argument", () => {
       expect.assertions(1);
 

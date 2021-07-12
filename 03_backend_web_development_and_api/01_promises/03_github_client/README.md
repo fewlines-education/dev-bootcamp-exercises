@@ -29,6 +29,16 @@ In this file you also have the `Repo` type you'll need for your client's functio
 - Must use the `getOneRepoInfos` function that takes an `url` as its argument.
 - Must return the repository's data.
 
+### `printRepos`
+
+- Must take an array of repos as a parameter.
+- Must use `console.log` to print repos in the following format:
+  - 1 - nameOfTheFirstRepo
+  - 2 - nameOfTheSecondRepo
+  - 3 - nameOfTheThirdRepo
+  - ...  
+- Must return the array of repos
+
 ### `printRepository`
 
 - Must take a repository as a parameter.
