@@ -12,7 +12,7 @@ You can use `yarn start` to launch examples in the `src/index.ts` file.
 
 Here are some usage examples:
 
-```
+```ts
 getLine(5);
 // returns "*****"
 

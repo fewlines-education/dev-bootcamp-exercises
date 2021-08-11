@@ -39,7 +39,7 @@ Hint: you can find the piping operator in the OS and Terminal course.
 
 When testing your call, you'll notice something that is not intended that look like this:
 
-```
+```shell-session
  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   821    0   821    0     0   3040      0 --:--:-- --:--:-- --:--:--  3029

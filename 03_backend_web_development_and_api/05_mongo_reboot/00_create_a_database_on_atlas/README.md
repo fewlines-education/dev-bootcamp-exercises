@@ -8,7 +8,7 @@ We just need to be sure that everything is good for the Atlas connection.
 
 Yesterday we made you create a database on MongoDB Atlas and you had an URL that look like this:
 
-```
+```text
 mongodb+srv://<your-username>:<your-password>@cluster0.djg4e.mongodb.net/
 ```
 

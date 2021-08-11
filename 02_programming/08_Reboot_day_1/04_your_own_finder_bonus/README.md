@@ -10,7 +10,7 @@ First things first, write a NodeJS program which can display the current directo
 
 Eg:
 
-```
+```shell
 ❯ yarn start
 
 0. ../

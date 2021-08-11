@@ -9,7 +9,7 @@ This endpoint will be `/` and must return `"OK"` with a status code of 200.
 
 ## SPECS
 
-```
+```text
 | Endpoint | HTTP Method | Response Content-Type | Response value |
 |----------|-------------|-----------------------|----------------|
 | /        | 200         | text/html             | OK             |

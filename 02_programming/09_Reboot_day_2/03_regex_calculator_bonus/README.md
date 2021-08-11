@@ -24,7 +24,7 @@ calculator("1.5 * 2,5")
 
 If it is not a valid operation, it should throw an error saying: `"Can't process the operation"`:
 
-```
+```sh
 Enter an operation> I'm not an operation
 readline.js:1154
             throw err;

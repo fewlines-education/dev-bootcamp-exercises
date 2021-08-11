@@ -58,7 +58,7 @@ go the newly created `/Users/<your_name>/workspace/fewlines-education/exercises`
 
 Then, in the `.gitignore` file, add the following:
 
-```
+```bash
 *.DS_Store
 node_modules
 ```
@@ -85,7 +85,7 @@ $ sparta today
 
 🔎 Then, look inside your `exercises` directory! 🔎
 
-```
+```bash
 exercises
 └── 02_programming_fundamentals
     └── 03_algorithms_day_1

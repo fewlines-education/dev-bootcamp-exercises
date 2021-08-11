@@ -14,7 +14,7 @@ You can use `yarn start` to launch examples in the `src/index.ts` file once you'
 
 Here are some usage examples:
 
-```
+```ts
 column(5, "*");
 // returns:
 // *

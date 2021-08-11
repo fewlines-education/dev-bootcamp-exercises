@@ -63,7 +63,7 @@ Most of the time, it just works with the bare minimum functionalities. In the Ca
 
 At the end your MVP should work pretty much like this when using `yarn start`:
 
-```
+```sh
 Ready to compute operations!
 ****************************
 

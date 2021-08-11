@@ -17,7 +17,7 @@ For this, you have to use your **[OpenweatherMap](https://openweathermap.org/)**
 Once you have your API key activated it means that you are allowed to use OpenweatherMap's API.
 You should create a `.env_vars` file in the root folder of the exercise and write the key in it:
 
-```
+```ts
 export OPENWEATHER_API_KEY=<your_api_key>
 ```
 

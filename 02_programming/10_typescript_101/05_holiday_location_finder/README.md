@@ -15,7 +15,7 @@ This part requires the use of the NodeJS module `readline`. Please read the [doc
 
 Your program should work pretty much like this:
 
-```
+```sh
 ***Welcome to HOLIDAY LOCATION FINDER***
 
 This program will help you find a location based on the continent you will input.

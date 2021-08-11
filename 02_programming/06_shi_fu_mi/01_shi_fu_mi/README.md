@@ -88,7 +88,7 @@ You'll need to store them in variables to use them in the game.
 
 Shifumi is a two-player game, and they play face to face. To reflect that, you should display it like this:
 
-```
+```sh
 First Player's move
     ________
 ---'   _ ,  |
@@ -128,7 +128,7 @@ Let's start with a **basic step by step plan** for the **dumb AI version**:
 
 Here is the wanted output for this first version:
 
-```
+```sh
 Welcome to the ShiFuMi!
 Choose a move:
 Rock Paper Scissors? [1, 2, 3]

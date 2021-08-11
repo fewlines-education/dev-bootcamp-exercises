@@ -50,7 +50,7 @@ The timer component must use `useEffect`: On load the timer must be set to `0` t
 
 If you don't use `clearTimeOut` in the cleanup part of the `useEffect` hook, you'll get this error in your browser's console:
 
-```
+```sh
 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
 ```
 

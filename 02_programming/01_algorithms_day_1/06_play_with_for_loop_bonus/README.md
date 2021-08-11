@@ -15,7 +15,7 @@ Using loops, draw this on `stdout`:
 
 > [01 line]
 
-```
+```sh
 **********
 ```
 
@@ -23,7 +23,7 @@ Using loops, draw this on `stdout`:
 
 > [02 rectangle]
 
-```
+```sh
 **********
 **********
 **********
@@ -40,7 +40,7 @@ Using loops, draw this on `stdout`:
 
 > [03 right triangle]
 
-```
+```sh
 *
 **
 ***
@@ -52,7 +52,7 @@ Using loops, draw this on `stdout`:
 
 > [04 inverted right triangle]
 
-```
+```sh
 *****
  ****
   ***
@@ -64,7 +64,7 @@ Using loops, draw this on `stdout`:
 
 > [05 pyramid]
 
-```
+```sh
    *
   ***
  *****
@@ -80,7 +80,7 @@ To spice things up, add:
 - an X at the positions **25:2** and **7:9**
 - a 0 at the positions **6:4** and **18:7**
 
-```
+```sh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~X~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

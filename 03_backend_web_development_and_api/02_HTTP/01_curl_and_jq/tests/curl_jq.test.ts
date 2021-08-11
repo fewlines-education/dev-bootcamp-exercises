@@ -14,6 +14,7 @@ function execPromise(command: string): Promise<string[]> {
   });
 }
 
+jest.setTimeout(30000);
 
 test("01_test_curl.sh: should return the content of https://swapi.dev/api/planets/1/", async () => {
   expect.assertions(1);
@@ -42,6 +43,5 @@ test("03_querying_with_jq.sh: should return the URL of the first resident of Tat
   const file = () => path.resolve(__dirname, "../src/03_querying_with_jq.sh");
   const [studentOutput] = await execPromise(`bash ${file()}`);
 
-  expect(studentOutput.trim()).toBe(`"http://swapi.dev/api/people/1/"`)
+  expect(studentOutput.trim()).toBe(`"https://swapi.dev/api/people/1/"`)
 });
-

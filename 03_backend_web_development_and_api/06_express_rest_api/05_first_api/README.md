@@ -34,7 +34,7 @@ Don't forget to launch the whole test suite from time to time with `yarn test`!
 
 ---
 
-```
+```text
 | Endpoint                  | HTTP Method | Response Content-Type | Response value               |
 |---------------------------|-------------|-----------------------|------------------------------|
 | /                         | 400         | application/json      | { "error": "Wrong resource"} |

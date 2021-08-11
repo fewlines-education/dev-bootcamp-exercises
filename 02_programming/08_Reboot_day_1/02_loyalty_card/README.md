@@ -12,7 +12,7 @@ The user needs to interact with the program. To do so, he needs an interface.
 
 Use readline to create one:
 
-```
+```sh
 Welcome
 ********************************************************
 1 - Add new customer
@@ -25,7 +25,7 @@ Welcome
 
 ### create a new customer
 
-```
+```sh
 ********************************************************
 CREATE NEW CUSTOMER
 ********************************************************
@@ -51,7 +51,7 @@ CREATE NEW CUSTOMER
 
 It should then be possible to see a list of customers:
 
-```
+```sh
 ********************************************************
 CHOOSE A CUSTOMER
 ********************************************************
@@ -82,7 +82,7 @@ ALICE COOPER
 
 Your user needs to get information about a customer:
 
-```
+```sh
 ********************************************************
 ALICE COOPER'S INFORMATION
 ********************************************************
@@ -103,7 +103,7 @@ A purchase is defined by two things:
 - the current date
 - the amount
 
-```
+```sh
 ********************************************************
 ALICE COOPER - ADD PURCHASE
 ********************************************************
@@ -116,7 +116,7 @@ ALICE COOPER - ADD PURCHASE
 
 The user must be able to access to the history of all purchases made by the customer:
 
-```
+```sh
 ********************************************************
 ALICE COOPER'S PURCHASE HISTORY
 ********************************************************

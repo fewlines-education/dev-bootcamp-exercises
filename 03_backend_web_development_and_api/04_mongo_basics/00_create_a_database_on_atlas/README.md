@@ -77,7 +77,7 @@ You can then choose a connection method. Here, we need to connect the Applicatio
 
 Keep only this part of your url, without the database name:
 
-```
+```bash
 mongodb+srv://<your-username>:<your-password>@cluster0.djg4e.mongodb.net/
 ```
 
