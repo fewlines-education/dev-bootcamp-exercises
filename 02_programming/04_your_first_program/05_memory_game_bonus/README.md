@@ -7,7 +7,7 @@ You can return two cards at a time, if they are the same, they stay visible, if 
 
 A full game sequence should look like this:
 
-```sh
+```shell
 Welcome in the Memory Game!
 [ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]
 Press [Enter] to start!
@@ -85,13 +85,13 @@ clear();
 For your game to work, you will need to present a board to the player.
 This board must contain **at least 2 pairs of symbols**, but feel free to put as many as you want!
 
-```sh
+```shell
 [ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]
 ```
 
 You could even do something like this **if you want**:
 
-```sh
+```shell
 Choose an even board size between 4 and 40
 40
 [
@@ -125,7 +125,7 @@ But remember:
 Here are some tips for the board display:
 
 - Even if no symbols have been discovered yet, you'll need a way to show them all, like at the beginning of the game:
-  ```sh
+  ```shell
   Welcome to the Memory Game!
   [ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]
   Press [Enter] to start!
@@ -134,7 +134,7 @@ Here are some tips for the board display:
 - When a symbol is chosen by the user, its "state" changes. When we display `[ '1:🐰', '2:🎃', '3:🐰', '4:🎃' ]` it doesn't mean that we stored exactly that in a variable. In reality, each element of the board should probably be a _more complex_ object than a `string`, maybeeeeeee... An `object`? 😇
 - When your board's elements have their state, it should change depending on the user choices:
 
-  ```sh
+  ```shell
   🖥  clear the screen 🖥
   [ '1:🐰', '2:❔', '3:❔', '4:❔' ]
   choose a card

@@ -25,7 +25,7 @@ But inside each of those steps, there are cool things to do!
 ### Menu
 
 This is what your Menu should pretty much look like:
-```sh
+```shell
 **************************************************
 MENU
 **************************************************
@@ -43,7 +43,7 @@ The user has to choose a number, then, the program execute the corresponding par
 
 ### Buy a product
 
-```sh
+```shell
 **************************************************
 SHOP
 **************************************************
@@ -68,7 +68,7 @@ As you can guess, this is also the time to think about the data structure:
 
 ### Display the cart
 
-```sh
+```shell
 **************************************************
 CART
 **************************************************
@@ -94,7 +94,7 @@ The paiement part where you ask your customer how much they will give to the cas
 
 What if the sum is too high? Too low?
 
-```sh
+```shell
 **************************************************
 CHECKOUT
 **************************************************
@@ -107,7 +107,7 @@ You have to pay: 4.5 €
 
 ### Quit
 
-```sh
+```shell
 Thank you!
 **************************************************
 GOODBYE!

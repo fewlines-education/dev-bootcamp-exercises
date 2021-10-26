@@ -68,7 +68,7 @@ A user is formed like this:
 
 For this user, the function should log:
 
-```sh
+```shell
 "John Rambo lives in Hope, Canada."
 ```
 
