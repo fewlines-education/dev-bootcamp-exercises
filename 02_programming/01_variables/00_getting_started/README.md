@@ -95,13 +95,17 @@ exercises
     └── 03_algorithms_day_1
         └── current 👈 # HERE!
              ├── 00_getting_started
-             ├── 01_play_with_variables
-             ├── 02_play_with_arrays
-             ├── 03_play_with_conditional_statement_drink
-             ├── 04_play_with_conditional_statement_exoplanets
-             ├── 05_play_with_for_loop
-             ├── 06_play_with_for_loop_bonus
-             └── 07_pattern_bonus
+             ├── 01_play_with_strings
+             ├── 02_play_with_numbers
+             ├── 03_play_with_objects_and_arrays
+             ├── 04_play_with_length
+             ├── 05_play_with_slice
+             ├── 06_play_with_charat
+             ├── 07_play_with_uppercase
+             ├── 08_play_with_capitalized_strings
+             ├── 09_play_with_arrays
+             ├── 10_play_with_push
+             └── 11_play_with_join
 ```
 
 ## Context and Objectives
