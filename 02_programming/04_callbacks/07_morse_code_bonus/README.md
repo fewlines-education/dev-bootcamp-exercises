@@ -1,4 +1,4 @@
-# Morse Code
+# Morse Code (bonus)
 
 ## Context and Objectives
 
