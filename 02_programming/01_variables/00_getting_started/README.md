@@ -46,10 +46,11 @@ $ sparta init --batchID=<weird_string> --userID=<weird_string>
 Enter the Sparta secret token: <secret_token>
 
 You will be asked to create a blank github repository with a `.gitignore` file at its root, do it like this:
+````
 
 ![github repository creation](./assets/images/git-repo.png)
 
-go the newly created `/Users/<your_name>/workspace/fewlines-education/exercises` directory and add the `git remote`, as asked in the instructions.
+Go the newly created `/Users/<your_name>/workspace/fewlines-education/exercises` directory and add the `git remote`, as asked in the instructions.
 
 Then, in the `.gitignore` file, add the following:
 
@@ -67,7 +68,7 @@ $ git status # Check that only the .gitignore is added
 
 $ git commit -m "exercises repo creation"
 
-$ git push origin master
+$ git push origin main
 ```
 
 ### Get the exercises for the day
@@ -83,16 +84,16 @@ $ sparta today
 ```shell
 exercises
 └── 02_programming_fundamentals
-    └── 03_algorithms_day_1
+    └── 01_variables
 ```
 
-`03_algorithms_day_1` is the folder you need to use today.
+`01_variables` is the folder you need to use today.
 Inside, you'll have a directory named **`current`**, navigate to it and see what you have to do today:
 
 ```shell
 exercises
-└── 02_programming_fundamentals
-    └── 03_algorithms_day_1
+└── 02_programming
+    └── 01_variables
         └── current 👈 # HERE!
              ├── 00_getting_started
              ├── 01_play_with_strings
@@ -114,18 +115,18 @@ This exercise is an introduction to solving efficiently exercises.
 
 ## Specs
 
-With your terminal, navigate with the command `cd wantedRepository` to enter a repository.
+With your terminal, navigate with the command `cd wantedFolder` to enter a folder.
 You can then navigate to the exercise folder which usually starts with a number, followed by the name of the exercise.
 
 **Note**: Use the command `ls` in your terminal to see a list of all the files and folders at your current location.
 
-In the `src` repository, open the `index.js` file and code the following specifications:
+In the `src` folder, open the `index.js` file and code the following specifications:
 
 - The variable `booleanVariable` must be given a boolean value `true`;
 - Uncomment the ligne `// const nullVariable = null;` by deleting the characters `//`;
 - The variable `greetingVariable` must be given the string value `"Hello World!"`.
 
-Once you are done, you can launch tests by executing the command `yarn test` from the exercise repository.
+Once you are done, you can launch tests by executing the command `yarn test` from the exercise folder.
 
 Once the tests are all passed, you can move on to the next exercise!
 Don't hesitate to ask for help to your teachers!
