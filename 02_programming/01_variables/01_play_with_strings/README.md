@@ -14,4 +14,4 @@ Let's start with the string type.
 Let's create two different constants:
 
 - a constant called `question`, binded to a string: "Spartan, what is your profession?!";
-- a constant called `answer`, binded to an integer: "Dev dev dev!";
+- a constant called `answer`, binded to a string: "Dev dev dev!";

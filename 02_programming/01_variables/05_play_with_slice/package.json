@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "eslint": "7.7.0",
-    "jest": "26.4.2"
+    "jest": "26.4.2",
+    "camp2-helpers": "fewlines-education/camp2-helpers#main"
   }
 }

@@ -1,5 +1,5 @@
 /* global beforeAll describe test expect */
-const fs = require("fs");
+const helpers = require("camp2-helpers");
 const path = require("path");
 const readcode = require("./readcode");
 
@@ -34,7 +34,7 @@ describe("#05_play_with_slice", () => {
       const hobbyQuestion = eval(changedStudentCode + "; hobbyQuestion;");
       const expectedQuestion = "spartan, this is your hobby?!";
 
-      expect(hobbyQuestion).toEqual(expectedQuestion);
+      helpers.expectMessage(hobbyQuestion, "be careful about spaces", "warning").toEqual(expectedQuestion);
     });
   });
 
