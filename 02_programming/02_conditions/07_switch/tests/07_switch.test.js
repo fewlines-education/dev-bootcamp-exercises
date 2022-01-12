@@ -21,7 +21,7 @@ describe("#06_switch", () => {
     });
   });
 
-  test("It should log the right message when the chosenCar is a Nissan S-Cargo", () => {
+  test("It should log the right message when the chosenCar is a Nissan Cube", () => {
     return studentCode.then((code) => {
       const changedCode = code.replace(
         `let chosenCar = "Fiat Multipla";`, // eslint-disable-line quotes
