@@ -7,7 +7,8 @@ Who does not want to go to Space? 😎 Then let's prepare and check if our space
 ## Specs
 
 Write two functions :
-  -`checkFuelLevel` that takes **an integer** as _input parameter_, and _returns_ **a string** depending on the fuel level:
+
+  - `checkFuelLevel` that takes **an integer** as _input parameter_, and _returns_ **a string** depending on the fuel level:
     - if the fuel level is higher than 20, it's "green"
     - if it is higher than 10, it's "yellow"
     - else, it's "red"
@@ -22,7 +23,7 @@ Write two functions :
   const lowFuelLevel = checkFuelLevel(1); // => Fuel level: red
   ```
 
-  -`checkCargoHold` that takes **an array** as _input parameter_, and _returns_ **a string** depending on the space remaining:
+  - `checkCargoHold` that takes **an array** as _input parameter_, and _returns_ **a string** depending on the space remaining:
     - if the cargo contains four items, you are full
     - if it is less than four items, you need to calculate the space remaining
     - if it excess four items, your need to calculate how many item you need to get rid of
