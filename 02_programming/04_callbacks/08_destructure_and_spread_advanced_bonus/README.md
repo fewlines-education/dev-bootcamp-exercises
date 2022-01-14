@@ -1,4 +1,4 @@
-# Destructure and spread : hard (bonus)
+# Destructure and spread : advanced (bonus)
 
 ## Context and Objectives
 

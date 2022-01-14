@@ -54,7 +54,7 @@ describe("Destructuring and spread with arrays and objects", () => {
     });
 
     test("Should use the destructuring", () => {
-      const regex = /(\.\.\.\w*code\w*)/g;
+      const regex = /(\.\.\.\w+\s*\])/g;
 
       helpers.expectMessage(studentCode.match(regex), `You need to use the destructuring`, "warning").not.toBe(null);
     });

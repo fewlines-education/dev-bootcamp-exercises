@@ -1,4 +1,4 @@
-# Destructure and spread : intermediate
+# Destructure and spread : beginner
 
 ## Context and Objectives
 
