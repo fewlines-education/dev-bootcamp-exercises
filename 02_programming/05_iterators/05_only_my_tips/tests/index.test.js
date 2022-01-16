@@ -1,6 +1,6 @@
-const justTheTip = require("../src/index");
+const onlyMyTips = require("../src/index");
 
-test("It should filter on the waiter Yourself", () => {
+test("It should filter if `waiter` has the value 'Yourself'", () => {
   expect.assertions(1);
 
   const invoices = [
@@ -13,7 +13,7 @@ test("It should filter on the waiter Yourself", () => {
     { clients: 2, waiter: "Yourself", price: 2900, tip: 100 },
   ];
 
-  const tips = justTheTip(invoices);
+  const tips = onlyMyTips(invoices);
 
   expect(tips).toHaveLength(4);
 });
@@ -31,7 +31,7 @@ test("It should only give back the tips", () => {
     { clients: 2, waiter: "Yourself", price: 2900, tip: 100 },
   ];
 
-  const tips = justTheTip(invoices);
+  const tips = onlyMyTips(invoices);
 
   expect(tips).toEqual([210, 100, 400, 100]);
 });

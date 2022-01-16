@@ -1,4 +1,4 @@
-# Tipity Tip
+# How much did I make?
 
 ## Context and objectives
 
@@ -8,7 +8,7 @@ Because, knowing the list of tips is great, but what we really want to know is h
 
 ## Specs
 
-In the `src/index.js`, write another function `justTheTip` that will take a list of invoices as input that will do the same as the previous one but instead of returning an array of tips, it should return the sum of all the tips.
+In the `src/index.js`, write another function `howMuchDidIMake` that will take a list of invoices as input that will do the same as the previous one but instead of returning an array of tips, it should return the sum of all the tips.
 
 ```js
 const invoices = [
@@ -17,6 +17,6 @@ const invoices = [
   { clients: 2, waiter: "Yourself", price: 2900, tip: 100 },
 ];
 
-justTheTip(invoices);
+howMuchDidIMake(invoices);
 // -> 300
 ```

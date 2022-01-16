@@ -22,7 +22,7 @@ test("It should return sentences with lowercase e", () => {
   const result = theEFilter([
     "This is a random sentence",
     "But as you can see, it's easy to have e in them",
-    "Aligator",
+    "Alligator",
   ]);
 
   expect(result).toEqual(["This is a random sentence", "But as you can see, it's easy to have e in them"]);

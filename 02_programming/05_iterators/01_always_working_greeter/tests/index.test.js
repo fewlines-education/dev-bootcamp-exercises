@@ -30,9 +30,13 @@ test("`forEach` should have been used", () => {
 });
 
 test("No accessing by index is needed", () => {
-  expect.assertions(1);
+  expect.assertions(2);
 
-  const usingIndexes = /\w\[\d\]/;
+  const functionContentRegex = /function greeter.*?{([\s\S]*?)}/gm;
+  const [, code] = functionContentRegex.exec(studentCode);
+  expect(code.trim()).not.toBe("");
+
+  const usingIndexes = /function greeter.*?{[\s\S]*?\w\[\d+\][\s\S]*?}/gm;
 
   expect(usingIndexes.test(studentCode)).toBe(false);
 });

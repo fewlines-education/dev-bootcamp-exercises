@@ -3,6 +3,7 @@
 ## Context and objectives
 
 For the first exercise of the day, you want to say hello to people but this time, there can be any number of them.
+Iterators will help you achieve this.
 
 ## Specs
 

@@ -1,4 +1,4 @@
-# Just the tip
+# Only my tips
 
 ## Context and objectives
 
@@ -10,7 +10,7 @@ You can then make a function that will only return the tips.
 
 ## Specs
 
-In the `src/index.js`, write a function `justTheTip` that will take a list of invoices as input:
+In the `src/index.js`, write a function `onlyMyTips` that will take a list of invoices as input:
 
 ```js
 const invoices = [

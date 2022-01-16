@@ -1,7 +1,7 @@
-const justTheTip = require("../src/index");
+const howMuchDidIMake = require("../src/index");
 
 test("It should return a number", () => {
-  expect.assertions(1);
+  expect.assertions(2);
 
   const invoices = [
     { clients: 3, waiter: "Yourself", price: 5100, tip: 200 },
@@ -13,9 +13,10 @@ test("It should return a number", () => {
     { clients: 2, waiter: "Yourself", price: 2900, tip: 100 },
   ];
 
-  const tips = justTheTip(invoices);
+  const tips = howMuchDidIMake(invoices);
 
   expect(typeof tips).toBe("number");
+  expect(Number.isNaN(tips)).not.toBe(true);
 });
 
 test("It should return the sum of the tips for waiter Yourself", () => {
@@ -31,7 +32,7 @@ test("It should return the sum of the tips for waiter Yourself", () => {
     { clients: 2, waiter: "Yourself", price: 2900, tip: 100 },
   ];
 
-  const tips = justTheTip(invoices);
+  const tips = howMuchDidIMake(invoices);
 
   expect(tips).toBe(810);
 });

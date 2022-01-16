@@ -26,7 +26,7 @@ test("Return false when every pieces are not paintings", () => {
   expect.assertions(1);
 
   expect(canTakeArtPieces([
-    {piece: "Liberty Statue", type: "statue"},
+    {piece: "Statue of LIberty", type: "statue"},
     {piece: "The Thinker", type: "statue"},
     {piece: "Eiffel Tower", type: "building"},
   ])).toBe(false);
