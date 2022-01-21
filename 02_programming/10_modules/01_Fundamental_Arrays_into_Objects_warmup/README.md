@@ -1,4 +1,4 @@
-# Arrays into Objects
+# Arrays into Objects (warmup)
 
 ## Context and objectives
 
