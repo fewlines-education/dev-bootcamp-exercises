@@ -2,6 +2,8 @@
 
 ## Context and objectives
 
+For this bonus, be sure you read the extra course on [Regular Expressions](/today/camp2/09_extras/16_regular_expressions).
+
 You already coded a basic calculator. Initially, the interface asked for:
 - a first number
 - an operator (`+`, `-`, `*`, `/`)

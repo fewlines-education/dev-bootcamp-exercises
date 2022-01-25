@@ -2,6 +2,8 @@
 
 ## Context and objectives
 
+For this bonus, first read the extra course on [Filesystem in Node](/today/camp2/09_extras/15_filesystem_in_node).
+
 Handling the file system is an essential point for application development. Let's try to implement some useful functions.
 
 As a reminder, here are the links of the documentation of modules `fs` and `path`:

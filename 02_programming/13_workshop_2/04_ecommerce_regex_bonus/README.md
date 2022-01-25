@@ -1,5 +1,7 @@
 # E-Commerce Regex (bonus)
 
+For this bonus, be sure you read the extra course on [Regular Expressions](/today/camp2/09_extras/16_regular_expressions).
+
 E-commerce websites sell a lot of product.
 
 Really.
@@ -28,7 +30,7 @@ const xxsArticles = shop.searchArticles("XXS");
 const blackClothes = shop.searchArticles("black");
 
 console.log(xxsArticles)
-/** 
+/**
 ...
 { label: 'pull turtle neck blue size: XXS', price: 43, quantity: 47 },
 { label: 'pull tie & dye pink size: XXS', price: 32, quantity: 33 },

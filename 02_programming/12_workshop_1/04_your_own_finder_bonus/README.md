@@ -2,6 +2,8 @@
 
 ## Context and objectives
 
+For this bonus, be sure you read the extra course on [Filesystem in Node](/today/camp2/09_extras/15_filesystem_in_node).
+
 Now, it's time to do some file manipulation, a good way to practice that is to rewrite a simple **Finder** in command line.
 
 ## Specs

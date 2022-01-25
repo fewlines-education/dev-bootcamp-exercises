@@ -2,6 +2,8 @@
 
 ## Context and objectives
 
+For this bonus, first read the extra course on [Regular Expressions](/today/camp2/09_extras/16_regular_expressions).
+
 When handling user inputs it is important to verify if what we get is ok with what we want.
 
 ## Specs
