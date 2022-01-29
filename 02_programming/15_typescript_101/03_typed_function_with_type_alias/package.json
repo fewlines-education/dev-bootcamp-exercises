@@ -1,5 +1,5 @@
 {
-  "name": "01_basic_typing",
+  "name": "03_typed_function_with_type_alias",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
@@ -44,7 +44,7 @@
       "src.sample/*"
     ],
     "rules": {
-      "@typescript-eslint/no-inferrable-types": 0
+      "@typescript-eslint/explicit-function-return-type": 2
     }
   },
   "jest": {

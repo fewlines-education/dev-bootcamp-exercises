@@ -1,5 +1,5 @@
 {
-  "name": "01_basic_typing",
+  "name": "04_typed_array",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",

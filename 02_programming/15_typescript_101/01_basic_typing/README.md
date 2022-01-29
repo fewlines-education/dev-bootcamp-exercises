@@ -18,6 +18,8 @@ Type the following variables:
 - a constant called `isOpen`, binded to a boolean: `false`.
 - a constant called `empty`, binded to a value of `null`.
 
+> Don't forget to export these variables!
+
 > It is quite difficult to test if a variable has been typed explicitly, as it is considered bad practice for `strings`, `numbers` and `boolean`. As you are making your first steps in the TypeScript world, please try your best to not "cheat" by avoiding implicit typing.
 
 - You can use `yarn test` to help you during the development.
