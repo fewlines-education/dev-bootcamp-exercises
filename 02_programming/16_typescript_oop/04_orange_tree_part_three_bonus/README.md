@@ -1,4 +1,4 @@
-# Orange tree part III
+# Orange tree (bonus)
 
 ## Context and objectives
 
@@ -14,18 +14,18 @@ As always, you can use the `src/index.ts` to play around with your code, by runn
 
 ## Specs
 
-Let's begin with the `Tree` class.
+Let's begin with the `Tree` class. Transform it as an `abstract` class.
 
 By convention, `protected` and `private` properties are prepended by `_` (e.g. `_alive`).
 This allows you to create `getters` and `setters` with the name you intended (`tree.alive`) and avoid having two things with the same name in your class which would be a bug for TypeScript.
 
-You must add the `protected` access modifier to the class' properties, and to the `_isAlive` method.
+You must add the `protected` access modifier to the class' properties, and to the `_isAlive` method, that will now be declared in `Tree`, to be used by `OrangeTree`.
+
+`ageOneYear` will also be declared in `Tree` to be used in `OrangeTree` and both need to be `abstract` methods.
 
 We know that `isAlive` is not meant to be accessed outside the sub-class scope, so we should also restrict the outside access to it. Do you think this `_isAlive` should be `private` or `protected`? Try them both, TypeScript should be there to help you on this one 😁.
 
 > ⚠️ Keep in mind that declaring a class member as `protected` in the parent class doesn't enforce the behavior in derived classes.
-
-When you are done with the `Tree` class, let's run **`yarn test:tree`** to verify we are good to go!
 
 It is time to do the same to the `OrangeTree` class. You can already see quite a lot of errors in the file, as we made some changes to the `Tree` class. Start off by fixing them. You also must prepend an underscore to `oranges`.
 

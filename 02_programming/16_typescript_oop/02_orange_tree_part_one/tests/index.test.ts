@@ -17,25 +17,7 @@ describe("Tree class", () => {
     done();
   });
 
-  class TestTree extends Tree {
-    isAlive() {
-      const randomNumber = Math.round(Math.random() * 50);
-
-      return randomNumber < this.age - 50 + 1 ? false : true;
-    }
-
-    ageOneYear() {
-      this.age += 1;
-
-      if (this.age <= 9) {
-        this.height += 25;
-      } else if (this.age >= 10 && this.age <= 20) {
-        this.height += 10;
-      }
-
-      this.alive = this.isAlive();
-    }
-  }
+  class TestTree extends Tree {}
 
   const tree = new TestTree(1);
 
@@ -44,12 +26,6 @@ describe("Tree class", () => {
 
     expect(treeClassNode.type).toBe(NODE_TYPE.CLASS_DECLARATION);
     expect(tree instanceof Tree).toBe(true);
-  });
-
-  it("should be abstract", () => {
-    expect.assertions(1);
-
-    expect(treeClassNode.abstract).toBe(true);
   });
 
   describe("class constructor:", () => {
@@ -114,28 +90,6 @@ describe("Tree class", () => {
           index++;
         }
       });
-
-      it("should have reach an height of 335cm after 50 years", () => {
-        expect.assertions(1);
-
-        const tree = new TestTree(50);
-
-        expect(tree.height).toEqual(335);
-      });
-
-      it("should stop growing after 20 years old", () => {
-        expect.assertions(80);
-
-        const tree = new TestTree(20);
-
-        for (let age = 20; age < 100; age++) {
-          const previousHeight = tree.height;
-
-          tree.ageOneYear();
-
-          expect(tree.height).toEqual(previousHeight);
-        }
-      });
     });
   });
 
@@ -173,95 +127,29 @@ describe("Tree class", () => {
     });
   });
 
-  describe("class methods:", () => {
-    describe("isAlive:", () => {
-      let isAliveNode: Node;
+  describe("seed:", () => {
+    let seedNode: Node;
 
-      beforeAll(() => {
-        isAliveNode = findNode(treeClassNode, "isAlive");
-      });
-
-      it("should have a method called isAlive.", () => {
-        expect.assertions(2);
-
-        expect(isAliveNode).not.toBe(undefined);
-        expect(isAliveNode.kind).toBe(NODE_KIND.METHOD);
-      });
-
-      it("should be an abstract method.", () => {
-        expect.assertions(1);
-
-        expect(isAliveNode.abstract).toBe(true);
-      });
-
-      it("should return a boolean.", () => {
-        expect.assertions(1);
-
-        expect(isAliveNode.returnType.typeAnnotation.type).toBe(
-          "TSBooleanKeyword"
-        );
-      });
+    beforeAll(() => {
+      seedNode = findNode(treeClassNode, "seed");
     });
 
-    describe("ageOneYear:", () => {
-      let ageOneYearNode: Node;
+    it("should have a method called seed.", () => {
+      expect.assertions(2);
 
-      beforeAll(() => {
-        ageOneYearNode = findNode(treeClassNode, "ageOneYear");
-      });
-
-      it("should have a method called ageOneYear.", () => {
-        expect.assertions(2);
-
-        expect(ageOneYearNode).not.toBe(undefined);
-        expect(ageOneYearNode.kind).toBe(NODE_KIND.METHOD);
-      });
-
-      it("should be an abstract method.", () => {
-        expect.assertions(1);
-
-        expect(ageOneYearNode.abstract).toBe(true);
-      });
-
-      it("shouldn't return anything", () => {
-        expect.assertions(1);
-
-        expect(ageOneYearNode.returnType.typeAnnotation.type).toBe(
-          "TSVoidKeyword"
-        );
-      });
+      expect(seedNode).not.toBe(undefined);
+      expect(seedNode.kind).toBe(NODE_KIND.METHOD);
     });
 
-    describe("seed", () => {
-      let seedNode: Node;
+    test("the seed method should reset the tree properties.", () => {
+      expect.assertions(3);
 
-      beforeAll(() => {
-        seedNode = findNode(treeClassNode, "seed");
-      });
+      tree.alive = false;
+      tree.seed();
 
-      it("should have a method called seed.", () => {
-        expect.assertions(2);
-
-        expect(seedNode).not.toBe(undefined);
-        expect(seedNode.kind).toBe(NODE_KIND.METHOD);
-      });
-
-      it("should not be an abstract method.", () => {
-        expect.assertions(1);
-
-        expect(seedNode.abstract).toBe(undefined);
-      });
-
-      test("the seed method should reset the tree properties.", () => {
-        expect.assertions(3);
-
-        tree.alive = false;
-        tree.seed();
-
-        expect(tree.age).toEqual(0);
-        expect(tree.height).toEqual(0);
-        expect(tree.alive).toEqual(true);
-      });
+      expect(tree.age).toEqual(0);
+      expect(tree.height).toEqual(0);
+      expect(tree.alive).toEqual(true);
     });
   });
 });

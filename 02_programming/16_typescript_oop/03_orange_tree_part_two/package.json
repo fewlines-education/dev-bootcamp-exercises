@@ -1,16 +1,11 @@
 {
-  "name": "02_orange_tree_part_two",
+  "name": "03_orange_tree_part_two",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && sparta test",
-    "test:properties": "eslint --ext .js,.ts . && sparta test -t 'class properties'",
-    "test:ageOneYear": "eslint --ext .js,.ts . && sparta test -t ageOneYear",
-    "test:isAlive": "eslint --ext .js,.ts . && sparta test -t isAlive",
-    "test:growOranges": "eslint --ext .js,.ts . && sparta test -t growOranges",
-    "test:pickAnOrange": "eslint --ext .js,.ts . && sparta test -t pickAnOrange"
+    "test": "eslint --ext .js,.ts . && sparta test"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",

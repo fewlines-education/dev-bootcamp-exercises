@@ -66,12 +66,3 @@ As the owner of the tree, you should be able to:
 
 You can use the `src/index.ts` file to help you test manually your `OrangeTree` class, by creating a `while` loop to display the life of the tree for example.
 You can run this file with `yarn start`.
-
-To run the tests, you have the following scripts:
-
-- `yarn test`: run all tests.
-- `yarn test:properties`: run all the tests related to the `Orange Tree` properties.
-- `yarn test:ageOneYear`: run all the tests related to the `Orange Tree`'s `ageOneYear` method.
-- `yarn test:isAlive`: run all the tests related to the `Orange Tree`'s `isAlive` method.
-- `yarn test:growOranges`: run all the tests related to the `Orange Tree`'s `growOranges` method.
-- `yarn test:pickAnOrange`: run all the tests related to the `Orange Tree`'s `pickAnOrange` method.

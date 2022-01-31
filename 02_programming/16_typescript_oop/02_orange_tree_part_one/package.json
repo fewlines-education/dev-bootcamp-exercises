@@ -1,12 +1,10 @@
 {
-  "name": "03_orange_tree_part_three",
+  "name": "02_orange_tree_part_one",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && sparta test",
-    "yarn test:tree": "yarn test -t parent"
+    "test": "eslint --ext .js,.ts . && sparta test"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",

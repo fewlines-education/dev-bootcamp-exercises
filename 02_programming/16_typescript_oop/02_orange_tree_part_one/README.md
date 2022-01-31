@@ -29,7 +29,7 @@ You must be able to:
 
 ## Specs
 
-Before starting to implement any logic, we are going to start by creating an `abstract` class called `Tree`. This will be your blueprint to make all kinds of trees (but in our case, an orange tree).
+Before starting to implement any logic, we are going to start by creating a class called `Tree`. This will be your blueprint to make all kinds of trees (but in our case, an orange tree).
 
 The class `Tree` should have the following attributes:
 
@@ -47,10 +47,5 @@ The **constructor** should initialise a new tree with the given age (and **only*
 >
 > - After initializing a 12-year-old tree, it should have a height => `(9*25) + (3*10) = 255 cm`
 > - After initializing a 20-year-old tree, it should have a height => `225 cm from 0-9 years old + 110 cm from 10-20 years old => 335cm`
-
-We also want to add two `abstract` methods (think of them as "blueprints") that will be implemented in all `Tree`'s `sub-classes`:
-
-- `ageOneYear`, which will be used to increment the `age` attribute by 1 and increase the height in the next exercise. This method shouldn't return anything.
-- `isAlive`, which will be used to know if the tree is dead or not in the next exercise. This method should return a `boolean` type.
 
 Finally, we want a classic method called `seed`, used to set `age` and `height` to 0, and `alive` to `true`.

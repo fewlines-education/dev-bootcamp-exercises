@@ -1,6 +1,4 @@
 // @ts-nocheck
-import * as path from "path";
-import * as helpers from "camp2-helpers";
 
 import { Tree } from "../src/Tree";
 import { OrangeTree } from "../src/OrangeTree";
@@ -116,40 +114,8 @@ describe("Tree class", () => {
     });
   });
 
-  describe("class methods:", () => {
-    it("should have an abstract method called isAlive.", async (done) => {
-      expect.assertions(1);
-
-      const studentCode = await helpers.readCode(
-        path.resolve(__dirname, "../src/Tree.ts")
-      );
-
-      const isMethodAbstract = studentCode.includes(
-        "abstract isAlive(): boolean"
-      );
-
-      expect(isMethodAbstract).toBe(true);
-
-      done();
-    });
-
-    it("should have an abstract method called ageOneYear.", async (done) => {
-      expect.assertions(1);
-
-      const studentCode = await helpers.readCode(
-        path.resolve(__dirname, "../src/Tree.ts")
-      );
-
-      const isMethodAbstract = studentCode.includes(
-        "abstract ageOneYear(): void"
-      );
-
-      expect(isMethodAbstract).toBe(true);
-
-      done();
-    });
-
-    it("should have an non-abstract method called seed.", () => {
+  describe("seed:", () => {
+    it("should have a method called seed.", () => {
       expect.assertions(1);
 
       expect(typeof tree.seed).toBe("function");
@@ -168,7 +134,7 @@ describe("Tree class", () => {
   });
 });
 
-describe("OrangeTree class:", () => {
+describe("OrangeTree class", () => {
   it("should be a sub-class of Tree", () => {
     expect.assertions(2);
 
