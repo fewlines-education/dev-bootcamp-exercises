@@ -97,6 +97,8 @@
     "02_programming/17_typescript_generics/01_fixing_a_bad_data",
     "02_programming/17_typescript_generics/02_object_transformer",
     "02_programming/17_typescript_generics/03_become_a_dev",
+    "02_programming/17_typescript_generics/05_last_element_of_array",
+    "02_programming/17_typescript_generics/06_filter_function_with_generics",
     "02_programming/18_unit_testing_1/01_greeting",
     "02_programming/18_unit_testing_1/02_to_words",
     "02_programming/18_unit_testing_1/03_going_further_with_tests",
