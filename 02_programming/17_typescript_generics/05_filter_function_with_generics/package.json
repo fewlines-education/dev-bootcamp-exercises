@@ -1,5 +1,5 @@
 {
-  "name": "filter_function_with_generics",
+  "name": "05_filter_function_with_generics",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",

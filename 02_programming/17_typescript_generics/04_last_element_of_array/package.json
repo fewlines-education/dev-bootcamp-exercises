@@ -1,5 +1,5 @@
 {
-  "name": "05_last_element_of_array",
+  "name": "04_last_element_of_array",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
