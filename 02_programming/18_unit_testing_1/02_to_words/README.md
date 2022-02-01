@@ -41,6 +41,6 @@ console.log(splitSentence); // ["High", "tech", "product"]
 The regex is the part between slashes: `/[.!, :]+/`. It's a syntax that is often hard to read because it's really meant for computer.
 The goal of a regex is to make a split on more than one character at a time, here, we want to split on `.`, `!`, `,`, ` ` (space) and `:` meaning that these characters are not part of words and we want to cut a sentence around these characters.
 
-🔎 For more information, you can look at [the regex courses](https://front.sparta.fewlines.dev/today/02_programming_fundamentals/11_Reboot_day_2/course) 🔍.
+🔎 For more information, you can look at [the regex courses](https://sparta.fewlines.tech/today/camp2/09_extras/16_regular_expressions) 🔍.
 
 That being said, this is **NOT** the focus of this exercise, just know that if you want to split on more characters, you need to place it inside the brackets of the regex.
