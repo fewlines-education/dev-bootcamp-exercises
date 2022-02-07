@@ -8,7 +8,7 @@ Personal websites are a great way to show in a creative and technical way what y
 
 ## Specs
 
-⚠️ There are **no tests nor `sparta today`** BUT you must commit your resume by the end of the day so that we can have a look at it.
+⚠️ There are **no tests** BUT you must commit your resume by the end of the day so that we can have a look at it.
 
 To start with your resume:
 - create a `html-resume` folder in your `Workspace` directory.
