@@ -1,5 +1,5 @@
 {
-  "name": "01_warmup_iterate_on_data",
+  "name": "02_warmup_sorting_machine",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",

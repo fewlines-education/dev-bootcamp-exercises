@@ -148,24 +148,6 @@ describe("#getEmails function", () => {
     expect(typeof getEmails).toEqual("function");
   });
 
-  test("its return should be typed as intended", () => {
-    expect.assertions(2);
-
-    let functionReturnType;
-    let functionReturnElementType;
-
-    try {
-      const getEmailsReturnType = (findNode(studentCode, "getEmails") as any).returnType;
-      functionReturnType = getEmailsReturnType.typeAnnotation.type;
-      functionReturnElementType = getEmailsReturnType.typeAnnotation.elementType.type;
-    } catch (error) {
-      console.log(error);
-    }
-
-    expect(functionReturnType).toEqual("TSArrayType");
-    expect(functionReturnElementType).toEqual("TSStringKeyword");
-  });
-
   test("it should return 'email' values of an array", () => {
     expect.assertions(1);
 

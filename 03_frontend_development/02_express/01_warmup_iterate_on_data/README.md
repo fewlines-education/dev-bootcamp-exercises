@@ -16,7 +16,6 @@ Working for a company, you have to automate the retrieval of customers' email ad
 
   > You don't know in advance how many customers the database may have!
 
-
 - Code a function **`getEmails()`** that will take an array of the previously typed data, to only get emails and return all of them:
 
   ```typescript
@@ -25,3 +24,7 @@ Working for a company, you have to automate the retrieval of customers' email ad
   ```
 
 > You can use `yarn test` to help you during the development.
+
+Don't forget to export your function.
+
+**Eslint will block you if you don't give a function return type or arguments types**
