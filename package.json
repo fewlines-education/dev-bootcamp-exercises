@@ -117,6 +117,8 @@
     "03_frontend_development/03_templating/02_fundamental_capitalize_context",
     "03_frontend_development/04_forms_and_cookies/01_fundamentals_antiVowels_function",
     "03_frontend_development/04_forms_and_cookies/02_fundamentals_antiVowels_context",
+    "03_frontend_development/05_authentication_and_sessions/01_warmup_find_digit",
+    "03_frontend_development/05_authentication_and_sessions/02_warmup_slot_machine",
     "04_backend_web_development_and_api/01_promises/01_promisified_readline",
     "04_backend_web_development_and_api/01_promises/02_chuck",
     "04_backend_web_development_and_api/01_promises/03_github_client",
