@@ -27,7 +27,7 @@ filterByFirstLetter(customers, "B");
 */
 ```
 
-You can use `yarn start` to to helop you during development.
+You can use `yarn start` to to help you during development.
 
 ## Tips
 
