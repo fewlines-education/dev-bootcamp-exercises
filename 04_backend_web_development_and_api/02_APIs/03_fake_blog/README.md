@@ -36,3 +36,19 @@ In `src/update-post.ts`, three functions:
 - `updatePostTitle` will only update the title of a post and will have two arguments: the id and the new title,
 - `updatePostAuthor` will only update the author of a post and will have two arguments; the id and the new author,
 - `updatePost` will overwrite the post data and will have three arguments: the id, the new title and the new author.
+
+⚠️ ⚠️ ⚠️
+To facilitate testing, we test your code with another _host_ so please create a .env file with:
+
+```
+HOST="localhost:3491"
+```
+
+And make your requests using:
+
+```
+`http://${process.env.HOST}/`
+```
+
+If you dont, your tests won't pass.
+⚠️ ⚠️ ⚠️
