@@ -13,7 +13,7 @@ There is no `yarn start` for this exercise but you can create one if you need.
 
 ## Specs
 
-For this exercise, you will need to start `yarn api` alongside your tries: this will launch a mini API on `http://localhost:3791` that will present you with a list of blog posts.
+For this exercise, you will need to start `yarn api` alongside your tries: this will launch a mini API on `http://localhost:3491` that will present you with a list of blog posts.
 
 Here are the routes that are given to you for this exercise:
 
