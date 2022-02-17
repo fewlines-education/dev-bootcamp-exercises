@@ -1,20 +1,24 @@
 {
-  "name": "01_fundamental_greeter_function",
+  "name": "06_github_user_interface",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node ./src/index.ts",
     "test": "eslint --ext .js,.ts . && sparta test"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",
+    "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
     "eslint": "7.7.0",
+    "fetch-mock-jest": "^1.3.0",
+    "fwl-readline": "fewlines-education/fwl-readline#master",
     "jest": "26.4.2",
+    "node-fetch": "^2.6.0",
     "ts-jest": "26.3.0",
-    "ts-node": "^9.1.1",
+    "ts-node": "9.0.0",
     "typescript": "4.0.2"
   },
   "eslintConfig": {
@@ -43,7 +47,8 @@
       "src.sample/*"
     ],
     "rules": {
-      "@typescript-eslint/no-inferrable-types": 0
+      "@typescript-eslint/explicit-function-return-type": 1,
+      "@typescript-eslint/camelcase": 0
     }
   },
   "jest": {
@@ -56,5 +61,8 @@
       }
     },
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
   }
 }
