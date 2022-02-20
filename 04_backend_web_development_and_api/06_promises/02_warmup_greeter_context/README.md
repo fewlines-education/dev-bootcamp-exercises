@@ -1,4 +1,4 @@
-# Fundamentals: Greeter (context)
+# Warmup: Greeter (context)
 
 ## CONTEXT AND OBJECTIVES
 
@@ -21,7 +21,7 @@ Write a function `context` with the following specifications:
 ## EXAMPLES
 
 ```js
-context(greetEveryone, ["Tom-Tom", "Nana"]) // Should print : 
+context(greetEveryone, ["Tom-Tom", "Nana"]) // Should print :
 // We now greet:
 // Welcome to Tom-Tom
 // Welcome to Nana
@@ -31,7 +31,7 @@ We provide you an `index.ts` file with two calls of your function with `greetEve
 
 ```shell-session
 $ yarn start # should print
-We now greet: 
+We now greet:
 
 Welcome to Dupont
 Welcome to Dupond
