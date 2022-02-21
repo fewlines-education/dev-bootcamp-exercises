@@ -1,12 +1,12 @@
-# Sum of the smallest 2 numbers
+# Warmup: Sum of the smallest 2 numbers
 
-## CONTEXT AND OBJECTIVES
+## Context and objectives
 
 Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers.
 
 You can assume no floats or non-positive integers will be passed.
 
-## SPECS
+## Specs
 
 Export a function named `sumTwoSmallestNumbers` that takes an array of numbers and returns the sum of the two lowest positive numbers.
 

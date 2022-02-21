@@ -20,7 +20,7 @@ Write a function `greetEveryone` with the following specifications:
 ## EXAMPLES
 
 ```js
-greetEveryone("Tom", "Jerry") // Should print : 
+greetEveryone("Tom", "Jerry") // Should print :
 // Welcome to Tom
 // Welcome to Jerry
 ```
