@@ -1,5 +1,5 @@
 {
-  "name": "06_github_client",
+  "name": "03_github_client",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
