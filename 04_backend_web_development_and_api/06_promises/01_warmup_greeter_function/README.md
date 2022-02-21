@@ -1,4 +1,4 @@
-# Fundamentals: Greeter (function)
+# Warmup: Greeter (function)
 
 ## CONTEXT AND OBJECTIVES
 
