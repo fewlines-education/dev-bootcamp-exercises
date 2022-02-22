@@ -1,20 +1,21 @@
 {
-  "name": "display_lines",
+  "name": "04_play_with_shell",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "test": "eslint --ext .js,.ts . && sparta test"
+    "test": "eslint --ext .js,.ts . && sparta test --runInBand"
   },
   "devDependencies": {
-    "@types/jest": "26.0.10",
+    "@types/node": "14.6.2",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
+    "camp2-helpers": "fewlines-education/camp2-helpers#main",
     "eslint": "7.7.0",
     "jest": "26.4.2",
+    "mongodb": "4.4.0",
     "ts-jest": "26.3.0",
-    "ts-node": "^9.1.1",
+    "ts-node": "9.0.0",
     "typescript": "4.0.2"
   },
   "eslintConfig": {
@@ -23,6 +24,9 @@
     "parserOptions": {
       "ecmaVersion": 6,
       "sourceType": "module"
+    },
+    "globals": {
+      "db": true
     },
     "extends": [
       "eslint:recommended",
@@ -43,7 +47,7 @@
       "src.sample/*"
     ],
     "rules": {
-      "@typescript-eslint/no-inferrable-types": 0
+      "@typescript-eslint/explicit-function-return-type": 1
     }
   },
   "jest": {
@@ -56,5 +60,8 @@
       }
     },
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }

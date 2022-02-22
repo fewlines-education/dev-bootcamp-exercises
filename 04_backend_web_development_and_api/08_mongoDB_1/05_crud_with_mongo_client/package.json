@@ -1,5 +1,5 @@
 {
-  "name": "crud-with-client",
+  "name": "05_crud_with_client",
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
