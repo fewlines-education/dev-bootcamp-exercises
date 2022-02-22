@@ -1,35 +1,30 @@
 import { dropAll, execP } from "./test-utils";
-import * as mongoDb from "mongodb";
+import { Db, MongoClient } from "mongodb";
 import * as fs from "fs";
 import * as path from "path";
 import { getDatabaseUrl } from "../utils/getDatabaseUrl";
+import "dotenv/config";
+import { URL } from "url";
 
-const databaseUrl = getDatabaseUrl({ testEnvironment: true });
+const urlObject = new URL(`${process.env.MONGODB_DATABASE_URL}`);
+urlObject.pathname = `/test-create-a-database-on-atlas`;
+const databaseUrl = urlObject.toString();
 
 const baseOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   connectTimeoutMS: 5000,
   serverSelectionTimeoutMS: 5000,
 };
 
-async function initDatabase(): Promise<mongoDb.MongoClient> {
-  return new Promise((resolve, reject) => {
-    mongoDb.MongoClient.connect(databaseUrl, baseOptions, async (error, client) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(client);
-      }
-    });
-  });
+async function initDatabase(): Promise<MongoClient> {
+  const client = new MongoClient(databaseUrl, baseOptions);
+  return client.connect();
 }
 
 jest.setTimeout(20000);
 
 describe("Create a database on Atlas", () => {
-  let client: mongoDb.MongoClient;
-  let db: mongoDb.Db;
+  let client: MongoClient;
+  let db: Db;
 
   beforeAll(async () => {
     try {
@@ -55,27 +50,18 @@ describe("Create a database on Atlas", () => {
     }
   });
 
-  if (fs.existsSync(path.resolve(".env_vars"))) {
-    describe("'.env_vars'", () => {
+  if (fs.existsSync(path.resolve(".env"))) {
+    describe("'.env'", () => {
       it("Should be populated with the database url", () => {
-        const file = fs.readFileSync(path.resolve(".env_vars"), "utf-8");
+        expect.assertions(1);
+
+        const file = fs.readFileSync(path.resolve(".env"), "utf-8");
         const match = file.match(
           /export (?<variableName>MONGODB_DATABASE_URL)=(?<url>mongodb\+srv:\/\/(?<username>.+):(?<password>.+)@.*)/,
         );
         if (match) {
           const { groups } = match;
           expect(groups.variableName).toBe("MONGODB_DATABASE_URL");
-        }
-      });
-
-      test("Should have been sourced with 'source .env_vars' in the terminal", () => {
-        const file = fs.readFileSync(path.resolve(".env_vars"), "utf-8");
-        const match = file.match(
-          /export (?<variableName>MONGODB_DATABASE_URL)=(?<url>mongodb\+srv:\/\/(?<username>.+):(?<password>.+)@.*)/,
-        );
-        if (match) {
-          const { groups } = match;
-          expect(process.env.MONGODB_DATABASE_URL).toBe(groups.url);
         }
       });
     });

@@ -66,5 +66,8 @@
       }
     },
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }

@@ -1,5 +1,5 @@
-import * as mongo from "mongodb";
+import { Db } from "mongodb";
 
-export function deleteOneCountry() {
+export function deleteOneCountry(db: Db) {
   // code your function here
 }

@@ -1,12 +1,11 @@
-import * as mongo from "mongodb";
+import { MongoClient } from "mongodb";
 
 import { showCollections } from "./showCollections";
 
-const databaseUrl = process.env.MONGODB_DATABASE_URL;
+const databaseUrl = `${process.env.MONGODB_DATABASE_URL}`
 
-const options = { useNewUrlParser: true, useUnifiedTopology: true };
-
-mongo.MongoClient.connect(databaseUrl, options).then((client) => {
+const client = new MongoClient(databaseUrl);
+client.connect().then((client) => {
   const db = client.db();
 
   // You can test your query function by placing it here instead of `showCollections`

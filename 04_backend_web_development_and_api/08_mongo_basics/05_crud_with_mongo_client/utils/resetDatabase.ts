@@ -1,7 +1,10 @@
 import { dropAll } from "../tests/test-utils";
-import { initDatabase } from "./initDatabase";
+import { MongoClient } from "mongodb";
+import "dotenv/config";
 
-initDatabase()
+const client: MongoClient = new MongoClient(`${process.env.MONGODB_DATABASE_URL}`);
+client
+  .connect()
   .then(async (client) => {
     await dropAll(client.db());
     client.close();

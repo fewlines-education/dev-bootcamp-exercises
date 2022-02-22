@@ -80,27 +80,24 @@ mongodb+srv://<your-username>:<your-password>@cluster0.djg4e.mongodb.net/
 ```
 
 Then, in order to use it in your code, you need to make it and environment variable:
-- 1️⃣ Create a `.env_vars` file
+- 1️⃣ Create a `.env` file
 - 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
 - 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
 - 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
-- 3️⃣ add the database url in the `.env_vars` file:
+- 3️⃣ add the database url in the `.env` file:
 
   ```shell
-  export MONGODB_DATABASE_URL='mongodb+srv://<your-username>:<your-password>@<cluster-name>.djg4e.mongodb.net/'
+  MONGODB_DATABASE_URL='mongodb+srv://<your-username>:<your-password>@<cluster-name>.djg4e.mongodb.net/'
   ```
-  > Change the placeholders with your own credentials.
+  > Change the placeholders with your own credentials (Beware to put your password in there, Mongo gives you an URL with `<password>` that should be replaced with the right password).
 
 - 4️⃣ add dotenv on your `index.ts`:
 
   ```typescript
-  import dotenv from "dotenv";
-
-  dotenv.config();
+  import "dotenv/config";
 
   // your code below
   ```
-
 **You will have to do this in every exercise for the MongoDB days 😉**
 
 Now it's time to check with `yarn test`! Is it all green?

@@ -1,5 +1,5 @@
-import * as mongo from "mongodb";
+import { CollectionInfo, Db } from "mongodb";
 
-export function showCollections(db: mongo.Db): Promise<string[]> {
+export function showCollections(db: Db): Promise<(CollectionInfo | Pick<CollectionInfo, "name" | "type">)[]> {
   return db.listCollections().toArray();
 }

@@ -32,33 +32,33 @@ You have to code each operation in separated files:
 
 - `insertOneCountry.ts`:
 
-  Insert a country into your `worldAtlas` collection and return it. **⚠️ you must pick it from the query return**
+  Take a country as second parameter and insert it into your `worldAtlas` collection and return its `ObjectId`.
 
 - `insertManyCountries.ts`:
 
-  Insert at least 2 other countries (with one `insertMany` query) into your `worldAtlas` collection and return them as an `array` of countries. **⚠️ you must pick them from the query return**
+  Take an array of countries as a second parameter and insert them (with one `insertMany` query) into your `worldAtlas` collection and return the number of inserted entries.
 
 - `updateOneCountry.ts`:
 
   Replace the capital of `Australia` by `Canberra` and return it.
-  > 🔎 for this one you are allowed to query the database
+  > 🔎 You can query the database after having modified it
 
 - `updateManyCountries.ts`:
 
   Replace all the countries with continent `Europe` by `EU` and return them as an `array` of countries.
-  > 🔎 for this one you are allowed to query the database
+  > 🔎 You can query the database after having modified it
 
 - `deleteOneCountry.ts`:
 
   Delete `France` from the `worldAtlas` collection. It will return `true` in case of success, `false` otherwise.
-  > 🔎 success feedback can be found in the query return: if `deleteCount === 1` it means the deletion was successful
+  > 🔎 success feedback can be found in the query return: if `deletedCount === 1` it means the deletion was successful
 
 - `deleteManyCountries.ts`:
 
   Delete all the `European` countries from the `worldAtlas` collection. It will return `true` in case of success, `false` otherwise.
- > 🔎 success feedback can be found in the query return: if `result.n === deleteCount` and `deleteCount > 0` it means the deletion was successful
+ > 🔎 success feedback can be found in the query return: if `deletedCount > 0` it means the deletion was successful
 
-Each of those functions should take a `mongo.Db` as argument.
+Each of those functions should take a `Db` as argument.
 
 **⚠️ Don't forget about your types**, you can create and use as many as you need.
 
@@ -68,19 +68,16 @@ To execute your code, import your query function in `index.ts`, place it instead
 
 ## MONGODB DATABASE URL
 
+⚠️ This will be necessary for the tests to pass since we need to know your URL.
+
 Don't forget to:
 
-- 1️⃣ Create a `.env_vars` file
+- 1️⃣ Create a `.env` file
 - 2️⃣ **BE EXTRA SURE** that it is added to your `.gitignore` file to avoid revealing your password on Github on a push.
-- 3️⃣ add the database url in the `.env_vars` file:
+- 3️⃣ add the database url in the `.env` file:
 
-  ```bash
-  export MONGODB_DATABASE_URL='<your-mongo-db-atlas-url>'
+  ```shell
+  MONGODB_DATABASE_URL='<your-mongo-db-atlas-url>'
   ```
-  > Change the placeholder with your own url.
 
-- 4️⃣ source your file:
-
-  ```bash
-  source .env_vars
-  ```
+  > Change the placeholder with your own url (Beware to put your password in there, Mongo gives you an URL with `<password>` that should be replaced with the right password).

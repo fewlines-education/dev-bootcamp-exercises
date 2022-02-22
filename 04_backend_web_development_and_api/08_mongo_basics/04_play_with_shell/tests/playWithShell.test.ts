@@ -1,56 +1,48 @@
-import { dropAll, execP } from "./test-utils";
+import { execP } from "./test-utils";
 import { expectMessage } from "camp2-helpers";
 import { countries } from "./countries";
-import * as mongoDb from "mongodb";
-import { getDatabaseUrl } from "../utils/getDatabaseUrl";
+import { Db, MongoClient } from "mongodb";
+import "dotenv/config"
+import { URL } from "url";
 
-const testDatabaseUrl = getDatabaseUrl({ testEnvironment: true });
+const urlObject = new URL(`${process.env.MONGODB_DATABASE_URL}`);
+urlObject.pathname = `/test-play-with-shell`;
+const testDatabaseUrl = urlObject.toString();
 
 const baseOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   connectTimeoutMS: 5000,
   serverSelectionTimeoutMS: 5000,
 };
 
-async function initDatabase(): Promise<mongoDb.MongoClient> {
-  return new Promise((resolve, reject) => {
-    mongoDb.MongoClient.connect(
-      testDatabaseUrl,
-      baseOptions,
-      async (error, client) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(client);
-        }
-      }
-    );
-  });
+async function initDatabase(): Promise<MongoClient> {
+  const client = new MongoClient(testDatabaseUrl, baseOptions);
+
+  return client.connect();
 }
 
 describe("Play with shell", () => {
-  let client: mongoDb.MongoClient;
-  let db: mongoDb.Db;
+  let client: MongoClient;
+  let db: Db;
 
   beforeAll(async () => {
-    jest.setTimeout(20000)
+    jest.setTimeout(20000);
     try {
       client = await initDatabase();
       db = client.db();
-    } catch(error) {
-      console.log("Can't log to MongoDB Server, did you start it?");
+    } catch (error) {
+      console.error("Can't log to MongoDB Server: ", error);
     }
   });
-  beforeEach(async() => {
+  beforeEach(async () => {
     if (db) {
-      await dropAll(db);
+      try {
+      await db.dropCollection("worldAtlas");
+      } catch (error) {
+        console.warn("This may not be an error if the tests pass", error)
+      }
     }
-  })
+  });
   afterAll(async () => {
-    if (db) {
-      await dropAll(db);
-    }
     if (client) {
       await client.close();
     }
@@ -60,9 +52,7 @@ describe("Play with shell", () => {
     it("Should create a 'worldAtlas' collection in the DB", async () => {
       expect.assertions(2);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/createCollection.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/createCollection.js`);
 
       const collections = await db.listCollections().toArray();
 
@@ -75,11 +65,9 @@ describe("Play with shell", () => {
     it("Should insert one country in the right collection", async () => {
       expect.assertions(1);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/insertOneCountry.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/insertOneCountry.js`);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       const result = await worldAtlasCollection.find().toArray();
 
@@ -89,25 +77,17 @@ describe("Play with shell", () => {
     it("The country should have a 'name', a 'capital' and a 'continent'", async () => {
       expect.assertions(3);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/insertOneCountry.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/insertOneCountry.js`);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       const result = await worldAtlasCollection.find().toArray();
 
       expectMessage(result[0].name, "Your country has no name.").toBeTruthy();
 
-      expectMessage(
-        result[0].capital,
-        "Your country has no capital."
-      ).toBeTruthy();
+      expectMessage(result[0].capital, "Your country has no capital.").toBeTruthy();
 
-      expectMessage(
-        result[0].continent,
-        "Your country has no continent."
-      ).toBeTruthy();
+      expectMessage(result[0].continent, "Your country has no continent.").toBeTruthy();
     });
   });
 
@@ -115,50 +95,38 @@ describe("Play with shell", () => {
     it("Should insert 3 new countries in the right collection", async () => {
       expect.assertions(1);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/insertManyCountries.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/insertManyCountries.js`);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       const result = await worldAtlasCollection.find().toArray();
 
-      expectMessage(
-        result.length === 3,
-        "You should insert 3 new countries"
-      ).toBe(true);
+      expectMessage(result.length === 3, "You should insert 3 new countries").toBe(true);
     });
 
     it("Each country should have a 'name', a 'capital' and a 'continent'", async () => {
       expect.assertions(9);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/insertManyCountries.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/insertManyCountries.js`);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       const result = await worldAtlasCollection.find().toArray();
 
       result.forEach((country) =>
-        expectMessage(
-          Object.keys(country),
-          `Country ${result.indexOf(country) + 1} has no name.`
-        ).toContain("name")
+        expectMessage(Object.keys(country), `Country ${result.indexOf(country) + 1} has no name.`).toContain("name"),
       );
 
       result.forEach((country) =>
-        expectMessage(
-          Object.keys(country),
-          `Country ${result.indexOf(country) + 1} has no capital.`
-        ).toContain("capital")
+        expectMessage(Object.keys(country), `Country ${result.indexOf(country) + 1} has no capital.`).toContain(
+          "capital",
+        ),
       );
 
       result.forEach((country) =>
-        expectMessage(
-          Object.keys(country),
-          `Country ${result.indexOf(country) + 1} has no continent.`
-        ).toContain("continent")
+        expectMessage(Object.keys(country), `Country ${result.indexOf(country) + 1} has no continent.`).toContain(
+          "continent",
+        ),
       );
     });
   });
@@ -167,54 +135,51 @@ describe("Play with shell", () => {
     it("Should find Iceland in the 'worldAtlas' collection", async () => {
       expect.assertions(1);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      const { stdout: result } = await execP(
-        `mongo "${testDatabaseUrl}" < src/findOneCountry.js`
-      );
-
-      expect(result).toMatch(`"name" : "Iceland"`);
+      const { stdout: result } = await execP(`mongosh "${testDatabaseUrl}" < src/findOneCountry.js`);
+      expect(result.match(/name: 'Iceland',/)).not.toBeNull();
     });
 
     it("Should not find another country than Iceland", async () => {
       expect.assertions(1);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      const { stdout: result } = await execP(
-        `mongo "${testDatabaseUrl}" < src/findOneCountry.js`
-      );
+      const { stdout: result } = await execP(`mongosh "${testDatabaseUrl}" < src/findOneCountry.js`);
 
       expectMessage(
         result.match(/Germany|Italy|Belgium|France|Australia/),
-        "Your shell command must search for Iceland only."
+        "Your shell command must search for Iceland only.",
       ).toBe(null);
     });
   });
 
   describe("findManyCountries", () => {
     it("Should find all the Europe countries in the 'worldAtlas' collection", async () => {
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      expect.assertions(6);
+
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      const { stdout } = await execP(
-        `mongo "${testDatabaseUrl}" < src/findManyCountries.js`
-      );
+      const { stdout } = await execP(`mongosh "${testDatabaseUrl}" < src/findManyCountries.js`);
 
-      const regex = /\{ "_id".+\}/gm;
+      const regex = /\{[^}]*\}/gims;
 
       const result = stdout.match(regex);
 
-      expect(result.length).toBe(5);
+      if (result) {
+        expect(result.length).toBe(5);
 
-      result.forEach((country) =>
-        expect(country.includes(`"continent" : "Europe"`)).toBe(true)
-      );
+        result.forEach((element) => {
+          expect(element).toMatch(/^.*continent: 'Europe'.*$/ims);
+        });
+      }
     });
   });
 
@@ -222,17 +187,13 @@ describe("Play with shell", () => {
     it("Should update the capital of Australia with 'Canberra'", async () => {
       expect.assertions(1);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/updateOneCountry.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/updateOneCountry.js`);
 
-      const result = await worldAtlasCollection
-        .find({ name: "Australia" })
-        .toArray();
+      const result = await worldAtlasCollection.find({ name: "Australia" }).toArray();
 
       expect(result[0].capital).toBe("Canberra");
     });
@@ -242,17 +203,13 @@ describe("Play with shell", () => {
     it("Should replace 'Europe' by 'EU' in all European countries", async () => {
       expect.assertions(1);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/updateManyCountries.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/updateManyCountries.js`);
 
-      const result = await worldAtlasCollection
-        .find({ continent: "EU" })
-        .toArray();
+      const result = await worldAtlasCollection.find({ continent: "EU" }).toArray();
 
       expect(result.length).toBe(5);
     });
@@ -262,13 +219,11 @@ describe("Play with shell", () => {
     it("Should delete 'France' from the worldAtlas collection", async () => {
       expect.assertions(6);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/deleteOneCountry.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/deleteOneCountry.js`);
 
       const result = await worldAtlasCollection.find().toArray();
 
@@ -282,18 +237,13 @@ describe("Play with shell", () => {
     it("Should delete all the 'EU' countries from the worldAtlas collection", async () => {
       expect.assertions(1);
 
-      const worldAtlasCollection = await db.collection("worldAtlas");
+      const worldAtlasCollection = db.collection("worldAtlas");
 
       await worldAtlasCollection.insertMany(countries);
 
-      await worldAtlasCollection.updateMany(
-        { continent: "Europe" },
-        { $set: { continent: "EU" } }
-      );
+      await worldAtlasCollection.updateMany({ continent: "Europe" }, { $set: { continent: "EU" } });
 
-      await execP(
-        `mongo "${testDatabaseUrl}" < src/deleteManyCountries.js`
-      );
+      await execP(`mongosh "${testDatabaseUrl}" < src/deleteManyCountries.js`);
 
       const result = await worldAtlasCollection.find().toArray();
 
