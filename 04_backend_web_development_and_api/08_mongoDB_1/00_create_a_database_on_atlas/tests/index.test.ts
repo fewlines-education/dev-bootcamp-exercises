@@ -57,7 +57,7 @@ describe("Create a database on Atlas", () => {
 
         const file = fs.readFileSync(path.resolve(".env"), "utf-8");
         const match = file.match(
-          /export (?<variableName>MONGODB_DATABASE_URL)=(?<url>mongodb\+srv:\/\/(?<username>.+):(?<password>.+)@.*)/,
+          /(?<variableName>MONGODB_DATABASE_URL)="?(?<url>mongodb\+srv:\/\/(?<username>.+):(?<password>.+)@.*)"?/,
         );
         if (match) {
           const { groups } = match;
