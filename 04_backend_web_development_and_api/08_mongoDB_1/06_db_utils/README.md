@@ -1,10 +1,10 @@
-# DB UTILS
+# DB utils
 
 ## CONTEXT AND OBJECTIVES
 
 In the previous exercises of this course, you have written functions whose purpose was always set in a specific context: create a specific collection with a given name, insert a specific document with given name, properties, etc...
 
-Now it's time to create **utilities functions** which can init and manipulate any database and data using the arguments you pass to them. 
+Now it's time to create **utilities functions** which can init and manipulate any database and data using the arguments you pass to them.
 
 The generic operations to perform are:
 
@@ -42,14 +42,14 @@ If an error happens, it should `reject` it, if not, use `resolve` (resolve / rej
 Write a function `createCollectionWithValidator` that create a **typed** collection with a validator in a given database. It take three arguments:
 
 - a mongo database (`Db`)
-- a collection name (`string`) 
+- a collection name (`string`)
 - a validator (we provide you the type in the file)
 
 It must return a `Promise<mongo.Collection<T>>`.
 
 `allCollections.ts`:
 
-Write a function `listCollections` that lists all the collections of a give database. 
+Write a function `listCollections` that lists all the collections of a give database.
 
 It takes a mongo database as only argument (`Db`)
 
@@ -137,7 +137,7 @@ Write a function `deleteOneDocument` that find and delete a document in a given 
 - a mongo collection (`Collection`)
 - the filter object used to find the document to delete (`FilterQuery<T>`)
 
-It must return a `Promise<boolean>`: 
+It must return a `Promise<boolean>`:
 
 - `true` in case of success
 - `false` if no document has been deleted
@@ -149,7 +149,7 @@ Write a function `deleteManyDocuments` that find and delete documents in a given
 - a mongo collection (`Collection`)
 - the filter object used to find the documents to delete (`FilterQuery<T>`)
 
-It must return a `Promise<boolean>`: 
+It must return a `Promise<boolean>`:
 
 - `true` in case of success
 - `false` if no document has been deleted
