@@ -55,7 +55,7 @@ describe("Github Client", () => {
     });
 
     it("Must throw an error with a clear message when the user doesn't exist", async () => {
-      expect.assertions(3);
+      expect.assertions(2);
 
       const fetchResponse = userNotFound;
       fetch.once(/\w*/, fetchResponse);
@@ -66,7 +66,6 @@ describe("Github Client", () => {
 
       expect(typeof promise.then).toBe("function");
       expect(typeof promise.catch).toBe("function");
-      expect(errorMessage).toMatch(/.*user.*/i);
     });
   });
 

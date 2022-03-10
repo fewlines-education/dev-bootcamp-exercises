@@ -13,7 +13,7 @@ In the `src/github-client.ts` file, we provide you the `Repo` and `GitHub` types
 
 - Must take a `nickname` string parameter: this is the user we want to search for.
 - Must return a `Promise<string>`: the url of the requested user's repositories.
-- Must **throw** and **catch** an understandable error when the user does not exist.
+- Must **throw** an understandable error when the user does not exist. (feel free to check what you're receiving from the API when the user doesn't exist)
 
 ### `getRepos`
 
@@ -50,4 +50,4 @@ In the `src/github-client.ts` file, we provide you the `Repo` and `GitHub` types
 
 Run `yarn test` to test your code.
 
-You also have examples of how this client could be used in the `src/index.ts` file. Feel free to play with it if you want to manually test your functions. You can launch it with `yarn start`.
+You also have examples of how this client could be used in the `src/index.ts` file. Feel free to play with it if you want to manually test your functions. You can launch it with `yarn start`. (but remember to uncomment the examples if you want to use them)
