@@ -1,4 +1,5 @@
 import { openBrowser, closeBrowser, goto, $, click, text } from "taiko";
+import "dotenv/config";
 
 describe("React timers", () => {
   jest.setTimeout(5000);
