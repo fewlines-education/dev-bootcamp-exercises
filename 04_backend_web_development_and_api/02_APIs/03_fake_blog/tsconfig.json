@@ -3,7 +3,8 @@
     "lib": [
       "es5",
       "es6",
-      "ESNext"
+      "ESNext",
+      "DOM"
     ],
     "target": "es5",
     "module": "commonjs",
@@ -11,9 +12,11 @@
     "outDir": "./build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "sourceMap": true,
-    "resolveJsonModule": true,
-    "strict": true
+    "resolveJsonModule": true
   },
   "include": [
     "**/*"

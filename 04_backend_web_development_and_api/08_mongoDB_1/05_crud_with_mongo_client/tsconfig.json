@@ -3,7 +3,8 @@
     "lib": [
       "es5",
       "es6",
-      "ESNext"
+      "ESNext",
+      "DOM"
     ],
     "target": "es2017",
     "module": "commonjs",
@@ -11,6 +12,9 @@
     "outDir": "./build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "sourceMap": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
